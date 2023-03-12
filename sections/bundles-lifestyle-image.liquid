@@ -1,0 +1,35 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Bundles Lifestyle Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "page",
+        "id": "page",
+        "label": "Page to show"
+      }
+    ],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Bundles Lifestyle Image",
+        "category": "Modules",
+        "settings": {
+          "image": ""
+        },
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

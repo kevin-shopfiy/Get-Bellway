@@ -1,0 +1,27 @@
+<div class="newsletter__container">
+  {% form "customer" %}
+    {%- if form.posted_successfully? -%}
+      <p class="newsletter__success">{{ "layout.newsletter.success" | t }}</p>
+    {%- else -%}
+      {{ form.errors | default_errors }}
+
+      <input type="hidden" name="contact[tags]" value="prospect,newsletter" />
+
+      <div class="form__input-group">
+        <input class="form__input" name="contact[email]" type="email" placeholder="{{ "layout.newsletter.placeholder" | t }}" />
+        <button class="button" type="submit">{{ "layout.newsletter.button" | t }}</button>
+      </div>
+    {%- endif -%}
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "class": "newsletter",
+  "tag": "section",
+  "name": "Newsletter",
+
+  "settings": [
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+{%- assign product = section.settings.product -%}
+{% include "product_hero" %}
+
+{% schema %}
+{
+  "name": "Product Hero",
+  "class": "product-hero",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "product",
+      "type": "product",
+      "label": "Product"
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Product Hero",
+      "settings": {
+      }
+    }
+  ]
+}
+{% endschema %}

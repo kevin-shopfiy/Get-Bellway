@@ -1,0 +1,85 @@
+{%- assign _main_title = _title | default: _product.title -%}
+{%- assign _variant = _product.variants | first -%}
+{%- assign _home_tub = _home_tub | default: false -%}
+
+{%- assign bundle_link = _product.metafields.bundle.bundle_link | default: false -%}
+
+<li 
+  class="tubs__list-item tubs__list-item--{{ _product.handle }}"
+  style="
+    {% if _background_color != blank %}background-color: {{ _background_color }};{% endif %}
+    {% if _background_image != blank %}background-image: url({{ _background_image | img_url: 'master' }});{% endif %}
+  "
+>
+  <a href="
+    {%- if bundle_link -%}
+      {{bundle_link}}
+    {%- else -%}
+      {{ _product.url }}
+    {%- endif -%}"
+  >
+    <img src="{{ _variant.featured_image.src | img_url: "master" }}" class="tubs__image" />
+  </a>
+
+  <a href="
+    {%- if bundle_link -%}
+      {{bundle_link}}
+    {%- else -%}
+      {{ _product.url }}
+    {%- endif -%}"
+  >
+    <h1 class="tubs__heading">{{ _main_title }}</h1>
+  </a>
+
+  {% if _show_subheading and _sub_title != blank %}
+    <div class="tubs__subheading">{{ _sub_title }}</div>
+  {% endif %}
+
+  {% if _show_variant %}
+    <div class="tubs__variant">{{ _variant.title }}</div>
+  {% endif %}
+
+  <form action="/cart/add" data-productid="{{ _product.id }}" method="post" data-cart-submit>
+    {% include "subscription-product" %}
+    <input type="hidden" name="id" value="{{ _variant.id }}" data-productid="{{ _product.id }}" />
+    <input type="hidden" name="quantity" value="1" />
+
+    <div class="button__wrapper">
+      {%- if _home_tub and bundle_link -%}
+        <a class="button" href="{{ bundle_link }}" style="{% if _btn_back_color != blank %}background-color: {{ _btn_back_color }};{% endif %}">
+          {%- if _btn_text != blank -%}
+            {{ _btn_text }}{% if _price != blank %} {{ _price | money }}{% endif %}
+          {%- else -%}
+            {{ "layout.product.link_text" | t }}
+          {%- endif -%}
+        </a>
+      {%- else -%}
+        <button class="button" name="add" type="submit" onclick="pintrk('track', 'addtocart');"
+          style="
+            {% if _btn_back_color != blank %}background-color: {{ _btn_back_color }};{% endif %}
+          "
+        >
+          {%- if _btn_text != blank -%}
+            {{ _btn_text }}{% if _price != blank %} {{ _price | money }}{% endif %}
+          {%- else -%}
+            {{ "layout.product.link_text" | t }}
+          {%- endif -%}
+        </button>
+      {%- endif -%}
+    </div>
+  </form>
+</li>
+
+
+{%- assign _product = nil -%}
+{%- assign _background_color = nil -%}
+{%- assign _background_image = nil -%}
+{%- assign _title = nil -%}
+{%- assign _main_title = nil -%}
+{%- assign _sub_title = nil -%}
+{%- assign _price = nil -%}
+{%- assign _btn_back_color = nil -%}
+{%- assign _btn_text = nil -%}
+{%- assign _home_tub = nil -%}
+{%- assign is_bundle_product = nil -%}
+{%- assign bundle_link = nil -%}

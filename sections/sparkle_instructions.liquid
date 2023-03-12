@@ -1,0 +1,82 @@
+<div class="sparkle-instructions__wrapper">
+  <div class="sparkle-instructions__container">
+    <h1 class="sparkle-instructions__heading">{{ section.settings.heading }}</h1>
+    <div class="sparkle-instructions__subheading">{{ section.settings.subheading }}</div>
+
+    <ul class="sparkle-instructions__list">
+      {% for block in section.blocks %}
+        <li class="sparkle-instructions__list-item">
+          <div class="sparkle-instructions__list-item-icon-container">
+            <img src="{{ block.settings.icon | img_url: "master" }}" style="left: {{ block.settings.icon_offset_x }}px; top: {{ block.settings.icon_offset_y }}px" />
+          </div>
+
+          {{ block.settings.text }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sparkle: Instructions",
+  "class": "sparkle-instructions",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "instruction",
+      "name": "Instruction",
+
+      "settings": [
+        {
+          "id": "icon",
+          "type": "image_picker",
+          "label": "Icon"
+        },
+
+        {
+          "id": "icon_offset_x",
+          "type": "text",
+          "label": "Icon Offset X (Pixels)",
+          "default": "0"
+        },
+
+        {
+          "id": "icon_offset_y",
+          "type": "text",
+          "label": "Icon Offset Y (Pixels)",
+          "default": "0"
+        },
+
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Sparkle: Instructions"
+    }
+  ]
+}
+{% endschema %}

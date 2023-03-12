@@ -1,0 +1,7 @@
+{%- assign images = mod_lifestyle_image -%}
+
+{% for image in images %}
+<div class="lifestyle" style="background-image: url({{ image.src }});">
+  <img src="{{ image.src }}" alt="{{ image.alt }}" class="lifestyle__image">
+</div>
+{% endfor %}

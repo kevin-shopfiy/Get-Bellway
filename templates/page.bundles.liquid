@@ -1,0 +1,108 @@
+{%- assign mod_metafields = page.metafields -%}
+{%- assign mod_globals = mod_metafields.bundles_global -%}
+{%- assign mod_section_hero= mod_metafields.bundles_hero -%}
+{%- assign mod_section_benefits = mod_metafields.bundles_benefits -%}
+{%- assign mod_section_text_image = mod_metafields.bundles_text_image -%}
+{%- assign mod_section_lifestyle = mod_metafields.bundles_lifestyle -%}
+{%- assign mod_section_reviews_vid = mod_metafields.bundles_reviews_vid -%}
+{%- assign mod_section_press = mod_metafields.bundles_press -%}
+{%- assign mod_section_products = mod_metafields.bundles_products -%}
+{%- assign mod_section_okendo_reviews = mod_metafields.bundles_okendo -%}
+
+{%- assign mod_primary_color = mod_globals.primary_color -%}
+{%- assign mod_secondary_color = mod_globals.secondary_color -%}
+{%- assign mod_hover_color = mod_globals.hover_color -%}
+{%- assign mod_flavour = mod_globals.flavour | strip -%}
+
+{%- assign mod_hero_background_color = mod_section_hero.background_color | default: "#FFF2E3" -%}
+
+{%- if mod_hero_background_color == "#ffffff"  -%}
+  <style>
+    .product-card:not(.product-card--with-badge) {
+      border: 1px solid #000;
+    }
+  </style>
+{%- endif -%}
+
+<style>
+  :root {
+    --bundle-primary-color: {{ mod_primary_color }};
+    --bundle-secondary-color: {{ mod_secondary_color }};
+    --bundle-hover-color: {{ mod_hover_color }};
+    --bundle-hero-bg-color: {{ mod_hero_background_color }};
+  }
+</style>
+
+{%- assign sections = shop.metafields.acf_settings.page_layouts | where: "id", page.id | first | map: "sections" | where: "visible" -%}
+
+{% section 'bundles-sticky-atc' %}
+
+<div>
+  {% for section in sections %}
+    {% case section.name %}
+
+    {% when "bundles_hero" %}
+      {%- render 'bundles-hero',
+        mod_hero_title: mod_section_hero.title,
+        mod_hero_product: mod_section_hero.product,
+        mod_hero_product_image: mod_section_hero.product_image,
+        mod_hero_total_saved_amount: mod_section_hero.total_saved_amount,
+        mod_hero_checkmarks: mod_section_hero.checkmarks,
+        mod_hero_flavour_name: mod_section_hero.flavour_name,
+        mod_hero_flavour_color: mod_section_hero.flavour_color,
+        mod_hero_flavour_page: mod_section_hero.flavour_page,
+        mod_flavour: mod_flavour -%}
+
+      {% when "bundles_benefits" %}
+        {%- render 'bundles-benefits',
+          mod_benefits_heading: mod_section_benefits.heading,
+          mod_benefits_icons: mod_section_benefits.icons,
+          mod_benefits_texts: mod_section_benefits.texts -%}
+
+      {% when "bundles_text_image" %}
+        {%- if forloop.index == forloop.length -%}
+          {%- assign mod_last_section = "last-section" -%}
+        {%- endif -%}
+        {%- render 'bundles-text-image',
+          mod_last_section: mod_last_section,
+          mod_text_image_heading: mod_section_text_image.heading[section.index],
+          mod_text_image_body: mod_section_text_image.body[section.index],
+          mod_text_image: mod_section_text_image.image[section.index],
+          mod_text_mobile_image: mod_section_text_image.mobile_image[section.index],
+          mod_text_image_wavy_bottom: mod_section_text_image.wavy_bottom[section.index],
+          mod_text_image_alt_layout: mod_section_text_image.alt_layout[section.index] -%}
+
+      {% when "bundles_lifestyle_image" %}
+        {%- render 'bundles-lifestyle',
+          mod_lifestyle_image: mod_section_lifestyle.image -%}
+
+      {% when "bundles_reviews_video" %}
+        {%- render 'bundles-reviews-video',
+          mod_rev_vid_text: mod_section_reviews_vid.text,
+          mod_rev_vid_number_of_stars: mod_section_reviews_vid.number_of_stars,
+          mod_rev_vid_reviewer_name: mod_section_reviews_vid.reviewer_name,
+          mod_rev_vid_video: mod_section_reviews_vid.video -%}
+
+      {% when "bundles_press" %}
+        {%- render 'bundles-press',
+          mod_press_logo: mod_section_press.press_logo,
+          mod_press_text: mod_section_press.text -%}
+
+      {% when "bundles_products_bottom" %}
+        {%- render 'bundles-hero',
+          mod_hero_title: mod_section_hero.title,
+          mod_hero_product: mod_section_hero.product,
+          mod_hero_product_image: mod_section_hero.product_image,
+          mod_hero_total_saved_amount: mod_section_hero.total_saved_amount,
+          mod_hero_checkmarks: mod_section_hero.checkmarks,
+          mod_hero_flavour_name: mod_section_hero.flavour_name,
+          mod_hero_flavour_color: mod_section_hero.flavour_color,
+          mod_hero_flavour_page: mod_section_hero.flavour_page,
+          mod_flavour: mod_flavour -%}
+
+      {% when "bundles_okendo_review" %}
+        {%- render 'bundles-okendo', mod_product: all_products[mod_section_okendo_reviews.product_to_review] -%}
+
+      {% endcase %}
+  {% endfor %}
+</div>

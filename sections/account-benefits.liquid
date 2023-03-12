@@ -1,0 +1,60 @@
+{%- assign _seciton = section.settings -%}
+
+<div class="sparkle-benefits__wrapper account-benefits">
+  <div class="sparkle-benefits__container">
+    {%- if _seciton.section_title != blank -%}
+      <h2 class="sparkle-benefits__heading">
+        {{ _seciton.section_title | newline_to_br }}
+      </h2>
+    {%- endif -%}
+
+    <ul class="sparkle-benefits__list">
+      {%- for block in section.blocks -%}
+        {%- assign _block = block.settings -%}
+
+        <li class="sparkle-benefits__list-item">
+          <div class="sparkle-benefits__list-item-inner">
+            <div class="sparkle-benefits__list-item-icon-container">
+              <img src="{{ _block.image | img_url: '100x' }}" />
+            </div>
+            {%- if _block.title != blank -%}
+              {{ _block.title | newline_to_br }}
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Account Benefits",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "section_title",
+      "label": "Title",
+      "default": "it’s what’s happening on the inside that counts.\nhere’s why you need fiber:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

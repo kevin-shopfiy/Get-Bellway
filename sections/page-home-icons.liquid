@@ -1,0 +1,108 @@
+{%- assign _section = section.settings -%}
+
+<div class="icons-section">
+  <div class="icons-section--inner">
+    <h3 class="icons-section--title">
+      {{ _section.title }}
+    </h3>
+    <div class="icons-section--content js-icons-slider">
+      {%- for block in section.blocks -%}
+        {%- assign _block = block.settings -%}
+
+        <div class="icons-section-item js-icons-slider-item">
+          {%- if _block.image != blank -%}
+            <div class="icons-section-item--image">
+              <img src="{{ _block.image | img_url: '250x' }}">
+            </div>
+          {%- endif -%}
+          {%- if _block.title != blank -%}
+            <div class="icons-section-item--title">
+              {{ _block.title }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Press",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Press"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+      "title": "Featured In"
+    },
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/PngItem_2736361.png",
+          "title": "\"My personal fave is Bellway\""
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Refinery29_logo.svg_6e020ebc-da8b-40f3-b6e9-0a706974e1c5.png",
+          "title": "\"Absolutely obsessed with Bellway\""
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Forbes_Logo.png",
+          "title": "\"Revolutionizing wellness\""
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/image_26_4d1d2ef5-7f83-42c6-8b3a-c4f5ac8f99c8.png",
+          "title": "\"Majorly addicting\""
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/image_29.png",
+          "title": "\"More [fiber] than the current leading brands\""
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/image_28.png",
+          "title": "\"Overall wellness on a gut level\""
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

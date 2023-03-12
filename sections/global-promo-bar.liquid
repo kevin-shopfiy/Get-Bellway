@@ -1,0 +1,45 @@
+{%- assign _section = section.settings -%}
+
+{%- if _section.is_enable and collection.metafields.count_down_timer.hide != 'true' -%}
+  <div class="promo-bar"
+    id="global-promo-bar"
+    {% if _section.background_color != blank %}
+      style="background-color: {{ _section.background_color }};"
+    {% endif %}
+  >
+    <div class="promo-bar--inner">
+      {{ _section.text }}
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var bodyTag = document.getElementsByTagName('body')[0]
+    bodyTag.classList += ' include-promo-bar'
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Global Promo Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_enable",
+      "label": "Enable",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#EE3350"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Promo Text",
+      "default": "free shipping on all orders over $40"
+    }
+  ]
+}
+{% endschema %}

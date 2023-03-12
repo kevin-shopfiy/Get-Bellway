@@ -1,0 +1,103 @@
+{%- assign _section = section.settings -%}
+
+<div class="icons-section icons-section-user">
+  <div class="icons-section--inner">
+    <h3 class="icons-section--title">
+      {{ _section.title }}
+    </h3>
+    <h4 class="icons-section--subtitle">
+      {{ _section.subtitle }}
+    </h4>
+    <div class="icons-section--detail">
+      {{ _section.detail }}
+    </div>
+    <div class="icons-section--content js-icons-slider">
+      {%- for block in section.blocks -%}
+        {%- assign _block = block.settings -%}
+
+        <div class="icons-section-item js-icons-slider-item">
+          {%- if _block.image != blank -%}
+            <div class="icons-section-item--image">
+              <img src="{{ _block.image | img_url: '250x' }}">
+            </div>
+          {%- endif -%}
+          {%- if _block.title != blank -%}
+            <div class="icons-section-item--title">
+              {{ _block.title }}
+            </div>
+          {%- endif -%}
+          {%- if _block.subtitle != blank -%}
+            <div class="icons-section-item--subtitle">
+              {{ _block.subtitle }}
+            </div>
+          {%- endif -%}
+          {%- if _block.detail != blank -%}
+            <div class="icons-section-item--detail">
+              {{ _block.detail }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Experts Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Experts"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Approved by medical experts"
+    },
+    {
+      "type": "textarea",
+      "id": "detail",
+      "label": "Detail",
+      "default": "Voted best tasting fiber supplement"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "detail",
+          "label": "Detail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Experts Section"
+    }
+  ]
+}
+{% endschema %}

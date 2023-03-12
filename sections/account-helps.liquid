@@ -1,0 +1,66 @@
+{%- assign _section = section.settings -%}
+
+<div class="account-helps">
+  <div class="account-helps--inner">
+    {%- if _section.section_title != blank -%}
+      <div class="account-helps--title">
+        {{ _section.section_title }}
+      </div>
+    {%- endif -%}
+
+    <div class="account-helps-items">
+      {%- for block in section.blocks -%}
+        {%- assign _block = block.settings -%}
+
+        {%- if _block.image != blank and _block.link != blank -%}
+          <a class="account-helps-item" href="{{ _block.link }}">
+            <img src="{{ _block.image | img_url: '300x' }}" />
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <a
+      href="/tools/recurring/login"
+      class="account-helps-button"
+    >{{ _section.subscription_title }}</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Account Helps",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "section_title",
+      "label": "Title",
+      "default": "how can we help?"
+    },
+    {
+      "type": "text",
+      "id": "subscription_title",
+      "label": "Subscription Button Title",
+      "default": "Cancel Subscription"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

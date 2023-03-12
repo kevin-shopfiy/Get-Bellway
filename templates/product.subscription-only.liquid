@@ -1,0 +1,181 @@
+{%- assign _product_title_handle = product.title | handle -%}
+
+<article class="product__wrapper">
+  <div class="product__container">
+    <div class="product__container__inner js-product-images-cover">
+      <div class="product__images_wrapper js-product-images-wrapper">
+        <div class="product__thumbnails js-product-thumbnails">
+          {%- for image in product.images -%}
+
+            {%- assign _image_alt = image.alt | default: 'all' | handle -%}
+            {%- if _image_alt == _product_title_handle -%}
+              {%- assign _image_alt = 'all' -%}
+            {%- endif -%}
+
+            <div class="product__thumbnail js-product-thumbnail"
+              data-index="{{ forloop.index0 }}"
+              data-alt="{{ _image_alt }}"
+              alt="{{ image.alt }}"
+            >
+              <img src="{{ image.src | img_url: '150x' }}" />
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="product__imagery">
+          <div class="carousel__list js-product-images" data-carousel data-animation="fade">
+            {%- for image in product.images -%}
+
+              {%- assign _image_alt = image.alt | default: 'all' | handle -%}
+              {%- if _image_alt == _product_title_handle -%}
+                {%- assign _image_alt = 'all' -%}
+              {%- endif -%}
+
+              <div class="carousel__item js-product-image"
+                data-alt="{{ _image_alt }}"
+                alt="{{ image.alt }}"
+              >
+                <img src="{{ image.src | img_url: "master" }}" />
+                {%- if forloop.first and product.metafields.image_badge.image != blank -%}
+                  {%- for _badge_image in product.metafields.image_badge.image -%}
+                    {%- assign _badge_tag = product.metafields.image_badge.tag[forloop.index0] -%}
+                    {%- assign _badge_color = product.metafields.image_badge.color[forloop.index0] | default: "#ffffff" -%}
+
+                    <div class="product-image-badge product-image-badge-{{forloop.index}}"
+                      style="color: {{ _badge_color }}"
+                    >
+                      <img
+                        class="product-image-badge--image"
+                        src="{{ _badge_image }}"
+                        style="position: relative;"
+                      />
+                      {%- if _badge_tag != blank -%}
+                        <span>{{ _badge_tag }}</span>
+                      {%- endif -%}
+                    </div>
+                  {%- endfor -%}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <div class="carousel__indicators visible-xs-block"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product__content">
+      {% section "product_template_subscription" %}
+      {% include "product_accordion", _product: product %}
+    </div>
+  </div>
+</article>
+
+{%- comment -%} Product: Benefits {%- endcomment -%}
+  {%- assign product_benefit_images = product.metafields.benefit_item.image -%}
+  {%- assign product_benefit = product.metafields.benefits -%}
+  {%- if product_benefit_images.size > 0 -%}
+    <div class="sparkle-benefits__wrapper">
+      <div class="sparkle-benefits__container">
+        {%- if product_benefit.title != blank -%}
+          <h1 class="sparkle-benefits__heading">
+            {{ product_benefit.title }}
+          </h1>
+        {%- endif -%}
+        {%- if product_benefit.sub_title != blank -%}
+          <div class="sparkle-benefits__subheading">
+            {{ product_benefit.sub_title }}
+          </div>
+        {%- endif -%}
+        {%- if product_benefit.spelling != blank -%}
+          <div class="sparkle-benefits__spelling">
+            {{ product_benefit.spelling }}
+          </div>
+        {%- endif -%}
+        {%- if product_benefit.text != blank -%}
+          <p class="sparkle-benefits__text">
+            {{ product_benefit.text }}
+          </p>
+        {%- endif -%}
+
+        <ul class="sparkle-benefits__list">
+          {% for product_benefit_image in product_benefit_images %}
+            <li class="sparkle-benefits__list-item">
+              <div class="sparkle-benefits__list-item-icon-container">
+                <img src="{{ product_benefit_image }}" />
+              </div>
+              {%- if product.metafields.benefit_item.title[forloop.index0] != blank -%}
+                {{ product.metafields.benefit_item.title[forloop.index0] }}
+              {%- endif -%}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {%- endif -%}
+
+{%- comment -%} Product: Image Text Section {%- endcomment -%}
+  {%- assign image_text_section = product.metafields.image_text -%}
+  {%- if image_text_section.enable == "true" -%}
+    {%- assign _direction = image_text_section.direction | handle | default: 'image-text' -%}
+    <div class="sparkle-hero__wrapper sparkle-hero__wrapper_product sparkle-hero__{{ _direction }}" style="background-image: url({{ image_text_section.image }});">
+      <div class="sparkle-hero__container">
+        <div class="sparkle-hero__content">
+          {%- if image_text_section.title != blank -%}
+            <h1 class="sparkle-hero__heading">
+              {{ image_text_section.title }}
+            </h1>
+          {%- endif -%}
+          {%- if image_text_section.sub_title != blank -%}
+            <div class="sparkle-hero__subheading">
+              {{ image_text_section.sub_title }}
+            </div>
+          {%- endif -%}
+
+          {%- if image_text_section.text != blank -%}
+            <p class="sparkle-hero__text">
+              {{ image_text_section.text | newline_to_br }}
+            </p>
+          {%- endif -%}
+            {%- assign current_variant = product.selected_or_first_available_variant -%}
+            <form action="/cart/add" data-productid="{{ product.id }}" method="post" data-cart-submit>
+              <input type="hidden" name="id" value="{{ current_variant.id }}" data-productid="{{ product.id }}" />
+              <input type="hidden" name="quantity" value="1" />
+              <button class="product__add-button button js-product-add-btn" name="add" type="submit" onclick="pintrk('track', 'addtocart');">
+                {{ "product.add_to_cart" | t }} - <span class="js-add-btn-price">{{ product.price | money }}</span>
+              </button>
+
+              <div class="product__add-button--text text-center">
+                FSA or HSA eligible
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+{%- comment -%} Product: Compare Detail Section {%- endcomment -%}
+  {%- assign compare_section = product.metafields.compare_details -%}
+
+  {%- if compare_section.title != blank or compare_section.image_desktop != blank -%}
+    <div class="comparison__wrapper product_comparison__wrapper">
+      <div class="comparison__container">
+        {%- if compare_section.title != blank -%}
+          <h1 class="comparison__heading comparison__heading--green">
+            {{ compare_section.title }}
+          </h1>
+        {%- endif -%}
+        <div class="comparison__comparisons">
+          {%- if compare_section.image_desktop != blank -%}
+            <img src="{{ compare_section.image_desktop }}" class="comparison__image{% if compare_section.image_mobile != blank %} hidden-xs{% endif %}" />
+          {%- endif -%}
+
+          {%- if compare_section.image_mobile != blank -%}
+            <img src="{{ compare_section.image_mobile }}" class="comparison__image visible-xs-block" />
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+{% include "reviews", product: product %}
+{% section "faqs" %}

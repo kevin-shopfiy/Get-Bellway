@@ -1,0 +1,29 @@
+{%- assign collection = collections[section.settings.collection] -%}
+<div class="tubs__wrapper">
+  <div class="tubs__container">
+    {% include "tubs_list", show_subheading: false, show_price: false, show_variant: true, show_text_below_button: true %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "tubs",
+  "tag": "section",
+  "name": "Tubs",
+
+  "settings": [
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Tubs"
+    }
+  ]
+}
+{% endschema %}

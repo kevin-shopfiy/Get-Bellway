@@ -1,0 +1,48 @@
+{%- assign _section = section.settings -%}
+
+<div class="stores">
+  <div class="stores-inner">
+    {%- if _section.title != blank -%}
+      <div class="stores-title">
+        {{ _section.title }}
+      </div>
+    {%- endif -%}
+    {%- if _section.heading_image != blank -%}
+      <div class="stores-image">
+        <img src="{{ _section.heading_image | img_url: 'master' }}" class="full-width" />
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="stores-map">
+    {{ _section.google_map_embed }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stores",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "How Does it Work?"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading Image"
+    },
+    {
+      "type": "header",
+      "content": "Map"
+    },
+    {
+      "type": "textarea",
+      "id": "google_map_embed",
+      "label": "Map Embed Code",
+      "default": "<iframe src='https://www.google.com/maps/d/embed?mid=1EeqUQTxLFNN5CWyjQ1Z0dLfJ6FkP_c9N' width='640' height='480' style='border:0; margin-top: -54px;'></iframe>"
+    }
+  ]
+}
+{% endschema %}

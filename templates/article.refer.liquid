@@ -1,0 +1,219 @@
+<div class="article-container">
+  <div class="article-head article-wrapper">
+    <div class="article-left-side">
+      <div class="article-head--tags">
+        {%- for tag in article.tags -%}
+          {%- if tag contains 'category:' -%}
+            {%- assign _tag = tag | remove: 'category:' | strip -%}
+            {%- assign _tag_handle = tag | handle -%}
+            <a href="{{ blog.url }}?tag={{ _tag_handle }}">{{ _tag }}</a>{%- unless forloop.last -%}<span class="divider">|</span>{%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <h4 class="article-title">
+        {{ article.title }}
+      </h4>
+    </div>
+    <div class="article-right-side">
+      <div class="article-author">
+
+        {%- assign author_meta = article.metafields.author -%}
+
+        <div class="article-author-avatar">
+          {%- if author_meta.active == 'true' and author_meta.photo != blank -%}
+            <img src="{{ author_meta.photo }}" />
+          {%- else -%}
+            {%- if article.user.image != blank -%}
+              <img src="{{ article.user.image | img_url: '200x200' }}" />
+            {%- else -%}
+              <img src="{{ 'user_default_avatar.png' | asset_url }}" />
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+        <h6 class="article-author-detail">
+          Written by 
+            {% if author_meta.active == 'true' and author_meta.name != blank %}
+              {{ author_meta.name }}
+            {% else %}
+              {{ article.user.name }}
+            {% endif %}
+          <br>
+          {%- assign date_format = '%b %d, %Y' -%}
+          {{- article.published_at | date: date_format -}}
+        </h6>
+      </div>
+      <div class="article-content-bottom hidden-xs"></div>
+    </div>
+  </div>
+  <div class="article-body article-wrapper">
+    <div class="article-left-side">
+      <img src="{{ article.image.src | img_url: 'master' }}" class="article-image" />
+      <div class="article-content">
+        {{ article.content }}
+      </div>
+      <div class="article-share">
+        <div class="article-share--inner">
+          Share
+          <ul class="article-share--icons">
+            <li>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{shop.secure_url}}{{ article.url }}" title="{{ article.title }} on Facebook" target="_blank">
+                {%- include 'icons', icon: 'share-facebook' -%}
+              </a>
+            </li>
+            <li>
+              <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{shop.secure_url}}{{ article.url }}." title="{{ article.title }} on Mail" target="_blank">
+                {%- include 'icons', icon: 'share-mail' -%}
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/intent/tweet?url={{shop.secure_url}}{{ article.url }}" title="{{ article.title }} on Twitter" target="_blank">
+                {%- include 'icons', icon: 'share-twitter' -%}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="article-content-bottom"></div>
+    </div>
+    <div class="article-sidebar article-right-side">
+      <div class="related-articles">
+        <h5 class="article-sidebar--title">
+          Related stories
+        </h5>
+        {%- assign _counter = 0 -%}
+        {%- for _article in blog.articles limit: 6 -%}
+          {%- unless article.title == _article.title -%}
+            {%- assign _counter = _counter | plus: 1 -%}
+
+              <div class="related-article{% if _article.image == blank %} no-image{% endif %}">
+                {%- if _article.image != blank -%}
+                  <div class="related-article--image">
+                    <img src="{{ _article.image.src | img_url: 'master' }}" />
+                  </div>
+                {%- endif -%}
+                <a href="{{ _article.url }}" class="related-article--title">
+                  {{ _article.title }}
+                </a>
+              </div>
+
+            {%- if _counter == 5 -%}{%- break -%}{%- endif -%}
+          {%- endunless -%}
+        {%- endfor -%}
+
+        <div class="article-content-bottom visible-xs-block"></div>
+      </div>
+
+      {%- assign recommended_products_meta = article.metafields.recommended_products.recommended_product -%}
+      {%- if recommended_products_meta != blank -%}
+        <div class="recommended-products">
+          <h5 class="article-sidebar--title">
+            Recommended Products
+          </h5>
+
+          {%- assign recommended_products = recommended_products_meta | split: '|' -%}
+          {%- for _product_handle in recommended_products -%}
+            {%- assign _product = all_products[_product_handle] -%}
+            {%- assign _variant = _product.selected_or_first_available_variant -%}
+            <div class="recommended-product">
+              <div class="recommended-product--image">
+                <img src="{{ _product.featured_image.src | img_url: 'master' }}" />
+              </div>
+              <div class="recommended-product--detail">
+                <a href="{{ _product.url }}" class="recommended-product--title">
+                  {{ _product.title }}
+                </a>
+
+                <small class="recommended-product--variant">
+                  {{ _variant.title }}
+                </small>
+
+                <small class="recommended-product--price">
+                  {{ _variant.price | money }}
+                </small>
+
+                <form action="/cart/add" data-productid="{{ _product.id }}" method="post" data-cart-submit>
+                  {% include "subscription-product" %}
+                  <input type="hidden" name="id" value="{{ _variant.id }}" data-productid="{{ _product.id }}" />
+                  <input type="hidden" name="quantity" value="1" />
+
+                  <button class="button" name="add" type="submit" onclick="pintrk('track', 'addtocart');">{{ "product.add_to_cart" | t }}</button>
+                </form>
+              </div>
+            </div>
+          {%- endfor -%}
+
+          <div class="article-content-bottom hidden-xs"></div>
+        </div>
+      {%- endif -%}
+
+      {%- if article.metafields.placeholder.code_snippet != blank -%}
+        {{ article.metafields.placeholder.code_snippet }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% assign number_of_comments = article.comments_count %}
+{% if comment and comment.created_at %}
+  {% assign number_of_comments = article.comments_count %}
+{% endif %}
+{% if blog.comments_enabled? %}
+  <h2>{{ number_of_comments }} comments</h2>
+  {% paginate article.comments by 5 %}
+    {% for comment in article.comments %}
+      <div>
+        <div>{{ comment.content }}</div>
+        {{ comment.author }} @ {{ comment.created_at }}
+      </div>
+    {% endfor %}
+    {% if paginate.pages > 1 %}
+      {{ paginate | default_pagination }}
+    {% endif %}
+  {% endpaginate %}
+
+  <div>
+    {% form 'new_comment', article %}
+      {{ form.errors | default_errors }}
+      <label for="CommentAuthor">name</label>
+      <input type="text" name="comment[author]" id="CommentAuthor" placeholder="name" value="{{ form.author }}" autocapitalize="words">
+
+      <label for="CommentEmail">email</label>
+      <input type="email" name="comment[email]" id="CommentEmail" placeholder="email" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+
+      <label for="CommentBody">message</label>
+      <textarea name="comment[body]" id="CommentBody" placeholder="message">{{ form.body }}</textarea>
+
+      <input type="submit" value="post">
+    {% endform %}
+  </div>
+{% endif %}
+
+{%- assign bottom_meta_data = article.metafields.bottom_section -%}
+
+<div class="article-bottom"
+  style="background-color: {{ bottom_meta_data.background_color }}"
+>
+  <div class="article-bottom--inner">
+    <div class="article-bottom--content">
+      {%- if bottom_meta_data.title != blank -%}
+        <h4 class="article-bottom--title">
+          {{ bottom_meta_data.title }}
+        </h4>
+      {%- endif -%}
+      {%- if bottom_meta_data.detail != blank -%}
+        <p class="article-bottom--detail">
+          {{ bottom_meta_data.detail }}
+        </p>
+      {%- endif -%}
+
+      {%- if bottom_meta_data.cta_link != blank and bottom_meta_data.cta_text != blank -%}
+        <a href="{{ bottom_meta_data.cta_link }}" class="article-bottom--btn">{{ bottom_meta_data.cta_text }}</a>
+      {%- endif -%}
+    </div>
+    {%- if bottom_meta_data.image != blank -%}
+      <div class="article-bottom--image">
+        <img src="{{ bottom_meta_data.image }}" />
+      </div>
+    {%- endif -%}
+  </div>
+</div>

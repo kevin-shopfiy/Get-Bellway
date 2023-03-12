@@ -1,0 +1,53 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Bundles Benefits",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "page",
+        "id": "page",
+        "label": "Page to show"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Benefit",
+        "type": "benefit",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Bundles Benefits",
+        "category": "Modules",
+        "settings": {
+          "heading": ""
+        },
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

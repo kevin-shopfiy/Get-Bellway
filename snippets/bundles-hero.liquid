@@ -1,0 +1,214 @@
+{%- assign mod_hero_title = mod_hero_title | default: false -%}
+{%- assign mod_hero_product = mod_hero_product | default: false -%}
+{%- assign mod_hero_product_image = mod_hero_product_image | default: false -%}
+{%- assign mod_hero_checkmarks = mod_hero_checkmarks | default: false -%}
+{%- assign mod_hero_flavour_name = mod_hero_flavour_name | default: false -%}
+{%- assign mod_hero_flavour_color = mod_hero_flavour_color | default: false -%}
+{%- assign mod_hero_flavour_page = mod_hero_flavour_page | default: false -%}
+{%- assign mod_flavour = mod_flavour | default: false -%}
+
+{%- assign title_words = mod_hero_title | split: '|'  -%}
+{%- assign word_count = title_words | size | strip -%}
+
+<section class="section-bundle-hero">
+  <div class="layout__container">
+    <div class="bundle-hero__header">
+      <h1 class="bundle-hero__heading">
+        {%- for word in title_words -%}
+          {% capture current_cycle %}
+            {% cycle 'odd', 'even' %}
+          {% endcapture %}
+
+          {%- assign current_cycle = current_cycle | strip -%}
+          {%- if word_count > '2' -%}
+            {%- assign colored_cycle = 'odd' -%}
+          {%- else -%}
+            {%- assign colored_cycle = 'even' -%}
+          {%- endif -%}
+
+          {%- if current_cycle != colored_cycle -%}
+            {%- assign class_list = 'bundle-hero__heading--normal' -%}
+          {%- else -%}
+            {%- assign class_list = 'bundle-hero__heading--colored' -%}
+          {%- endif -%}
+
+          <span class="{{ class_list }}">
+            {{ word }}
+          </span>
+        {%- endfor -%}
+      </h1>
+    </div>
+
+    <div class="flavour-selector">
+      <div class="flavour-selector__tabs">
+        {% for flavour_name in mod_hero_flavour_name %}
+          {%- assign flavour_color = mod_hero_flavour_color[forloop.index0] -%}
+          {%- assign flavour_active = false -%}
+          {%- assign flavour_handle = mod_hero_flavour_page[forloop.index0] -%}
+
+          {% if flavour_name == mod_flavour %}
+            {%- assign flavour_active = true -%}
+          {% endif %}
+
+          {%- capture flavour_href -%}
+            {% if flavour_handle %}
+              href="{{- pages[flavour_handle].url -}}"
+            {% endif %}
+          {%- endcapture -%}
+
+          <style>
+            [flavour-tab="{{- forloop.index -}}"] {
+              color: {{ flavour_color }};
+              border-color: {{ flavour_color }};
+            }
+
+            [flavour-tab="{{- forloop.index -}}"]:hover {
+              color: #fff;
+              background-color: {{- flavour_color -}};
+            }
+
+            [flavour-tab="{{- forloop.index -}}"].active {
+              background-color: {{- flavour_color -}};
+            }
+          </style>
+
+          {%- capture flavour_class -%}
+            {%- if flavour_active -%}
+              flavour-selector__tab active
+            {%- else -%}
+              flavour-selector__tab
+            {%- endif -%}
+          {%- endcapture -%}
+
+          <a {{- flavour_href -}} class="{{- flavour_class -}}" flavour-tab="{{- forloop.index -}}"><span>{{- flavour_name -}}</span></a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="product-cards">
+      {% for product_handle in mod_hero_product limit: 3 %}
+        {%- assign mod_index = forloop.index0 -%}
+        {%- assign mod_product = all_products[product_handle] -%}
+        {%- assign mod_image = mod_hero_product_image[mod_index] | first -%}
+        {%- assign mod_checkmarks = mod_hero_checkmarks[mod_index] -%}
+        {%- assign mod_tags = mod_product.tags  -%}
+        {%- assign mod_one_time_link = mod_product.metafields.bundle.one_time_link | default: false  -%}
+        {%- assign mod_subscribe_link = mod_product.metafields.bundle.subscribe_link | default: false  -%}
+        {%- assign mod_variant = mod_product.variants[0] -%}
+
+        {%- assign mod_product_subscriptions = mod_product.metafields.subscriptions -%}
+        {%- assign mod_discount_percentage = mod_product_subscriptions.discount_percentage -%}
+
+        {%- case mod_index -%}
+          {%- when 0 -%}
+            {%- assign product_class = 'product-card product-card--with-badge' -%}
+
+            {%- capture badge -%}<p class="product-card__badge">Most Popular</p>{%- endcapture -%}
+          {%- else -%}
+            {%- assign product_class = 'product-card' -%}
+        {%- endcase -%}
+
+        {%- capture tub_number_cycle -%}
+          {%- cycle '6', '3', '1' -%}
+        {%- endcapture -%}
+
+        {%- case tub_number_cycle -%}
+          {%- when '6' -%}
+            {%- assign tub_number = 6 -%}
+          {%- when '3' -%}
+            {%- assign tub_number = 3 -%}
+          {%- else -%}
+            {%- assign tub_number = 1 -%}
+        {%- endcase -%}
+
+        {%- capture price_cycle -%}
+          {%- cycle '24.99', '29.99', '49.99' -%}
+        {%- endcapture -%}
+
+        {%- assign mod_atc_link = false -%}
+        {%- if mod_one_time_link -%}
+          {%- assign mod_atc_link = mod_one_time_link -%}
+        {%- endif -%}
+
+        {%- if mod_subscribe_link -%}
+          {%- assign mod_atc_link = mod_subscribe_link -%}
+        {%- endif -%}
+
+        <div class="{{- product_class -}}">
+          {{- badge -}}
+          <div class="hidden">{{mod_product_subscriptions |json}}</div>
+          <div class="product-card__info js-bundle-info">
+            <p class="product-card__variant">{{ tub_number }} {{ tub_number | pluralize: 'Tub', 'Tubs' }}</p>
+
+            <img src="{{ mod_image.cloudinary_src | append: 'h_100' }}" alt="{{ mod_image.alt }}" class="product-card__image"/>
+
+            <p class="product-card__price js-bundle-price"
+              data-discount-percentage="{{- mod_discount_percentage | times: 1 -}}"
+              data-variant-price="{{- mod_variant.price | times: 1 -}}"
+              data-tub-number="{{- tub_number -}}"></p>
+          </div>
+
+          {%- render 'bundle-subscription-product', mod_product: mod_product -%}
+
+          <div class="subscription-picker js-bundle-subscripion-picker">
+            <span class="subscription-picker__label js-one-time">One-time</span>
+            <label class="subscription-picker__switch">
+              <input type="checkbox" class="subscription-picker__checkbox js-bundle-checkbox" checked>
+              <span class="subscription-picker__slider"></span>
+            </label>
+            <div class="">
+              <span class="subscription-picker__label js-subscribe active">Subscribe</span>
+              <div class="product-card__discount hide-desktop js-bundle-discount"
+                data-discount-percentage="{{- mod_discount_percentage | times: 1 -}}"
+                data-variant-price="{{- mod_variant.price | times: 1 -}}"
+                data-tub-number="{{- tub_number -}}"
+                data-text="Save [percentage]%"></div>
+            </div>
+          </div>
+
+          <div class="product-card__discount hide-mobile js-bundle-discount"
+            data-discount-percentage="{{- mod_discount_percentage | times: 1 -}}"
+            data-variant-price="{{- mod_variant.price | times: 1 -}}"
+            data-tub-number="{{- tub_number -}}"
+            data-text="Total Save [percentage]%"></div>
+
+          {% if mod_checkmarks != blank %}
+            <div class="product-card__checkmarks">
+              {%- assign checkmarks = mod_checkmarks | newline_to_br | split: '<br />' -%}
+
+              {%- for checkmark in checkmarks limit: 3 -%}
+                {%- capture checkmark_class -%}
+                  {%- if checkmark contains '**' -%}
+                    product-card__checkmark product-card__checkmark--strong
+                  {%- else -%}
+                    product-card__checkmark
+                  {%- endif -%}
+                {%- endcapture -%}
+
+                <div class="{{- checkmark_class -}}">{{- checkmark | replace: '**', '' | strip -}}</div>
+              {%- endfor -%}
+            </div>
+          {% endif %}
+
+          {% if mod_atc_link %}
+            <a
+              href="{{ mod_atc_link }}"
+              class="product-card__button js-bundle-link"
+              data-onetime-link="{{ mod_one_time_link }}"
+              data-subscribe-link="{{ mod_subscribe_link }}">Buy Now</a>
+          {% endif %}
+
+          {%- capture mod_style -%}
+            {% if mod_atc_link %}
+              style="display: none"
+            {% endif %}
+          {%- endcapture -%}
+
+          <button {{- mod_style -}} class="product-card__button js-bundle-atc">Buy Now</button>
+        </div>
+
+        {%- assign badge = nil -%}
+      {% endfor %}
+    </div>
+  </div>
+</section>

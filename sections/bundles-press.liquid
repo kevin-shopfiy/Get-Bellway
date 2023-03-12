@@ -1,0 +1,40 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Bundles Press",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "Press",
+        "type": "press",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Bundles Press",
+        "category": "Modules",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,1969 @@
+{
+  "current": {
+    "share_image": "shopify:\/\/shop_images\/image_2.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#016a48",
+    "checkout_button_color": "#016a48",
+    "checkout_error_color": "#dd4c49",
+    "sections": {
+      "1569935652054": {
+        "type": "hero",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/11_Lifestyle_Fruit_2x_3e920591-1076-4cc8-aa70-cdbe14965bd4.jpg",
+          "heading": "made with Real fruit.",
+          "heading_colour": "green",
+          "button_text": "SHOP FLAVORS",
+          "button_colour": "green",
+          "button_url": "shopify:\/\/collections\/fiber"
+        }
+      },
+      "1570011484833": {
+        "type": "testimonials",
+        "blocks": {
+          "1570011494357": {
+            "type": "testimonial",
+            "settings": {
+              "product": "lemon-lime",
+              "stars": 5,
+              "quote": "Life changing. This has done wonders for my digestive issues.",
+              "author": "Jenna S."
+            }
+          },
+          "1570011639238": {
+            "type": "testimonial",
+            "settings": {
+              "product": "mixed-berry",
+              "stars": 5,
+              "quote": "Best fiber I've tried and I've tried a lot.",
+              "author": "Daniel G."
+            }
+          },
+          "1573250547577": {
+            "type": "testimonial",
+            "settings": {
+              "product": "raspberry-lemon",
+              "stars": 5,
+              "quote": "Way better tasting than that orange stuff! Better ingredients too.",
+              "author": "John S."
+            }
+          }
+        },
+        "block_order": [
+          "1570011494357",
+          "1570011639238",
+          "1573250547577"
+        ],
+        "settings": {}
+      },
+      "product_template": {
+        "type": "product_template",
+        "blocks": {
+          "1577785062331": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/gluten_free_1.png"
+            }
+          },
+          "1577785089856": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/real_fruit_1.png"
+            }
+          },
+          "1577785098738": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/great_tasting_1.png"
+            }
+          },
+          "1577785107037": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/no_sugar_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "1577785062331",
+          "1577785089856",
+          "1577785098738",
+          "1577785107037"
+        ],
+        "settings": {
+          "common_product_title": "Super Fiber | + Fruit",
+          "hide_description": true,
+          "stars": 5,
+          "hide_collection": true,
+          "pin_cart_button": true,
+          "show_inline_cart_button": true
+        }
+      },
+      "faqs": {
+        "type": "faqs",
+        "blocks": {
+          "1570192222010": {
+            "type": "section",
+            "settings": {
+              "title": "Fiber Facts",
+              "content": "<h1>WHY FIBER?<\/h1>\n<p> Because fiber is the Swiss Army knife of supplements—it can do it all. From regulating your poop and relieving bloating to keeping your heart healthy, there are tons of benefits to taking the recommended amount of fiber daily,* but 95% of Americans don’t. We want better for you. <\/p>\n<h1>HOW DO I USE BELLWAY FIBER?<\/h1>\n<p> Take it 1-3 times per day, dissolving 1 serving of powder into at least 8 oz. of water—make sure it’s not too cold, or else the powder won’t blend as well. (Taking without enough water may cause choking. Do not take if you have difficulty swallowing.) Mix well and enjoy right away!<\/p>\n<h1> CAN I TAKE FIBER IF I’M ON MEDICATION?<\/h1><p> Yup! Be sure to take Bellway at least 2 hours before or after taking medicine, though, since fiber can interfere with medicine absorption.<\/p>\n<h1> DOES IT HAVE ANY SIDE EFFECTS?<\/h1>\n<p>You may experience some minor bloating with the first few servings because your body needs time to get used to the increased fiber intake. Our advice is to take it easy. Start with 1 serving a day and gradually increase to no more than 3 servings daily. <\/p>\n<h1>WHERE IS BELLWAY PRODUCED?<\/h1>\n<p>Bellway is produced in the U.S.A.<\/p>"
+            }
+          },
+          "1572639320758": {
+            "type": "section",
+            "settings": {
+              "title": "psyllium husk",
+              "content": "<h1>WHAT IS IT?<\/h1>\n<p> Here’s some info to impress your friends with. Psyllium husk is a type of fiber made from the seeds of a plant called Plantago ovata. Due to its special gelling properties, it’s often used as a fiber supplement to help regulate digestion and bowel movements. Unlike other fibers, it doesn’t ferment in your gut and make you gassy, which definitely feels as uncomfortable as it sounds.*   <\/p>\n\n<h1>HOW DOES IT WORK?<\/h1>\n<p> When psyllium is mixed with water, it turns into a gel-like substance. This works as a bulking agent in your digestive tract, absorbing water and icky stuff to create stool that soft and easy to pass, just how you like it. That’s why psyllium is so effective against constipation, diarrhea, hemorrhoids, and tons of other digestive conditions.<\/p>"
+            }
+          },
+          "1570192326381": {
+            "type": "section",
+            "settings": {
+              "title": "subscriptions",
+              "content": "<h1>WHY SUBSCRIBE?<\/h1>\n<p>It just makes life easier. You get the most out of fiber by taking it daily, and a subscription ensures that you never run out. (And that you pay less. Just saying.)\n<\/p>\n<h1>HOW MUCH IS IT?<\/h1>\n<p>Just $29.99 a month, or $0.53 a serving. We did the math.<\/p>\n<p><\/p><h1>WHEN DO I GET CHARGED?<\/h1>\n<p>Once a month, on the day of your initial purchase. That’s about 1 week before your subscription order ships.<\/p>\n<h1>CAN I CHANGE MY SUBSCRIPTION?<\/h1>\n<p>Sure can! Head over to your account page to make adjustments to your subscription.<\/p>\n<h1>CAN I CANCEL MY SUBSCRIPTION?<\/h1>\n<p>Cancel anytime by going to your account page or emailing us at hello@getbellway.com. Be sure to cancel before we process your monthly payment!\n<\/p>"
+            }
+          },
+          "1571427653357": {
+            "type": "section",
+            "settings": {
+              "title": "shipping",
+              "content": "<h1>HOW DO I TRACK MY ORDER?<\/h1>\n<p> Check your email! We'll send you a shipping confirmation with tracking information as soon as your order is processed.<\/p>\n<h1>WHERE DOES BELLWAY SHIP?<\/h1>\n<p>We currently ship to the Continental U.S.<\/p>\n<h1>WHEN WILL IT SHIP?<\/h1>\n<p> We work hard to ship all orders within 24 hours, but please allow up to 3 business days for your order to be shipped. You know, just in case. <\/p>\n<h1>I HAVEN'T RECEIVED MY ORDER YET<\/h1>\n<p>Oh no! Send us an email at hello@getbellway.com and we'll help.<\/p>"
+            }
+          },
+          "80aae2d8-11b4-4171-862c-c57f3e5e203c": {
+            "type": "section",
+            "settings": {
+              "title": "FSA\/hsa",
+              "content": "<h1>CAN I USE MY FSA OR HSA DOLLARS?<\/h1>\n<p> Yes, you can use your flexible spending account dollars to purchase all Bellway products. Just use your FSA\/HSA card like you would your credit card at checkout.<\/p><p> \n<\/p><p> Important to know: reimbursements are determined by individual insurance plans\/provider. While all Bellway products are eligible, your insurance provider has final say in whether you will be reimbursed. Bellway does not have control over what insurance providers deem as eligible for reimbursement. <\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1570192222010",
+          "1572639320758",
+          "1570192326381",
+          "1571427653357",
+          "80aae2d8-11b4-4171-862c-c57f3e5e203c"
+        ],
+        "settings": {
+          "title": "FAQ"
+        }
+      },
+      "tubs": {
+        "type": "tubs",
+        "settings": {
+          "collection": "fiber"
+        }
+      },
+      "1570459830537": {
+        "type": "symptoms",
+        "disabled": true,
+        "settings": {
+          "is_top_hero": false,
+          "background_image": "shopify:\/\/shop_images\/hand.png",
+          "background_color": "",
+          "heading": "95% of people",
+          "subheading": "don't get enough fiber.",
+          "description": "Lack of fiber causes all kinds of uncomfortable digestive issues, like bloating and constipation. Taking Bellway puts you on track to get your gut feeling good.",
+          "button_text": "LEARN MORE",
+          "button_url": "shopify:\/\/pages\/welcome"
+        }
+      },
+      "site_header": {
+        "type": "site_header",
+        "settings": {
+          "button_url": "shopify:\/\/collections\/fiber",
+          "subscription_logo_url": "",
+          "subscription_button_url": ""
+        }
+      },
+      "site_footer": {
+        "type": "site_footer",
+        "settings": {}
+      },
+      "blog_template": {
+        "type": "blog_template",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/b293f454726cdad55f333c04b282b915.jpg",
+          "heading": "talk sh*t with us"
+        }
+      },
+      "superhero": {
+        "type": "superhero",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/home-hero_boost_2e9a1333-61c1-450f-8b4a-d00eab7b880e.png",
+          "heading": "hemorrhoids",
+          "subheading": "can't compete with fiber.",
+          "description": "Bellway is a natural fiber supplement made from 100% psyllium husk and real fruit. Nothing artificial. Just Fiber.",
+          "button_text": "Shop Fiber",
+          "button_url": "shopify:\/\/products\/lemon-lime"
+        }
+      },
+      "symptoms": {
+        "type": "symptoms",
+        "settings": {
+          "is_top_hero": false,
+          "background_image": "shopify:\/\/shop_images\/hand.png",
+          "mobile_background_image": "",
+          "background_color": "",
+          "heading": "95% of people",
+          "subheading": "don’t get enough fiber.",
+          "description": "A lack of fiber can cause or exacerbate all kinds of uncomfortable symptoms. Our supplement is a natural way to increase your fiber intake and start feeling better.",
+          "button_text": "Shop Now",
+          "button_url": "shopify:\/\/products\/lemon-lime"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/Bellway_Website_Homescreen_R2.png",
+          "heading": "Hemorrhoid Relief",
+          "heading_colour": "purple",
+          "button_text": "Shop Flavors",
+          "button_colour": "purple",
+          "button_url": "\/"
+        }
+      },
+      "product_hero": {
+        "type": "product_hero",
+        "settings": {
+          "product": "lemon-lime"
+        }
+      },
+      "testimonials": {
+        "type": "testimonials",
+        "blocks": {
+          "1572451230255": {
+            "type": "testimonial",
+            "settings": {
+              "product": "lemon-lime",
+              "stars": 3,
+              "quote": "My favorite flavor.",
+              "author": "John S."
+            }
+          }
+        },
+        "block_order": [
+          "1572451230255"
+        ],
+        "settings": {}
+      },
+      "product_hero_list": {
+        "type": "product_hero_list",
+        "blocks": {
+          "1572450914891": {
+            "type": "product-hero",
+            "settings": {
+              "product": "lemon-lime"
+            }
+          },
+          "1572450919894": {
+            "type": "product-hero",
+            "settings": {
+              "product": "mixed-berry"
+            }
+          },
+          "1572450924237": {
+            "type": "product-hero",
+            "settings": {
+              "product": "raspberry-lemon"
+            }
+          }
+        },
+        "block_order": [
+          "1572450914891",
+          "1572450919894",
+          "1572450924237"
+        ],
+        "settings": {}
+      },
+      "superhero-5": {
+        "type": "superhero-5",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/BreakfastHero.png",
+          "heading": "keeping you regular",
+          "subheading": "when life get's crazy",
+          "description": "Bellway is a 100% natural fiber supplement for better digestion, so you can enjoy good gut feelings and smooth moves all day long.",
+          "button_text": "Shop Now",
+          "button_url": "\/"
+        }
+      },
+      "superhero-2": {
+        "type": "superhero-2",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/home-hero_boost_2e9a1333-61c1-450f-8b4a-d00eab7b880e.png",
+          "heading": "more fiber is better.",
+          "subheading": "clean fiber is best.",
+          "description": "A 100% natural fiber supplement made from psyllium husk and real fruit. That's it.",
+          "button_text": "Shop Fiber",
+          "button_url": "shopify:\/\/products\/lemon-lime"
+        }
+      },
+      "superhero-1": {
+        "type": "superhero-1",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/home-hero_boost_2e9a1333-61c1-450f-8b4a-d00eab7b880e.png",
+          "heading": "constipation",
+          "subheading": "can't compete with fiber.",
+          "description": "A 100% natural and great tasting fiber supplement designed to ease discomfort from constipation, bloating, hemorrhoids and more.",
+          "button_text": "Shop Fiber",
+          "button_url": "shopify:\/\/products\/lemon-lime"
+        }
+      },
+      "superhero-4": {
+        "type": "superhero-4",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/keepingyouregular.png",
+          "heading": "keeping you regular",
+          "subheading": "when life gets crazy.",
+          "description": "Bellway is a natural fiber supplement made from 100% organic psyllium husk and real fruit. Nothing artificial, just fiber.",
+          "button_text": "Shop Fiber",
+          "button_url": "shopify:\/\/products\/lemon-lime"
+        }
+      },
+      "superhero-3": {
+        "type": "superhero-3",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/home-hero_boost_2e9a1333-61c1-450f-8b4a-d00eab7b880e.png",
+          "heading": "stay regular.",
+          "subheading": "even when life gets crazy.",
+          "description": "Bellway is a 100% natural fiber supplement designed to eliminate digestive discomfort, leaving you with good gut feelings and smooth moves!",
+          "button_text": "Shop Fiber",
+          "button_url": "shopify:\/\/products\/lemon-lime"
+        }
+      },
+      "tubs_with_options": {
+        "type": "tubs_with_options",
+        "settings": {
+          "title": "",
+          "show_subheading": true
+        }
+      },
+      "page_header": {
+        "type": "page_header",
+        "settings": {}
+      },
+      "comparison": {
+        "type": "comparison",
+        "settings": {
+          "background_colour": "none",
+          "heading": "No *orange* mystery powder here.",
+          "heading_colour": "green",
+          "text_colour": "green",
+          "left_image": "shopify:\/\/shop_images\/comparison-bellway-alt.png",
+          "right_image": "shopify:\/\/shop_images\/comparison-other-grandma.png"
+        }
+      },
+      "sparkle_header": {
+        "type": "sparkle_header",
+        "blocks": {
+          "1574189724682": {
+            "type": "bullet",
+            "settings": {
+              "text": "Made from real fruit and organic psyllium husk"
+            }
+          },
+          "1574189764254": {
+            "type": "bullet",
+            "settings": {
+              "text": "Zero sugar and NO artificial ingredients."
+            }
+          },
+          "1574189817585": {
+            "type": "bullet",
+            "settings": {
+              "text": "Regulates bowel movements and relieves occasional constipation, bloating, diarrhea, and more."
+            }
+          },
+          "1579735803834": {
+            "type": "bullet",
+            "settings": {
+              "text": "Prebiotic fiber feeds healthy gut bacteria providing numerous benefits including improved immune function, clearer skin, increased energy… the list goes on!"
+            }
+          },
+          "1580208439896": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/gluten_free_1.png"
+            }
+          },
+          "1580208448134": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/plant_based_1.png"
+            }
+          },
+          "1580208453850": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/real_fruit_1.png"
+            }
+          },
+          "1580208459908": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/great_tasting_1.png"
+            }
+          },
+          "1580208466121": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/no_sugar_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "1574189724682",
+          "1574189764254",
+          "1574189817585",
+          "1579735803834",
+          "1580208439896",
+          "1580208448134",
+          "1580208453850",
+          "1580208459908",
+          "1580208466121"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/tubglass_about.png",
+          "title": "SUPER FIBER BLENDS",
+          "stars": 5,
+          "button_text": "SHOP FIBER",
+          "button_url": "shopify:\/\/collections\/fiber"
+        }
+      },
+      "sparkle_benefits": {
+        "type": "sparkle_benefits",
+        "blocks": {
+          "1574189956165": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/gut.png",
+              "text": "Improves Gut Health"
+            }
+          },
+          "1574190071065": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/toilet.png",
+              "text": "Smooth moves ;-)"
+            }
+          },
+          "1574190083992": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/balloon.png",
+              "text": "Relieves bloating"
+            }
+          },
+          "1574190094677": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/sparkles.png",
+              "text": "Clearer skin & healthy hair"
+            }
+          },
+          "1574190110629": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/heart.png",
+              "text": "Heart Healthy"
+            }
+          },
+          "1574190153118": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/scale.png",
+              "text": "Helps weight management"
+            }
+          }
+        },
+        "block_order": [
+          "1574189956165",
+          "1574190071065",
+          "1574190083992",
+          "1574190094677",
+          "1574190110629",
+          "1574190153118"
+        ],
+        "settings": {
+          "heading": "How does it work?",
+          "subheading": "a super fiber called psyllium",
+          "spelling": "[SI·LEE·UHM]",
+          "text": "Psyllium is a natural fiber that gently travels through your system absorbing loose materials, trapping toxins and improving digestion. Once it’s reached the end of its journey, it exits smooth and easy, leaving you with only good gut feelings."
+        }
+      },
+      "sparkle_hero": {
+        "type": "sparkle_hero",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/hand_1.png",
+          "heading": "Do You Get Enough Fiber?",
+          "subheading": "(probably not)",
+          "text": "95% of people don’t even come close to getting the doctor recommended 30 grams of fiber a day… which makes sense considering you’d need to eat 3 pounds of baby spinach, 8 cups of blueberries, or 10 bananas to get that 30g of fiber. Ain’t nobody got time for that! \n\nOne serving of Bellway gets you 18% your daily recommended fiber.",
+          "button_text": "SHOP FIBER",
+          "button_url": "shopify:\/\/collections\/fiber"
+        }
+      },
+      "sparkle_instructions": {
+        "type": "sparkle_instructions",
+        "blocks": {
+          "1574190421738": {
+            "type": "instruction",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Group_54_1141a462-e89c-4b8f-bf11-8c30d492a1ab.png",
+              "icon_offset_x": "0",
+              "icon_offset_y": "0",
+              "text": "Pour 1-2 rounded teaspoons into empty glass"
+            }
+          },
+          "1574190476520": {
+            "type": "instruction",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Group_53.png",
+              "icon_offset_x": "0",
+              "icon_offset_y": "0",
+              "text": "Add at least 8 oz of cool liquid"
+            }
+          },
+          "1574190509279": {
+            "type": "instruction",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Group_52.png",
+              "icon_offset_x": "0",
+              "icon_offset_y": "0",
+              "text": "Mix well"
+            }
+          },
+          "1574190519147": {
+            "type": "instruction",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Group_55.png",
+              "icon_offset_x": "0",
+              "icon_offset_y": "0",
+              "text": "Drink right away and enjoy!"
+            }
+          }
+        },
+        "block_order": [
+          "1574190421738",
+          "1574190476520",
+          "1574190509279",
+          "1574190519147"
+        ],
+        "settings": {
+          "heading": "HOW TO TAKE",
+          "subheading": "(SPOILER ALERT ... IT'S EASY)"
+        }
+      },
+      "cart_template": {
+        "type": "cart_template",
+        "settings": {
+          "pin_checkout_button": false
+        }
+      },
+      "1576509389776": {
+        "type": "symptoms",
+        "settings": {
+          "is_top_hero": true,
+          "background_image": "shopify:\/\/shop_images\/Bellway_HERO_TUBS_wide.png",
+          "mobile_background_image": "shopify:\/\/shop_images\/Mobile_Homepage_Hero_768x1618_V8.png",
+          "background_color": "",
+          "heading": "great tasting natural fiber.",
+          "subheading": "made with real fruit.",
+          "description": "Bellway is a natural fiber supplement powder that promotes healthy digestion. <br><br> Made with organic psyllium husk and real fruit, it goes down easy and comes out reeeal smooth.",
+          "button_text": "SHOP NEW FLAVORS",
+          "button_url": "shopify:\/\/collections\/fiber"
+        }
+      },
+      "1576511425595": {
+        "type": "sparkle_benefits",
+        "blocks": {
+          "1576511491759": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_11_e55fe4f2-fa90-4120-869e-a6f808b6497c.png",
+              "text": "A happy gut"
+            }
+          },
+          "1576511506923": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_12_c214bf8e-0884-4335-80ed-b1b4b94da483.png",
+              "text": "Smooth moves ;-)"
+            }
+          },
+          "1576511565755": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_16_4b777903-f0f9-4750-a989-d8f2fccfcf22.png",
+              "text": "Less bloating"
+            }
+          },
+          "1576511580685": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_13_34806bc9-2e46-44a1-8417-2f6ce3564577.png",
+              "text": "Clear skin & healthy hair"
+            }
+          },
+          "1576511521444": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_14_c5e99b51-c43b-4bc5-a29f-281b37013547.png",
+              "text": "Improved heart health"
+            }
+          },
+          "1576511534110": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_15_26e2d9e8-c3ea-4334-a674-4b76fba0de62.png",
+              "text": "Balanced weight"
+            }
+          }
+        },
+        "block_order": [
+          "1576511491759",
+          "1576511506923",
+          "1576511565755",
+          "1576511580685",
+          "1576511521444",
+          "1576511534110"
+        ],
+        "settings": {
+          "heading": "how does it work?",
+          "subheading": "a super fiber called psyllium",
+          "spelling": "[SI·LEE·UHM]",
+          "text": "Psyllium is a natural fiber powder that gently travels through your system, picking up toxins and loose materials along the way. At the end of its journey, it exits smooth and easy, leaving you with*:"
+        }
+      },
+      "1576623879229": {
+        "type": "tubs_with_options",
+        "blocks": {
+          "1598973328830": {
+            "type": "product",
+            "settings": {
+              "product": "lemon-lime",
+              "background_color": "#b1daaa",
+              "title": "",
+              "sub_title": "13.8 oz. Tub",
+              "price": "",
+              "btn_back_color": "#00ae9a",
+              "btn_text": ""
+            }
+          },
+          "1598973391449": {
+            "type": "product",
+            "settings": {
+              "product": "mixed-berry",
+              "background_color": "#a1c1e6",
+              "title": "",
+              "sub_title": "13.8 oz. Tub",
+              "price": "",
+              "btn_back_color": "#396cb5",
+              "btn_text": ""
+            }
+          },
+          "1598973473114": {
+            "type": "product",
+            "settings": {
+              "product": "raspberry-lemon",
+              "background_color": "#f7b5b5",
+              "title": "",
+              "sub_title": "13.8 oz. Tub",
+              "price": "",
+              "btn_back_color": "#ee3350",
+              "btn_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "1598973328830",
+          "1598973391449",
+          "1598973473114"
+        ],
+        "settings": {
+          "title": "",
+          "show_subheading": true
+        }
+      },
+      "sidecart": {
+        "type": "sidecart",
+        "blocks": {
+          "bfdaecc3-f78f-46d4-bac9-9c26402a6342": {
+            "type": "product",
+            "settings": {
+              "product": "copy-of-lemon-lime-stick-pack-6-count"
+            }
+          },
+          "c8375d74-b812-4ca8-95cb-ad675a5170dd": {
+            "type": "product",
+            "settings": {
+              "product": "mixed-berry-stick-pack-6-count-1"
+            }
+          },
+          "61ea4bbf-c3b8-4d57-804d-96ec0b124476": {
+            "type": "product",
+            "settings": {
+              "product": "lemon-lime-stick-pack-6-count"
+            }
+          }
+        },
+        "block_order": [
+          "bfdaecc3-f78f-46d4-bac9-9c26402a6342",
+          "c8375d74-b812-4ca8-95cb-ad675a5170dd",
+          "61ea4bbf-c3b8-4d57-804d-96ec0b124476"
+        ],
+        "settings": {
+          "empty_text": "<p>Your shopping cart is empty and sad<\/p>",
+          "empty_button_text": "Continue Shopping",
+          "empty_button_link": "shopify:\/\/collections\/natural-fiber",
+          "title": "Customers also bought:"
+        }
+      },
+      "sparkle_header-5": {
+        "type": "sparkle_header-5",
+        "blocks": {
+          "1576874915150": {
+            "type": "bullet",
+            "settings": {
+              "text": "Try our Lemon Lime flavored stick packs for free"
+            }
+          },
+          "1576874934963": {
+            "type": "bullet",
+            "settings": {
+              "text": "Delivered right to your door, only pay $5 for shipping, we cover the rest"
+            }
+          },
+          "1576874941605": {
+            "type": "bullet",
+            "settings": {
+              "text": "After your 7 day free trial it becomes a monthly subscription"
+            }
+          },
+          "1576874982663": {
+            "type": "bullet",
+            "settings": {
+              "text": "Don't worry, you can absolutely cancel anytime you'd like at no cost"
+            }
+          }
+        },
+        "block_order": [
+          "1576874915150",
+          "1576874934963",
+          "1576874941605",
+          "1576874982663"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/lime-free-trial.png",
+          "title": "New! America’s Only Natural Fiber Blend",
+          "stars": 5,
+          "button_text": "TRY FOR FREE",
+          "button_url": ""
+        }
+      },
+      "accordion": {
+        "type": "accordion",
+        "blocks": {
+          "1577095220639": {
+            "type": "metafield_item",
+            "settings": {
+              "title": "Details",
+              "namespace": "global",
+              "key": "details"
+            }
+          },
+          "1577095235133": {
+            "type": "metafield_item",
+            "settings": {
+              "title": "How to Take",
+              "namespace": "global",
+              "key": "how-to-take"
+            }
+          },
+          "1577095070792": {
+            "type": "metafield_item",
+            "settings": {
+              "title": "Ingredients",
+              "namespace": "global",
+              "key": "ingredients"
+            }
+          }
+        },
+        "block_order": [
+          "1577095220639",
+          "1577095235133",
+          "1577095070792"
+        ],
+        "settings": {}
+      },
+      "sparkle_header-3": {
+        "type": "sparkle_header-3",
+        "blocks": {
+          "1577204593783": {
+            "type": "bullet",
+            "settings": {
+              "text": "Try our Mixed Berry flavored stick packs for free"
+            }
+          },
+          "1577204598624": {
+            "type": "bullet",
+            "settings": {
+              "text": "Delivered right to your door, only pay $5 for shipping, we cover the rest"
+            }
+          },
+          "1577204613426": {
+            "type": "bullet",
+            "settings": {
+              "text": "After your 7 day free trial it becomes a monthly subscription"
+            }
+          },
+          "1577204620750": {
+            "type": "bullet",
+            "settings": {
+              "text": "Don't worry, you can absolutely cancel anytime you'd like at no cost"
+            }
+          }
+        },
+        "block_order": [
+          "1577204593783",
+          "1577204598624",
+          "1577204613426",
+          "1577204620750"
+        ],
+        "settings": {
+          "image": "",
+          "title": "Mixed Berry Free Trial",
+          "stars": 5,
+          "button_text": "Get Started",
+          "button_url": ""
+        }
+      },
+      "sparkle_header-4": {
+        "type": "sparkle_header-4",
+        "blocks": {
+          "1577204714777": {
+            "type": "bullet",
+            "settings": {
+              "text": "Try our Raspberry Leon flavored stick packs for free"
+            }
+          },
+          "1577204729158": {
+            "type": "bullet",
+            "settings": {
+              "text": "Delivered right to your door, only pay $5 for shipping, we cover the rest"
+            }
+          },
+          "1577204736736": {
+            "type": "bullet",
+            "settings": {
+              "text": "After your 7 day free trial it becomes a monthly subscription"
+            }
+          },
+          "1577204746904": {
+            "type": "bullet",
+            "settings": {
+              "text": "Don't worry, you can absolutely cancel anytime you'd like at no cost"
+            }
+          }
+        },
+        "block_order": [
+          "1577204714777",
+          "1577204729158",
+          "1577204736736",
+          "1577204746904"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/free-trial.png",
+          "title": "Raspberry Lemon Free Trial",
+          "stars": 5,
+          "button_text": "Get Started",
+          "button_url": ""
+        }
+      },
+      "sparkle_hero-trial": {
+        "type": "sparkle_hero-trial",
+        "settings": {
+          "product": "lemon-lime-6-pack",
+          "background_image": "shopify:\/\/shop_images\/hand_1.png",
+          "heading": "Do You Get Enough Fiber?",
+          "subheading": "(probably not)",
+          "text": "95% of people don’t even come close to getting the doctor recommended 30 grams of fiber a day… which makes sense considering you’d need to eat 3 pounds of baby spinach, 8 cups of blueberries, or 10 bananas to get that 30g of fiber. Ain’t nobody got time for that!\n\nOne serving of Bellway gets you 18% your daily recommended fiber.",
+          "button_text": "GET FREE OFFER - $0.00",
+          "button_url": "shopify:\/\/products\/lemon-lime"
+        }
+      },
+      "trial_image": {
+        "type": "trial_image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Supp-Facts_75p.png"
+        }
+      },
+      "sparkle_hero-3": {
+        "type": "sparkle_hero-3",
+        "settings": {
+          "background_image": "",
+          "heading": "",
+          "subheading": "",
+          "text": "",
+          "button_text": "",
+          "button_url": ""
+        }
+      },
+      "trial_header": {
+        "type": "trial_header",
+        "blocks": {
+          "1578585622439": {
+            "type": "bullet",
+            "settings": {
+              "text": "Say goodbye to bloating, gas, constipation and other sh*tty feelings. Pun intended ;-)"
+            }
+          },
+          "1578585638817": {
+            "type": "bullet",
+            "settings": {
+              "text": "Our blends are made with 100% organic psyllium husk fiber and flavored with real fruit, to get you going the natural way."
+            }
+          },
+          "1578585655106": {
+            "type": "bullet",
+            "settings": {
+              "text": "This stuff is efficient. You’ll feel—and flush—results within the first two days."
+            }
+          },
+          "1578585665782": {
+            "type": "bullet",
+            "settings": {
+              "text": "Try it now for $4.95! Shipping is on us."
+            }
+          }
+        },
+        "block_order": [
+          "1578585622439",
+          "1578585638817",
+          "1578585655106",
+          "1578585665782"
+        ],
+        "settings": {
+          "theme": "lemon-lime",
+          "image": "shopify:\/\/shop_images\/495_LemonLime_badge_big.png",
+          "title": "Lemon Lime Natural Fiber",
+          "stars": 5,
+          "button_text": "TRY FOR $4.95"
+        }
+      },
+      "trial_hero": {
+        "type": "trial_hero",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/hand_1.png",
+          "heading": "Do You Get Enough Fiber?",
+          "subheading": "(probably not)",
+          "text": "95% of people don’t even come close to getting the doctor recommended 30 grams of fiber a day… which makes sense considering you’d need to eat 3 pounds of baby spinach, 8 cups of blueberries, or 10 bananas to get that 30g of fiber. Ain’t nobody got time for that!\n\nOne serving of Bellway gets you 18% your daily recommended fiber.",
+          "button_text": "TRY FOR $4.95"
+        }
+      },
+      "trial_sidecart": {
+        "type": "trial_sidecart",
+        "blocks": {
+          "1578586012420": {
+            "type": "detail",
+            "settings": {
+              "text": "Your first 6 servings are $4.95, with free shipping!"
+            }
+          },
+          "1578586026526": {
+            "type": "detail",
+            "settings": {
+              "text": "Automatic upgrade to a monthly subscription plus free shipping ($29.99\/month for 53 servings), starting 14 days after your trial."
+            }
+          },
+          "1578586037013": {
+            "type": "detail",
+            "settings": {
+              "text": "We’ll give you enough time to cancel or modify auto refills before they ship."
+            }
+          }
+        },
+        "block_order": [
+          "1578586012420",
+          "1578586026526",
+          "1578586037013"
+        ],
+        "settings": {
+          "product": "lemon-lime-6-pack",
+          "close_button": "Continue Shopping",
+          "heading": "Lemon Lime",
+          "image": "shopify:\/\/shop_images\/495_LemonLime_badge_big.png",
+          "subheading": "TRIAL DETAILS",
+          "price": "$9.99",
+          "trial_price": "$4.95",
+          "shipping": "FREE",
+          "total": "$4.95",
+          "checkout_button": "Checkout"
+        }
+      },
+      "trial_header-2": {
+        "type": "trial_header-2",
+        "blocks": {
+          "1581538992438": {
+            "type": "bullet",
+            "settings": {
+              "text": "Say goodbye to bloating, gas, constipation and other sh*tty feelings. Pun intended ;-)"
+            }
+          },
+          "1581539006098": {
+            "type": "bullet",
+            "settings": {
+              "text": "Our blends are made with 100% organic psyllium husk fiber and flavored with real fruit, to get you going the natural way."
+            }
+          },
+          "1581539014792": {
+            "type": "bullet",
+            "settings": {
+              "text": "This stuff is efficient. You’ll feel—and flush—results within the first two days."
+            }
+          },
+          "1581539026209": {
+            "type": "bullet",
+            "settings": {
+              "text": "Try it now for $4.95! Shipping is on us."
+            }
+          }
+        },
+        "block_order": [
+          "1581538992438",
+          "1581539006098",
+          "1581539014792",
+          "1581539026209"
+        ],
+        "settings": {
+          "theme": "mixed-berry",
+          "image": "shopify:\/\/shop_images\/Mixedberry_badge_V4-2.png",
+          "title": "Mixed Berry",
+          "stars": 5,
+          "button_text": "TRY FOR $4.95"
+        }
+      },
+      "trial_hero-2": {
+        "type": "trial_hero-2",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/hand_1.png",
+          "heading": "Do You Get Enough Fiber?",
+          "subheading": "(probably not)",
+          "text": "95% of people don’t even come close to getting the doctor recommended 30 grams of fiber a day… which makes sense considering you’d need to eat 3 pounds of baby spinach, 8 cups of blueberries, or 10 bananas to get that 30g of fiber. Ain’t nobody got time for that!\n\nOne serving of Bellway gets you 18% your daily recommended fiber.",
+          "button_text": "TRY FOR $4.95"
+        }
+      },
+      "trial_image-2": {
+        "type": "trial_image-2",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Supplement_Facts_Mixed_Berry_389x441_addc109c-ae00-4cf2-9771-706848f698b4.png"
+        }
+      },
+      "reviews": {
+        "type": "reviews",
+        "settings": {
+          "product": ""
+        }
+      },
+      "trial_sidecart-2": {
+        "type": "trial_sidecart-2",
+        "blocks": {
+          "1582151061828": {
+            "type": "detail",
+            "settings": {
+              "text": "Your first 6 servings are $4.95, with free shipping!"
+            }
+          },
+          "1582151073475": {
+            "type": "detail",
+            "settings": {
+              "text": "Automatic upgrade to a monthly subscription plus free shipping ($29.99\/month for 53 servings), starting 14 days after your trial."
+            }
+          },
+          "1582151080847": {
+            "type": "detail",
+            "settings": {
+              "text": "We’ll give you enough time to cancel or modify auto refills before they ship."
+            }
+          }
+        },
+        "block_order": [
+          "1582151061828",
+          "1582151073475",
+          "1582151080847"
+        ],
+        "settings": {
+          "product": "mixed-berry-stick-pack-6-count",
+          "close_button": "Continue Shopping",
+          "heading": "Mixed Berry",
+          "image": "shopify:\/\/shop_images\/Mixedberry_badge_V4-2.png",
+          "subheading": "TRIAL DETAILS",
+          "price": "$9.99",
+          "trial_price": "$4.95",
+          "shipping": "FREE",
+          "total": "$4.95",
+          "checkout_button": "Checkout"
+        }
+      },
+      "trial_header-1": {
+        "type": "trial_header-1",
+        "blocks": {
+          "1581539375038": {
+            "type": "bullet",
+            "settings": {
+              "text": "Say goodbye to bloating, gas, constipation and other sh*tty feelings. Pun intended ;-)"
+            }
+          },
+          "1581539377927": {
+            "type": "bullet",
+            "settings": {
+              "text": "Our blends are made with 100% organic psyllium husk fiber and flavored with real fruit, to get you going the natural way."
+            }
+          },
+          "1581539386093": {
+            "type": "bullet",
+            "settings": {
+              "text": "This stuff is efficient. You’ll feel—and flush—results within the first two days."
+            }
+          },
+          "1581539402803": {
+            "type": "bullet",
+            "settings": {
+              "text": "Try it now for $4.95! Shipping is on us."
+            }
+          }
+        },
+        "block_order": [
+          "1581539375038",
+          "1581539377927",
+          "1581539386093",
+          "1581539402803"
+        ],
+        "settings": {
+          "theme": "raspberry-lemon",
+          "image": "shopify:\/\/shop_images\/Raspberry_Lemon_badge-2.png",
+          "title": "Raspberry Lemon",
+          "stars": 5,
+          "button_text": "TRY FOR $4.95"
+        }
+      },
+      "trial_hero-1": {
+        "type": "trial_hero-1",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/hand_1.png",
+          "heading": "Do You Get Enough Fiber?",
+          "subheading": "(probably not)",
+          "text": "95% of people don’t even come close to getting the doctor recommended 30 grams of fiber a day… which makes sense considering you’d need to eat 3 pounds of baby spinach, 8 cups of blueberries, or 10 bananas to get that 30g of fiber. Ain’t nobody got time for that!",
+          "button_text": "TRY FOR $4.95"
+        }
+      },
+      "trial_image-1": {
+        "type": "trial_image-1",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Supplement_Facts_Raspberry_Lemon_389x441_bba296e0-9e1c-4001-8cfb-0fa871a35441.png"
+        }
+      },
+      "trial_sidecart-1": {
+        "type": "trial_sidecart-1",
+        "blocks": {
+          "1582151569306": {
+            "type": "detail",
+            "settings": {
+              "text": "Your first 6 servings are $4.95, with free shipping!"
+            }
+          },
+          "1582151576263": {
+            "type": "detail",
+            "settings": {
+              "text": "Automatic upgrade to a monthly subscription plus free shipping ($29.99\/month for 53 servings), starting 14 days after your trial."
+            }
+          },
+          "1582151583382": {
+            "type": "detail",
+            "settings": {
+              "text": "We’ll give you enough time to cancel or modify auto refills before they ship."
+            }
+          }
+        },
+        "block_order": [
+          "1582151569306",
+          "1582151576263",
+          "1582151583382"
+        ],
+        "settings": {
+          "product": "raspberry-lemon-stick-pack-6-count",
+          "close_button": "Continue Shopping",
+          "heading": "Raspberry Lemon",
+          "image": "shopify:\/\/shop_images\/Raspberry_Lemon_badge-2.png",
+          "subheading": "TRIAL DETAILS",
+          "price": "$9.99",
+          "trial_price": "$4.95",
+          "shipping": "FREE",
+          "total": "$4.95",
+          "checkout_button": "Checkout"
+        }
+      },
+      "trial_page_header": {
+        "type": "trial_page_header",
+        "settings": {}
+      },
+      "sparkle_header-2": {
+        "type": "sparkle_header-2",
+        "blocks": {
+          "1587743031299": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/great_tasting_1.png"
+            }
+          },
+          "1587743086646": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/no_sugar_1.png"
+            }
+          },
+          "1587743123440": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/real_fruit_1.png"
+            }
+          },
+          "1587743139909": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/plant_based_1.png"
+            }
+          },
+          "1587743198165": {
+            "type": "benefit",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/gluten_free_1.png"
+            }
+          },
+          "1587742997345": {
+            "type": "bullet",
+            "settings": {
+              "text": "Made from real fruit and organic psyllium husk, that’s it! Zero sugar and NO artificial ingredients."
+            }
+          },
+          "1587743257819": {
+            "type": "bullet",
+            "settings": {
+              "text": "Regulates bowel movements and effectively prevents constipation, bloating, diarrhea, and more."
+            }
+          },
+          "1587743270097": {
+            "type": "bullet",
+            "settings": {
+              "text": "Prebiotic fiber feeds healthy gut bacteria providing numerous benefits including improved immune function, clearer skin, increased energy… the list goes on!"
+            }
+          },
+          "1587743286468": {
+            "type": "bullet",
+            "settings": {
+              "text": "You'll receive 6 Raspberry Lemon Fiber Stick Packs for just $4.97 shipping & handling. "
+            }
+          }
+        },
+        "block_order": [
+          "1587743031299",
+          "1587743086646",
+          "1587743123440",
+          "1587743139909",
+          "1587743198165",
+          "1587742997345",
+          "1587743257819",
+          "1587743270097",
+          "1587743286468"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Trial_RL.png",
+          "title": "Natural Fruit + Fiber Stick Packs",
+          "stars": 5,
+          "button_text": ">> Grab 6 FREE Fiber Stick Packs",
+          "button_url": "https:\/\/bellway-inc.myshopify.com\/cart\/31699652575280:1?channel=buy_button"
+        }
+      },
+      "sparkle_hero-2": {
+        "type": "sparkle_hero-2",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/redglass.png",
+          "heading": "Do You Get Enough Fiber?",
+          "subheading": "(probably not)",
+          "text": "95% of people don’t even come close to getting the doctor recommended 30 grams of fiber a day… which makes sense considering you’d need to eat 3 pounds of baby spinach, 8 cups of blueberries, or 10 bananas to get that 30g of fiber. Ain’t nobody got time for that!\n\nOne serving of Bellway gets you 18% your daily recommended fiber.",
+          "button_text": ">> Grab 6 FREE Fiber Stick Packs",
+          "button_url": "https:\/\/bellway-inc.myshopify.com\/cart\/31699652575280:1?channel=buy_button"
+        }
+      },
+      "checkout-sidebar-icons": {
+        "type": "checkout-sidebar-icons",
+        "blocks": {
+          "1591196289462": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/gluten_free_1_613b6f63-b132-4d11-b089-8f49a1c8548e.png"
+            }
+          },
+          "1591196294913": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/plant_based_1_489c6ec6-8683-43af-81da-3fb685684fd8.png"
+            }
+          },
+          "1591196299263": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/real_fruit_1_302f4b96-9430-4f6e-90aa-3bd1e99f550f.png"
+            }
+          },
+          "1591196307216": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/great_tasting_1_a91f5b48-2927-4a94-9d16-a6110d5585fb.png"
+            }
+          },
+          "1591196312713": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/no_sugar_1_497389c5-e051-4c01-a8bd-b9489d791a80.png"
+            }
+          }
+        },
+        "block_order": [
+          "1591196289462",
+          "1591196294913",
+          "1591196299263",
+          "1591196307216",
+          "1591196312713"
+        ],
+        "settings": {}
+      },
+      "checkout-icons": {
+        "type": "checkout-icons",
+        "blocks": {
+          "1591196320912": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/gut.png",
+              "title": "Happy gut"
+            }
+          },
+          "1591196341012": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/toilet.png",
+              "title": "Smooth moves ;)"
+            }
+          },
+          "1591196359910": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/balloon_455cb445-cda6-458d-ac7c-75e29250429c.png",
+              "title": "Less Bloating"
+            }
+          },
+          "1591196370562": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sparkles_38d5bf22-24b1-4921-bfd8-f3b1b767c1e9.png",
+              "title": "Clear skin & healthy hair"
+            }
+          },
+          "1591196387960": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/heart_718f4fba-ba74-4d28-a541-f5bc7fd98515.png",
+              "title": "Improved heart health"
+            }
+          },
+          "1591196399327": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/scale_a9cef804-3197-461c-83f9-e706eef1a242.png",
+              "title": "Balanced weight"
+            }
+          }
+        },
+        "block_order": [
+          "1591196320912",
+          "1591196341012",
+          "1591196359910",
+          "1591196370562",
+          "1591196387960",
+          "1591196399327"
+        ],
+        "settings": {}
+      },
+      "1598973102555": {
+        "type": "page-hero-global",
+        "settings": {
+          "container_width": "wide",
+          "background_color": "",
+          "image_hide_on_mobile": false,
+          "right_image": "shopify:\/\/shop_images\/hand.png",
+          "heading": "95% of people",
+          "subheading": "don't get enough fiber.",
+          "description": "Lack of fiber causes all kinds of uncomfortable digestive issues, like bloating and constipation. Taking Bellway Super Fiber puts you on track to get your gut feeling good.",
+          "button_text": "Shop Fiber",
+          "button_url": "shopify:\/\/pages\/about"
+        }
+      },
+      "global-promo-bar": {
+        "type": "global-promo-bar",
+        "settings": {
+          "is_enable": true,
+          "background_color": "#ee3350",
+          "text": "FREE SHIPPING ON ORDERS OVER $40"
+        }
+      },
+      "1604938192e9652466": {
+        "type": "section-press",
+        "blocks": {
+          "aea287c0-4c23-4bc8-bc4c-536abb88df47": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Bellway_PressLogo_Green_Wellandgood.png",
+              "title": "\"My personal fave is Bellway\""
+            }
+          },
+          "9ebe339f-6b99-4212-b9fa-73edcd403c7e": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Bellway__PressLogo_Green_Refinery29_2.png",
+              "title": "\"Absolutely obsessed with Bellway\""
+            }
+          },
+          "de3f7640-aabd-443d-8a72-6e28f9f2c616": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Bellway_PressLogo_Green_Forbes.png",
+              "title": "\"Revolutionizing wellness\""
+            }
+          },
+          "f16d35f5-2fd1-463d-b11d-005ec9d6f666": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Bellway_PressLogo_Green_Chalkboard_circle.png",
+              "title": "\"Majorly addicting\""
+            }
+          },
+          "fad36c27-63ba-459f-973a-a696e3958ad9": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Bellway_PressLogo_Green_Nosh.png",
+              "title": "\"More [fiber] than the current leading brands\""
+            }
+          },
+          "6b14fc68-c325-43d4-b251-9513ac9b083e": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Bellway_PressLogo_Green_yahoofinance.png",
+              "title": "\"Overall wellness on a gut level\""
+            }
+          }
+        },
+        "block_order": [
+          "aea287c0-4c23-4bc8-bc4c-536abb88df47",
+          "9ebe339f-6b99-4212-b9fa-73edcd403c7e",
+          "de3f7640-aabd-443d-8a72-6e28f9f2c616",
+          "f16d35f5-2fd1-463d-b11d-005ec9d6f666",
+          "fad36c27-63ba-459f-973a-a696e3958ad9",
+          "6b14fc68-c325-43d4-b251-9513ac9b083e"
+        ],
+        "settings": {
+          "title": "Featured In"
+        }
+      },
+      "page-home-hero": {
+        "type": "page-home-hero",
+        "settings": {
+          "is_top_hero": true,
+          "background_image": "shopify:\/\/shop_images\/Bellway_HERO_TUBS_wide.png",
+          "mobile_background_image": "shopify:\/\/shop_images\/Mobile_Homepage_Hero_768x1618_V8.png",
+          "background_color": "",
+          "heading": "great tasting natural fiber.",
+          "subheading": "made with real fruit.",
+          "description": "Bellway is a natural fiber supplement powder that promotes healthy digestion. <br><br> Made with only 100% organic psyllium husk and real fruit, it goes down easy and comes out reeeal smooth.",
+          "button_text": "SHOP FIBER",
+          "button_url": "shopify:\/\/collections\/subscribe-to-the-best-tasting-natural-fiber-powder"
+        }
+      },
+      "page-home-sparkle-benefits": {
+        "type": "page-home-sparkle-benefits",
+        "blocks": {
+          "page-home-sparkle-benefits-0": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_11_e55fe4f2-fa90-4120-869e-a6f808b6497c.png",
+              "text": "A happy gut"
+            }
+          },
+          "page-home-sparkle-benefits-1": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_12_c214bf8e-0884-4335-80ed-b1b4b94da483.png",
+              "text": "Smooth moves ;-)"
+            }
+          },
+          "page-home-sparkle-benefits-2": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_16_4b777903-f0f9-4750-a989-d8f2fccfcf22.png",
+              "text": "Less bloating"
+            }
+          },
+          "page-home-sparkle-benefits-3": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_13_34806bc9-2e46-44a1-8417-2f6ce3564577.png",
+              "text": "Clear skin & healthy hair"
+            }
+          },
+          "page-home-sparkle-benefits-4": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_14_c5e99b51-c43b-4bc5-a29f-281b37013547.png",
+              "text": "Improved heart health"
+            }
+          },
+          "page-home-sparkle-benefits-5": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/image_15_26e2d9e8-c3ea-4334-a674-4b76fba0de62.png",
+              "text": "Balanced weight"
+            }
+          }
+        },
+        "block_order": [
+          "page-home-sparkle-benefits-0",
+          "page-home-sparkle-benefits-1",
+          "page-home-sparkle-benefits-2",
+          "page-home-sparkle-benefits-3",
+          "page-home-sparkle-benefits-4",
+          "page-home-sparkle-benefits-5"
+        ],
+        "settings": {
+          "heading": "how does it work?",
+          "subheading": "a super fiber called psyllium",
+          "spelling": "[SI·LEE·UHM]",
+          "text": "Psyllium is a natural fiber powder that gently travels through your system, picking up toxins and loose materials along the way. At the end of its journey, it exits smooth and easy, leaving you with*:"
+        }
+      },
+      "page-home-symptoms": {
+        "type": "page-home-symptoms",
+        "settings": {
+          "container_width": "wide",
+          "background_color": "",
+          "image_hide_on_mobile": false,
+          "right_image": "shopify:\/\/shop_images\/hand.png",
+          "heading": "95% of people",
+          "subheading": "don't get enough fiber.",
+          "description": "Lack of fiber causes all kinds of uncomfortable digestive issues, like bloating and constipation. Taking Bellway Super Fiber puts you on track to get your gut feeling good.",
+          "button_text": "Shop Fiber",
+          "button_url": "shopify:\/\/collections\/subscribe-to-the-best-tasting-natural-fiber-powder"
+        }
+      },
+      "page-home-icons": {
+        "type": "page-home-icons",
+        "blocks": {
+          "page-home-icons-0": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/PngItem_2736361.png",
+              "title": "\"My personal fave is Bellway\""
+            }
+          },
+          "page-home-icons-1": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Refinery29_logo.svg_6e020ebc-da8b-40f3-b6e9-0a706974e1c5.png",
+              "title": "\"Absolutely obsessed with Bellway\""
+            }
+          },
+          "page-home-icons-2": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Forbes_Logo.png",
+              "title": "\"Revolutionizing wellness\""
+            }
+          },
+          "page-home-icons-3": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_26_4d1d2ef5-7f83-42c6-8b3a-c4f5ac8f99c8.png",
+              "title": "\"Majorly addicting\""
+            }
+          },
+          "page-home-icons-4": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_29.png",
+              "title": "\"More [fiber] than the current leading brands\""
+            }
+          },
+          "page-home-icons-5": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_28.png",
+              "title": "\"Overall wellness on a gut level\""
+            }
+          }
+        },
+        "block_order": [
+          "page-home-icons-0",
+          "page-home-icons-1",
+          "page-home-icons-2",
+          "page-home-icons-3",
+          "page-home-icons-4",
+          "page-home-icons-5"
+        ],
+        "settings": {
+          "title": "Featured In"
+        }
+      },
+      "page-home-tubs": {
+        "type": "page-home-tubs",
+        "blocks": {
+          "page-home-tubs-0": {
+            "type": "product",
+            "settings": {
+              "product": "lemon-lime",
+              "background_color": "#b1daaa",
+              "title": "",
+              "sub_title": "13.8 oz. Tub",
+              "price": "",
+              "btn_back_color": "#00ae9a",
+              "btn_text": ""
+            }
+          },
+          "page-home-tubs-1": {
+            "type": "product",
+            "settings": {
+              "product": "mixed-berry",
+              "background_color": "#a1c1e6",
+              "title": "",
+              "sub_title": "13.8 oz. Tub",
+              "price": "",
+              "btn_back_color": "#396cb5",
+              "btn_text": ""
+            }
+          },
+          "page-home-tubs-2": {
+            "type": "product",
+            "settings": {
+              "product": "raspberry-lemon",
+              "background_color": "#f7b5b5",
+              "title": "",
+              "sub_title": "13.8 oz. Tub",
+              "price": "",
+              "btn_back_color": "#ee3350",
+              "btn_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "page-home-tubs-0",
+          "page-home-tubs-1",
+          "page-home-tubs-2"
+        ],
+        "settings": {
+          "title": "",
+          "show_subheading": true
+        }
+      },
+      "page-home-testimonials": {
+        "type": "page-home-testimonials",
+        "blocks": {
+          "page-home-testimonials-0": {
+            "type": "testimonial",
+            "settings": {
+              "product": "lemon-lime",
+              "stars": 5,
+              "quote": "Life changing. This has done wonders for my digestive issues.",
+              "author": "Jenna S."
+            }
+          },
+          "page-home-testimonials-1": {
+            "type": "testimonial",
+            "settings": {
+              "product": "mixed-berry",
+              "stars": 5,
+              "quote": "Best fiber I've tried and I've tried a lot.",
+              "author": "Daniel G."
+            }
+          },
+          "page-home-testimonials-2": {
+            "type": "testimonial",
+            "settings": {
+              "product": "raspberry-lemon",
+              "stars": 5,
+              "quote": "Way better tasting than that orange stuff! Better ingredients too.",
+              "author": "John S."
+            }
+          }
+        },
+        "block_order": [
+          "page-home-testimonials-0",
+          "page-home-testimonials-1",
+          "page-home-testimonials-2"
+        ],
+        "settings": {}
+      },
+      "page-home-bottom-banner": {
+        "type": "page-home-bottom-banner",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/11_Lifestyle_Fruit_2x_3e920591-1076-4cc8-aa70-cdbe14965bd4.jpg",
+          "heading": "made with Real fruit.",
+          "heading_colour": "green",
+          "button_text": "SHOP FLAVORS",
+          "button_colour": "green",
+          "button_url": "shopify:\/\/collections\/fiber"
+        }
+      },
+      "section-stores": {
+        "type": "section-stores",
+        "settings": {
+          "title": "Where to find us?",
+          "heading_image": "shopify:\/\/shop_images\/Target.png",
+          "google_map_embed": "<iframe src=\"https:\/\/www.google.com\/maps\/d\/embed?mid=1EeqUQTxLFNN5CWyjQ1Z0dLfJ6FkP_c9N\" width=\"640\" height=\"480\" style=\"border:0; margin-top: -54px;\"><\/iframe>"
+        }
+      },
+      "comparison-sparkle": {
+        "type": "comparison-sparkle",
+        "settings": {
+          "background_colour": "none",
+          "heading": "",
+          "heading_colour": "black",
+          "text_colour": "green",
+          "left_image": "shopify:\/\/shop_images\/comparison-bellway-alt.png",
+          "right_image": "shopify:\/\/shop_images\/comparison-other-grandma.png"
+        }
+      },
+      "account-hero": {
+        "type": "account-hero",
+        "settings": {
+          "background_color": "#016a48",
+          "color": "#ffffff",
+          "image": "shopify:\/\/shop_images\/Account-Banner.png",
+          "image_mobile": "shopify:\/\/shop_images\/Account-Banner-Mobile.png",
+          "section_title": "<p>you’re now <strong>1 out of 20 <\/strong>people who get enough daily fiber.<\/p>"
+        }
+      },
+      "account-helps": {
+        "type": "account-helps",
+        "blocks": {
+          "57bed567-985b-4bf3-aa19-23db6747fd9d": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1.png",
+              "link": "shopify:\/\/pages\/contact-us"
+            }
+          },
+          "c3f850a4-47e2-40e7-9f44-6ec3b17442c7": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2.png",
+              "link": "https:\/\/getbellway.com\/tools\/recurring\/login"
+            }
+          },
+          "74826e39-e8bd-4333-a9db-ab33b7184612": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3_fa14261e-98ec-451e-b2b7-1eca038545d3.png",
+              "link": "https:\/\/getbellway.com\/tools\/recurring\/login"
+            }
+          }
+        },
+        "block_order": [
+          "57bed567-985b-4bf3-aa19-23db6747fd9d",
+          "c3f850a4-47e2-40e7-9f44-6ec3b17442c7",
+          "74826e39-e8bd-4333-a9db-ab33b7184612"
+        ],
+        "settings": {
+          "section_title": "how can we help?",
+          "subscription_title": "Cancel Subscription"
+        }
+      },
+      "account-benefits": {
+        "type": "account-benefits",
+        "blocks": {
+          "db178df5-ed01-4868-bc7b-ff0a5148a7d1": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_11_e55fe4f2-fa90-4120-869e-a6f808b6497c.png",
+              "title": "A happy\ngut"
+            }
+          },
+          "898b0db8-1dfc-4c36-bee5-2491ab452561": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_12_c214bf8e-0884-4335-80ed-b1b4b94da483.png",
+              "title": "Smooth\nmoves ;-)"
+            }
+          },
+          "63f7380d-c2f3-453f-bc4b-b9e8623af157": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_16_4b777903-f0f9-4750-a989-d8f2fccfcf22.png",
+              "title": "Less\nbloating"
+            }
+          },
+          "7008b3a9-fdd6-421e-a4cf-a3b4b4959b8e": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_13_34806bc9-2e46-44a1-8417-2f6ce3564577.png",
+              "title": "Clearer skin &\nhealthy hair"
+            }
+          },
+          "3f9d0c39-4ca1-4af4-b26e-dff0d3809bd1": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_14_c5e99b51-c43b-4bc5-a29f-281b37013547.png",
+              "title": "Improved heart\nhealth"
+            }
+          },
+          "1406d423-6de4-4392-9c23-4052f365ac34": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image_15_26e2d9e8-c3ea-4334-a674-4b76fba0de62.png",
+              "title": "Balanced\nweight"
+            }
+          }
+        },
+        "block_order": [
+          "db178df5-ed01-4868-bc7b-ff0a5148a7d1",
+          "898b0db8-1dfc-4c36-bee5-2491ab452561",
+          "63f7380d-c2f3-453f-bc4b-b9e8623af157",
+          "7008b3a9-fdd6-421e-a4cf-a3b4b4959b8e",
+          "3f9d0c39-4ca1-4af4-b26e-dff0d3809bd1",
+          "1406d423-6de4-4392-9c23-4052f365ac34"
+        ],
+        "settings": {
+          "section_title": "it’s what’s happening on the inside that counts.\nhere’s why you need fiber:"
+        }
+      },
+      "account-symptoms": {
+        "type": "account-symptoms",
+        "settings": {
+          "is_top_hero": false,
+          "background_image": "shopify:\/\/shop_images\/Bellway_HERO_TUBS_wide.png",
+          "mobile_background_image": "shopify:\/\/shop_images\/symptoms-mobile-background.png",
+          "background_color": "",
+          "heading": "great tasting\nnatural fiber.",
+          "subheading": "made with real\nfruit",
+          "button_text": "SHOP NOW",
+          "button_url": "shopify:\/\/collections\/fiber"
+        }
+      },
+      "bundles-sticky-atc": {
+        "type": "bundles-sticky-atc",
+        "blocks": {
+          "e1feb107-c13d-4c06-ae3f-158c98daa109": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "lemon-lime-bundle"
+            }
+          },
+          "51c24a22-0cf5-4134-af1a-10f2be0d9330": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "raspberry-lemon-bundle"
+            }
+          },
+          "e3e49fd8-8f52-4a5f-b51c-fe8441849276": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "mixed-berry-lemon"
+            }
+          },
+          "91e65c57-b702-40c8-b436-8dd01abc1ee8": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-pineapple-passionfruit"
+            }
+          },
+          "98f0128b-03bc-4e23-b25f-d098239921a8": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-variety"
+            }
+          },
+          "d177c25e-fd7b-4240-837c-544eb5aec8af": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-matcha-lemon"
+            }
+          },
+          "d7c4d5a4-5e0d-4fb4-b4dd-70777fe827e1": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-strawberry-lemonade"
+            }
+          },
+          "a4f75b7b-9957-413b-9595-b298c979963f": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-collagen-variety"
+            }
+          },
+          "9ecd9a6e-b77b-4b61-9155-a67b38413408": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-chocolate-protein"
+            }
+          },
+          "62487918-0c2c-441c-806a-0298ff0a882a": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-vanilla-protein"
+            }
+          },
+          "7b5fd01d-941b-4aa4-86e1-3c2ef2336fcb": {
+            "type": "bundle_collection",
+            "settings": {
+              "bundle_collection": "bundle-protein-variety"
+            }
+          }
+        },
+        "block_order": [
+          "e1feb107-c13d-4c06-ae3f-158c98daa109",
+          "51c24a22-0cf5-4134-af1a-10f2be0d9330",
+          "e3e49fd8-8f52-4a5f-b51c-fe8441849276",
+          "91e65c57-b702-40c8-b436-8dd01abc1ee8",
+          "98f0128b-03bc-4e23-b25f-d098239921a8",
+          "d177c25e-fd7b-4240-837c-544eb5aec8af",
+          "d7c4d5a4-5e0d-4fb4-b4dd-70777fe827e1",
+          "a4f75b7b-9957-413b-9595-b298c979963f",
+          "9ecd9a6e-b77b-4b61-9155-a67b38413408",
+          "62487918-0c2c-441c-806a-0298ff0a882a",
+          "7b5fd01d-941b-4aa4-86e1-3c2ef2336fcb"
+        ],
+        "settings": {
+          "hide_atc": true
+        }
+      }
+    },
+    "content_for_index": [
+      "1576509389776",
+      "1576511425595",
+      "1598973102555",
+      "1570459830537",
+      "1604938192e9652466",
+      "1576623879229",
+      "1570011484833",
+      "1569935652054"
+    ]
+  },
+  "presets": {
+    "Default": {}
+  }
+}

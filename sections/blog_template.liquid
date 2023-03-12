@@ -1,0 +1,73 @@
+<header class="blog__header" style="background-image: url({{ section.settings.background_image | img_url: "master" }})">
+  <h1 class="blog__heading">{{ section.settings.heading }}</h1>
+</header>
+
+<div class="blog__wrapper">
+  <div class="blog__container">
+    {% paginate blog.articles by 5 %}
+      <div class="blog__articles">
+        {%- for article in blog.articles -%}
+          <article class="blog__article">
+            {%- if article.image -%}
+              <a href="{{ article.url }}">
+                <img src="{{ article.image.src | img_url: "500x500" }}" class="blog__image" />
+              </a>
+            {%- endif -%}
+
+            <h1 class="blog__title">{{ article.title }}</h1>
+            <div class="blog__excerpt">{{ article.excerpt_or_content | truncatewords: 24 }}</div>
+            <a href="{{ article.url }}" class="blog__link">{{ "blog.read_more" | t }}</a>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <div class="blog__pagination">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="blog__pagination--previous">{{ "blog.previous_page" | t }}</a>
+          {%- else -%}
+            <div class="blog__pagination--previous"></div>
+          {%- endif -%}
+
+          <ul class="blog__pagination--pages">
+            {%- for part in paginate.parts -%}
+              <li>
+                {%- if part.is_link -%}
+                  <a href="{{ part.url }}">{{ part.title }}</a>
+                {%- else -%}
+                  {{ part.title }}
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="blog__pagination--next">{{ "blog.next_page" | t }}</a>
+          {%- else -%}
+            <div class="blog__pagination--next"></div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {% endpaginate %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "blog-template",
+  "settings": [
+    {
+      "id": "background_image",
+      "type": "image_picker",
+      "label": "Background Image"
+    },
+
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "talk sh*t with us"
+    }
+  ]
+}
+{% endschema %}

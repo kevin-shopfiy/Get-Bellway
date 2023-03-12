@@ -1,0 +1,79 @@
+<div class="superhero__wrapper" style="background-image: url('{{ section.settings.background_image | img_url: "master" }}');">
+  <div class="superhero__container">
+    <div>
+      <header class="superhero__header">
+        <h1 class="superhero__heading">{{ section.settings.heading }}</h1>
+        <h2 class="superhero__subheading">{{ section.settings.subheading}}</h2>
+      </header>
+
+      <p class="superhero__description">{{ section.settings.description }}</p>
+    </div>
+
+    <a href="{{ section.settings.button_url }}" class="button">{{ section.settings.button_text }}</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Superhero",
+  "class": "superhero",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "background_image",
+      "type": "image_picker",
+      "label": "Background Image"
+    },
+
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "stay regular."
+    },
+
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading",
+      "default": "even when life gets crazy."
+    },
+
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description",
+      "default": "Bellway is a 100% natural fiber supplement for better digestion, so you can enjoy good gut feelings and smooth moves all day long."
+    },
+
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button URL",
+      "default": "/"
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Superhero",
+      "settings": {
+        "heading": "stay regular.",
+        "subheading": "even when life gets crazy.",
+        "description": "Bellway is a 100% natural fiber supplement for better digestion, so you can enjoy good gut feelings and smooth moves all day long.",
+        "button_text": "Shop Now",
+        "button_url": ""
+      }
+    }
+  ]
+}
+{% endschema %}

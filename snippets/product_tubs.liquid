@@ -1,0 +1,43 @@
+{%- assign _metavalue = _product.metafields.related_product_item -%}
+
+{%- assign _length = _metavalue.background_color.size -%}
+
+<div class="tubs__wrapper">
+  <div class="tubs__container">
+    <ul class="tubs__list">
+    {%- for i in (1.._length) -%}
+      {%- assign _index = i | minus: 1 -%}
+      {%- assign _background_color = _metavalue.background_color[_index] -%}
+      {%- assign _button_background = _metavalue.button_background[_index] -%}
+      {%- assign _product_variant = _metavalue.product_variant[_index] -%}
+
+      {%- assign _product_item_handle = _product_variant | split: ":" | first -%}
+      {%- assign _variant_item_id = _product_variant | split: ":" | last | plus: 0 -%}
+
+      {%- assign _product_item = all_products[_product_item_handle] -%}
+      {%- assign _variant_item = nil -%}
+
+      {%- for _product_item_variant in _product_item.variants -%}
+        {%- if _product_item_variant.id == _variant_item_id -%}
+          {%- assign _variant_item = _product_item_variant -%}
+        {%- endif -%}
+      {%- endfor -%}
+      
+        {%- include "tubs_products_item",
+          _product:                  _product_item,
+          _background_color:         _background_color,
+          _background_image:         nil,
+          _title:                    _product_item.title,
+          _sub_title:                nil,
+          _price:                    _variant_item.price,
+          _btn_back_color:           _button_background,
+          _btn_text:                 "Add To Cart",
+
+          _show_subheading:          true,
+          _show_text_below_button:   true,
+          _show_variant:             true
+        -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="cart__wrapper">
+  <div class="cart__container">
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post" novalidate>
+        <table class="cart__table">
+          <thead>
+            <th></th>
+            <th>{{ "cart.table_headings.product" | t }}</th>
+            <th>{{ "cart.table_headings.quantity" | t }}</th>
+            <th>{{ "cart.table_headings.price" | t }}</th>
+          </thead>
+          <tbody>
+            {% for item in cart.items %}
+              <tr>
+                <td>
+                  <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart__remove-button"></a>
+                </td>
+                <td>
+                  <div class="cart__product">
+                    <div class="cart__product-image">
+                      <img src="{{ item.image | img_url: "medium" }}" alt="{{ item.title | escape }}" />
+                    </div>
+
+                    <div class="cart__product-text">
+                      <div class="cart__product-text-title">{{ item.product.title }}</div>
+                      <div class="cart__product-text-variant">{{ item.variant.title }}</div>
+
+                      {%- unless item.properties == empty -%}
+                        {%- if item.properties["subscription_id"] -%}
+                          <div class="cart__product-text-subscription cart__product-text-subscription--hide-mobile">{{ "cart.subscription_note" | t }}</div>
+                        {%- endif -%}
+                      {%- endunless -%}
+                    </div>
+                  </div>
+
+                  {%- unless item.properties == empty -%}
+                    {%- if item.properties["subscription_id"] -%}
+                      <div class="cart__product-text-subscription cart__product-text-subscription--hide-tablet">{{ "cart.subscription_note" | t }}</div>
+                    {%- endif -%}
+                  {%- endunless -%}
+                </td>
+                <td>
+                  <div  class="cart__control">
+                    <label for="updates[]">{{ "cart.table_headings.quantity" | t }}</label>
+
+                    <div class="form__stepper" data-stepper>
+                      <button class="form__stepper-button form__stepper-button--down" data-stepper-down></button>
+                      <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" data-stepper-input />
+                      <button class="form__stepper-button form__stepper-button--up" data-stepper-up></button>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart__price">{{ item.line_price | money_without_trailing_zeros }}</div>
+
+                  {%- unless item.properties == empty -%}
+                    {%- if item.properties["subscription_id"] -%}
+                      <div class="cart__price-subscription">
+                        {{ "cart.subscription_recurring" | t }}
+                        <span class="cart__price-subscription-discount">{{ "cart.subscription_discount" | t }}</span>
+                      </div>
+                    {%- endif -%}
+                  {%- endunless -%}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <div class="cart__footer">
+          <div class="cart__subtotal">
+            <div>{{ "cart.subtotal" | t }}</div>
+            <div>{{ cart.total_price | money_without_trailing_zeros }}</div>
+          </div>
+
+          <p class="cart__note">{{ "cart.note" | t }}</p>
+
+          <div class="cart__buttons">
+            <button type="submit" name="checkout" class="cart__checkout-button button {% if section.settings.pin_checkout_button %}button--fixed{% endif %}">{{ "cart.checkout" | t }}</button>
+            <button type="submit" name="update" class="button button--inactive">{{ "cart.update" | t }}</button>
+          </div>
+
+          {% if additional_checkout_buttons %}
+            <div class="additional-checkout-buttons">
+              {{ content_for_additional_checkout_buttons }}
+            </div>
+          {% endif %}
+        </div>
+      </form>
+    {% else %}
+      <header class="cart__header">
+        <h1 class="cart__heading">{{ "cart.empty" | t }}</h1>
+      </header>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "cart-template",
+  "settings": [
+    {
+      "id": "pin_checkout_button",
+      "type": "checkbox",
+      "label": "Pin Checkout button to bottom of screen?",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,93 @@
+{%- assign _section = section.settings -%}
+
+<div class="experts__wrapper" style="background-color: {{ _section.background_colour }}">
+  <div class="experts__container">
+    <header class="experts__header">
+      <h1 class="experts__heading">{{ _section.heading }}</h1>
+      <div class="experts__subheading">{{ _section.subheading }}</div>
+      <p class="experts__text">{{ _section.text }}</p>
+    </header>
+
+    <ul class="experts__list">
+      {%- for expert in section.blocks -%}
+        {%- assign _expert = expert.settings -%}
+
+        <li class="experts__list-item">
+          <div class="experts__expert-avatar"
+               style="background-image: url({{ _expert.avatar | img_url: "master" }});"
+               ></div>
+          <div class="experts__expert-name">{{ _expert.name }}</div>
+          <div class="experts__expert-role">{{ _expert.role }}</div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Experts",
+  "class": "experts",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "background_colour",
+      "type": "color",
+      "label": "Background Color"
+    },
+
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading"
+      },
+
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Text"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "expert",
+      "name": "Expert",
+      "settings": [
+        {
+          "id": "avatar",
+          "type": "image_picker",
+          "label": "Avatar"
+        },
+
+        {
+          "id": "name",
+          "type": "text",
+          "label": "Name"
+        },
+
+        {
+          "id": "role",
+          "type": "text",
+          "label": "Role"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Experts",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

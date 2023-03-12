@@ -1,0 +1,21 @@
+{% assign product = all_products[section.settings.product] %}
+
+<section class="reviews__container">
+  {% include "reviews", product: product %}
+</section>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "class": "reviews",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "product",
+      "type": "product",
+      "label": "Product"
+    }
+  ]
+}
+{% endschema %}

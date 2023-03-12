@@ -1,0 +1,184 @@
+{{ 'subscription-bundle.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'subscription-bundle.js' | asset_url }}" defer="defer"></script>
+
+
+<div class="section--{{section.id}} subscription-bundle--wrapper">
+    <div class="custom-container">
+        <div class="header" style="background-color: {{ section.settings.header_bg }}">
+            {{ section.settings.logo | img_url: '300x' | img_tag }}
+        </div>   
+        <div class="body" >
+            <div class="title-bar">
+                <div class="title">
+                    <p>{{ section.settings.title_desktop }}</p>
+                    {{ section.settings.image_desktop | img_url: '200x' | img_tag }}
+                    <p class="header-title">{{ section.settings.title_desktop_bottom }}</p>
+                </div>
+            </div>
+            <div class="button-bar">   
+                <div class="progressbar">
+                    <div class="thumb"></div>
+                </div>
+                <div class="progressbar-text">
+                    <p id="step--status">1 of 3</p>
+                </div>             
+                
+            </div>
+            <div class="first-step">
+                {% for collection in section.settings.collection_list %}                    
+                    <div class="content collection bundle-collection-item" data-collection-id="{{ collection.id }}">
+                        <label for="optionsRadios-collection--{{forloop.index}}">
+                            <div class="collection-item">
+                                <div class="checkbox radio">
+                                    <input type="radio" name="radio-collection" class="first-product-part" id="optionsRadios-collection--{{forloop.index}}"  value="bundle-collection--{{collection.id}}">
+                                </div>
+                                <div class="title-item">
+                                    <h3>{{ collection.title}}</h3>
+                                    <p class="subtitle">{{ collection.metafields.custom.price }}</p>
+                                    <p class="text">{{ collection.metafields.custom.collection_desription }}</p>
+                                    <div class="arrow">
+                                        <svg width="29" height="12" viewBox="0 0 29 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 6H28M28 6L20.5 1M28 6L20.5 11.5" stroke="#58595B" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div> 
+                                <div class="image">
+                                    {{ collection.featured_image | img_url: '130x' | img_tag }}
+                                </div>
+                            </div>  
+                        </label>
+                    </div> 
+                    {% assign index = forloop.index %}
+                    {%- for product in collection.products -%}
+                        <div class="content product bundle-product-item" data-product-id="{{ product.id }}" data-collection-id="bundle-collection--{{collection.id}}">
+                            <label for="optionsRadios-product--{{forloop.index}}--{{index}}">
+                                <div class="product-item">
+                                    <div class="checkbox radio">
+                                        <input type="radio" name="radio-product" class="second-product-part" id="optionsRadios-product--{{forloop.index}}--{{index}}"  value="bundle-product--{{product.id}}">
+                                    </div>
+                                    <div class="title-item">
+                                        <h3>{{ product.title }}</h3>
+                                        <p class="subtitle">{{product.metafields.custom.product_price}}</p>
+                                        <p class="text">{{ product.metafields.custom.product_description }}</p>
+                                        <div class="arrow">
+                                            <svg width="29" height="12" viewBox="0 0 29 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 6H28M28 6L20.5 1M28 6L20.5 11.5" stroke="#58595B" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div> 
+                                    <div class="image">
+                                        {{ product.featured_image | img_url: '130x' | img_tag }}
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        {% assign variant_index = forloop.index %}
+                        {%- for variant in product.variants -%}
+                            <div class="content variant bundle-variant-item" data-variant-id="{{ variant.id }}" data-product-id="bundle-product--{{product.id}}">
+                                <label for="optionsRadios-variant--{{forloop.index}}-{{index}}--{{variant_index}}">
+                                    <div class="variant-item">
+                                        <div class="checkbox radio">
+                                            <input type="radio" name="radio-variant" class="second-product-part" id="optionsRadios-variant--{{forloop.index}}-{{index}}--{{variant_index}}"  value="{{variant.id}}">
+                                        </div>
+                                        <div class="title-item">
+                                            <h3>{{ variant.title | upcase }}</h3>
+                                            <div class="subtitle">{{ variant.metafields.global.price.value }}</div>
+                                            <div class="text-desktop">{{ variant.metafields.global.desktop-text.value }}</div>                                            
+                                            <div class="text-mobile">{{ variant.metafields.global.desktop-text.value }}</div>                                            
+                                        </div> 
+                                        <div class="image">
+                                            {{ variant.featured_image | img_url: '100x' | img_tag }}
+                                        </div>
+                                        <div class="badge-image">
+                                            <div class="badge-desktop">
+                                                {%- if  variant.metafields.global.desktop-badge.value != blank -%}
+                                                    {{ variant.metafields.global.desktop-badge.value| img_url: '200x' | img_tag }}
+                                                    <div class="badge-text">{{ variant.metafields.global.badge-text.value }}</div>
+                                                {%- endif -%}                                                
+                                            </div>
+                                            <div class="badge-mobile">
+                                                {%- if  variant.metafields.global.mobile-badge.value != blank -%}
+                                                    {{ variant.metafields.global.mobile-badge.value| img_url: '200x' | img_tag }}
+                                                    <div class="badge-text">{{ variant.metafields.global.badge-text.value }}</div>
+                                                {%- endif -%}                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        {%- endfor -%}
+                    {%- endfor -%}
+                {% endfor %}
+            </div >
+            
+            <div class="button-bar">                            
+                <div class="btn nex-btn-wrapper">
+                    <a class="next-btn" href="#">{{ section.settings.btn_title }}</a>
+                    <svg width="21" height="13" viewBox="0 0 21 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 6.2381H20M20 6.2381L14.7222 1M20 6.2381L14.7222 12" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Subscription bundle",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title_desktop",
+                "label": "Title for Desktop version",
+                "default": "Choose your "
+            },
+            {
+                "type": "image_picker",
+                "id": "image_desktop",
+                "label": "Title logo"
+            },
+            {
+                "type": "text",
+                "id": "title_desktop_bottom",
+                "label": "Title for Desktop version",
+                "default": "Super Fiber"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Logo image"
+            },
+            {
+                "type": "color",
+                "id": "header_bg",
+                "label": "Heading backgroud color",
+                "default": "#00AE9A"
+            },
+            {
+                "type": "color",
+                "id": "body_bg",
+                "label": "body_bg",
+                "default": "#F5F5F5"
+            },
+            {
+                "type": "text",
+                "id": "btn_title",
+                "label": "Button title",
+                "default": "Next"
+            },
+            {
+                "type": "collection_list",
+                "id": "collection_list",
+                "label": "Collections"
+            }
+        ],
+       
+        
+        "presets": [
+            {
+                "name": "Subscription bundle"
+            }
+        ]
+        
+    }
+{% endschema %}

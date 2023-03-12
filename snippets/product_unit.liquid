@@ -1,0 +1,158 @@
+{%- assign variant = product.variants.first -%}
+{%- assign theme = product.metafields.bellway["theme"] -%}
+{%- assign title_highlight_indices = theme["highlight_words"] -%}
+
+{%- assign settings = product.metafields.bellway["collection_settings"] -%}
+{%- assign title_word_limit = settings["title_word_limit"] || 0 -%}
+{%- assign subheading = settings["subheading"] -%}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+{%- assign bundle_link = product.metafields.bundle.bundle_link | default: false -%}
+{%- assign bundle_start_at = product.metafields.bundle.bundle_start_at | default: false -%}
+
+<section class="product-unit__wrapper js-product-unit product-unit__wrapper--{{ theme["name"] }}">
+  <a href="
+    {%- if bundle_link -%}
+      {{bundle_link}}
+    {%- else -%}
+      {{ product.url }}
+    {%- endif -%}"
+    class="product-unit__link">
+    <img src="{{ product.featured_image.src | img_url: "master" }}" class="product-unit__image" />
+
+    {%- if product.metafields.image_badge.image != blank -%}
+      {%- for _badge_image in product.metafields.image_badge.image -%}
+        {%- assign _badge_tag = product.metafields.image_badge.tag[forloop.index0] -%}
+        {%- assign _badge_color = product.metafields.image_badge.color[forloop.index0] | default: "#ffffff" -%}
+
+        <div class="product-image-badge product-image-badge-{{forloop.index}}"
+          style="color: {{ _badge_color }}"
+        >
+          <img
+            class="product-image-badge--image"
+            src="{{ _badge_image }}"
+            style="position: relative;"
+          />
+          {%- if _badge_tag != blank -%}
+            <span>{{ _badge_tag }}</span>
+          {%- endif -%}
+        </div>
+
+        {%- assign _badge_image = nil -%}
+        {%- assign _badge_tag = nil -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </a>
+  <a 
+    class="product-unit__title" 
+    href="
+    {%- if bundle_link -%}
+      {{bundle_link}}
+    {%- else -%}
+      {{ product.url }}
+    {%- endif -%}"
+  >
+    {%- assign words = product.title | split: " " -%}
+    {% for word in words limit: title_word_limit %}
+      {% if title_highlight_indices contains forloop.index %}
+        <span class="product-unit__title--highlight">{{ word }}</span>
+      {% else %}
+        {{ word }}
+      {% endif %}
+    {% endfor %}
+  </a>
+
+  <form action="/cart/add" data-productid="{{ product.id }}" method="post" data-cart-submit>
+    <input type="hidden" name="id" value="{{ variant.id }}" data-productid="{{ product.id }}" />
+    <input type="hidden" name="quantity" value="1" />
+
+    <select class="product__variants-input hidden" name="id" id="product-select-{{ product.id }}" data-productid="{{ produt.id }}">
+      {% for variant in product.variants %}
+        <option
+          value="{{ variant.id }}"
+          data-price="{{ variant.price | money_with_currency }}"
+          {%- for i in (1..3) -%}
+            {%- assign _option = "option" | append: i -%}
+            {% if variant[_option] != blank %}
+              data-option-{{ i }}="{{ variant[_option] | handleize }}"
+            {% endif %}
+          {%- endfor -%}
+          {% unless variant.available %}
+            disabled
+          {% endunless %}
+          {% if current_variant.id == variant.id %}
+            selected
+          {% endif %}
+        >
+          {{ variant.price | money_with_currency }} - {{ variant.title }}
+        </option>
+      {% endfor %}
+    </select>
+
+    {%- if product.variants.size > 1 -%}
+      {%- for option in product.options_with_values -%}
+        <select class="product-unit__option-select js-option-select" data-attribute-pos="{{ option.position }}">
+          {%- for value in option.values -%}
+            <option
+              class="product-swatch js-option-select-option"
+              {% if option.selected_value == value %}selected{% endif %}
+              value="{{ value }}"
+              data-attribute="{{ value }}"
+              data-attribute-handle="{{ value | handleize }}"
+              title="{{ value }}">
+              {{ value }}
+            </option>
+          {%- endfor -%}
+        </select>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for option in product.options_with_values -%}
+        <div class="product-unit__option-label js-option-label" data-attribute-pos="{{ option.position }}">
+          {{ current_variant.title }}
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+
+    {%- if bundle_link -%}
+      <a class="product-unit__button button js-product-add-btn" href="{{ bundle_link }}">
+        <span class="button-enabled">
+          {{ "product.starting_at" | t }}
+          
+          <span class="button__price js-add-btn-price">
+            {% if bundle_start_at %} 
+              {{ bundle_start_at }}
+            {% else %}
+              {{ variant.price | money_with_currency }}
+            {% endif %}
+          </span>
+        </span>
+        <span class="button-disabled hidden">
+          sold out
+        </span>
+      </a>
+    {%- else -%}
+      <button class="product-unit__button button js-product-add-btn"
+        name="add"
+        type="submit"
+        onclick="pintrk('track', 'addtocart');"
+        data-pre-text="{{ "product.add_to_cart" | t }}"
+      >
+        <span class="button-enabled">
+          {{ "product.starting_at" | t }}
+
+          <span class="button__price js-add-btn-price">
+            {% if bundle_start_at %} 
+              {{ bundle_start_at }}
+            {% else %}
+              {{ variant.price | money_with_currency }}
+            {% endif %}
+          </span>
+        </span>
+        <span class="button-disabled hidden">
+          sold out
+        </span>
+      </button>
+    {%- endif -%}
+  </form>
+</section>

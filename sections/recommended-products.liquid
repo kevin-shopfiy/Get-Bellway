@@ -1,0 +1,24 @@
+{% schema %}
+{
+  "name": "Recommended Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Add-Ons"
+    }
+  ],
+  "blocks": [{
+    "type": "product",
+    "name": "Product",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Product"
+      }
+    ]
+  }]
+}
+{% endschema %}

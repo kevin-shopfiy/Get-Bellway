@@ -1,0 +1,81 @@
+{%- include 'get-parameter', param: 'tag' -%}
+
+{% assign blog_meta_detail = blog.metafields.blog_detail %}
+
+<div class="blog-wrapper">
+
+  <div class="blog-head">
+    <div class="blog-head--inner">
+      <h4 class="blog--title">
+        {{ blog.title }}
+      </h4>
+      {%- if blog_meta_detail.description != blank -%}
+        <h6 class="blog--description">
+          {{ blog_meta_detail.description }}
+        </h6>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="blog-body">
+    <div class="blog-nav">
+      <div class="blog-nav--inner">
+        <div class="blog-nav--items">
+          <a class="blog-nav--item{% if param_value == blank %} active{% endif %}"
+            href="{{ blog.url }}"
+          >
+            All Articles
+          </a>
+          {%- for tag in blog.all_tags -%}
+            {%- assign _tag = tag | remove: 'category:' | strip -%}
+            {%- assign _tag_handle = tag | handle -%}
+            <a class="blog-nav--item{% if param_value == _tag_handle %} active{% endif %}"
+              href="?tag={{ _tag_handle }}"
+            >
+              {{ _tag }}
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% paginate blog.articles by 50 %}
+    <div class="article-items">
+      {%- assign _count = 0 -%}
+      {% for article in blog.articles and _count < 10 %}
+
+        {%- if param_value == blank -%}
+          {%- assign _selected_tag = true -%}
+        {%- else -%}
+          {%- assign _selected_tag = false -%}
+        {%- endif -%}
+        {%- for tag in article.tags -%}
+          {%- assign _tag_handle = tag | handle -%}
+          {%- if _tag_handle == param_value -%}
+            {%- assign _selected_tag = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if _selected_tag -%}
+          {% assign counter = counter | plus: 1 %}
+          <div class="article-item">
+            <a class="article-item--image" href="{{ article.url }}">
+              {%- if article.image != blank -%}
+                <img src="{{ article.image | img_url: '500x' }}">
+              {%- endif -%}
+            </a>
+            <a class="article-item--title" href="{{ article.url }}">
+              {{ article.title }}
+            </a>
+          </div>
+        {%- endif -%}
+
+      {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      {{ paginate | default_pagination }}
+    {% endif %}
+  {% endpaginate %}
+</div>

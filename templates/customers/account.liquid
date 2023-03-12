@@ -1,0 +1,49 @@
+<div class="customer-sections">
+  {%- section 'account-hero' -%}
+</div>
+<div class="customer__wrapper">
+  <div class="customer__container">
+    <div class="customer__menu">
+      {% include "customer_menu" %}
+    </div>
+
+    <div class="customer__content">
+      {%- section 'account-helps' -%}
+
+      <div class="hidden">
+        <header class="customer__content-header">
+          <h1 class="customer__content-header-title">{{ "customer.orders.title" | t }}</h1>
+        </header>
+
+        {% if customer.orders.size == 0 %}
+          <p>{{ "customer.orders.none" | t }}</p>
+        {% else %}
+          <ul class="customer__orders-list">
+            {% for order in customer.orders %}
+              <li class="customer__orders-list-item">
+                <a href="{{ order.customer_url }}">
+                  <div class="customer__orders-number">
+                    {{ order.created_at | date: "%B %d, %Y" }}<br />
+                    {{ "customer.orders.order_number" | t: number: order.order_number }}
+                  </div>
+
+                  <div class="customer__orders-status">{{
+                    order.fulfillment_status_label }}
+                  </div>
+
+                  <div class="customer__orders-price">
+                    {{ order.total_price | money }}
+                  </div>
+                </a>
+              </tr>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="customer-sections">
+  {%- section 'account-benefits' -%}
+  {%- section 'account-symptoms' -%}
+</div>

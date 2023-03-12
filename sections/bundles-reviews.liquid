@@ -1,0 +1,59 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Bundles Reviews",
+    "settings": [
+      {
+        "type": "video_url",
+        "id": "review_video",
+        "label": "Video - YouTube",
+        "accept": [
+          "youtube"
+        ]
+      },
+      {
+        "type": "page",
+        "id": "page",
+        "label": "Page to show"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Review",
+        "type": "review",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "number",
+            "id": "number_of_stars",
+            "label": "Number of stars"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          }
+        ]
+      }
+    ],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Bundles Reviews",
+        "category": "Modules",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

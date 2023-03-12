@@ -1,0 +1,27 @@
+
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last
+-%}
+{% assign debug = false %}
+
+{%- assign _divider = "?" -%}
+{%- if get_hash == true -%}
+  {%- assign _divider = "#" -%}
+{%- endif -%}
+
+{%- for i in (1..1) -%}
+  {%- unless pageUrl contains _divider -%}{% break %}{%- endunless -%}
+  {%- assign pageQuerystring = pageUrl | split: _divider | last -%}
+  {%- assign parts = pageQuerystring | split:'&' -%}
+
+  {%- for part in parts -%}
+    {%- assign keyandvalue = part | split:'=' -%}
+
+    {%- if keyandvalue.size > 1 -%}
+      {%- if keyandvalue[0] == param -%}
+        {%- assign param_value = keyandvalue[1] -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}

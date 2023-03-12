@@ -1,0 +1,13 @@
+{%- assign logos = mod_press_logo -%}
+{%- assign texts = mod_press_text | split: "|" -%}
+
+<div class="press">
+  <div class="press__container">
+    {% for logo in logos %}
+    <div class="press__block">
+      <img src="{{ logo.src }}" alt="{{ logo.alt }}" class="press__logo">
+      <p class="press__text">{{ texts[forloop.index0] }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>

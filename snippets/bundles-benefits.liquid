@@ -1,0 +1,30 @@
+{%- assign heading = mod_benefits_heading -%}
+{%- assign icons = mod_benefits_icons -%}
+{%- assign texts = mod_benefits_texts -%}
+
+<div class="benefits">
+  <div class="benefits__container">
+
+    {%- if heading != blank -%}
+    <h3 class="benefits__heading">{{ heading }}</h3>
+    {%- endif -%}
+
+    {%- assign texts = texts | split: "|" -%}
+    <div class="benefits__wrapper">
+      {%- for icon in icons -%}
+      <div class="benefits__block">
+        <div class="benefits__icon">
+          <img src="{{ icon.src }}" alt="{{ icon.alt }}">
+        </div>
+        <div class="benefits__icon-text">
+          {%- assign parts = texts[forloop.index0] | split: '/' -%}
+          {%- for part in parts -%}
+            <span>{{- part -}}</span>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<header class="site-header__wrapper js-trial-header" data-animation-on-scroll>
+  <div class="site-header__container">
+    <button class="site-header__menu-button" data-menu-target="main"></button>
+
+    <span class="site-header__logo"></span>
+
+    <nav class="site-header__nav site-header__nav--main" data-menu="main">
+      <ul class="site-header__nav-list">
+
+        {%- for link in linklists.main-menu.links -%}
+          <li class="site-header__nav-list-item site-header__nav-list-item--mobile-only {% if link.active %}site-header__nav-list-item--active{% endif %}">
+            <a href="{{ link.url }}" class="site-header__nav-list-link">{{ link.title }}</a>
+          </li>
+        {%- endfor -%}
+
+        <li class="site-header__nav-list-item site-header__nav-list-item--mobile-only">
+
+
+          {% if template == "cart" and cart.item_count > 0 %}
+            <form action="/cart" method="post">
+              <button type="submit" name="checkout" class="button">{{ "layout.header.checkout_text" | t }}</button>
+            </form>
+          {% else %}
+            <a href="{{ section.settings.button_url }}" class="button">{{ "layout.header.button_text" | t }}</a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+<div class="site-header__menu-overlay" data-menu-overlay></div>

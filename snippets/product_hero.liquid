@@ -1,0 +1,31 @@
+{%- assign product = all_products[product] -%}
+{%- assign current_variant = product.variants | first -%}
+{%- assign title = product.title | split: " " -%}
+
+<div class="product-hero__wrapper product-hero__wrapper--{{ product.handle }}">
+  <div class="product-hero__container">
+    <div class="product-hero__content">
+      <a href="{{ product.url }}">
+        <h1 class="product-hero__heading">
+          <span class="product-hero__heading--first">{{ title | first }}</span>
+          <span class="product-hero__heading--last">{{ title | last }}</span>
+        </h1>
+      </a>
+
+      <div class="product-hero__benefits">
+        {{ product.metafields.fiber.benefits }}
+      </div>
+
+      <a href="{{ product.url }}">
+        <img src="{{ current_variant.image.src | img_url: "x590" }}" class="product-hero__image" />
+      </a>
+
+      <form action="/cart/add" data-productid="{{ product.id }}" method="post" data-cart-submit>
+        {% include "subscription-product" %}
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" data-productid="{{ product.id }}" />
+        <input type="hidden" name="quantity" value="1" />
+        <button class="button" name="add" type="submit">{{ "layout.product.link_text" | t }}</button>
+      </form>
+    </div>
+  </div>
+</div>

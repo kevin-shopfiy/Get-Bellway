@@ -1,0 +1,53 @@
+{%- assign last_section = mod_last_section -%}
+{%- assign heading = mod_text_image_heading | split: "|" -%}
+{%- assign body = mod_text_image_body -%}
+{%- assign images = mod_text_image -%}
+{%- assign mobile_image = mod_text_mobile_image -%}
+{%- assign wavy_bottom = mod_text_image_wavy_bottom -%}
+{%- assign alt_layout = mod_text_image_alt_layout -%}
+{%- assign hide_on_mobile = "" -%}
+
+{%- if wavy_bottom == "true" -%}
+  {%- assign styles = 'style="background-color: var(--bundle-primary-color);color: white;"' -%}
+  {%- assign sibling_style = "text-image__container--layout-combined" -%}
+{%- else -%}
+  {%- assign styles = 'style="background-color: var(--bundle-secondary-color);color: var(--bundle-primary-color);"' -%}
+{%- endif -%}
+
+{% if mobile_image != blank %}
+  {%- assign hide_on_mobile = "hide-mobile" -%}
+{% endif %}
+
+{% if alt_layout == blank and wavy_bottom == blank -%}
+  {%- assign class = "text-image__container--layout-default" -%}
+{%- elsif alt_layout == "true" -%}
+  {%- assign class = "text-image__container--layout-alt" -%}
+{% endif %}
+
+<div class="text-image {{sibling_style}} {{last_section}}" {{styles}}>
+  {%- if wavy_bottom == "true" -%}
+    <svg class="text-image__wave" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1440 122" xml:space="preserve">
+      <style type="text/css">
+        .st0{fill:var(--bundle-primary-color);}
+      </style>
+      <path class="st0" d="M0,0l0,115.8c13.7,3.3,30.1,5.5,52.2,5.5c86.4,0,86.4-34,172.7-34s86.4,34,172.7,34s86.4-34,172.8-34 s86.4,34,172.7,34s86.4-34,172.7-34s86.4,34,172.7,34c86.4,0,86.4-34,172.8-34c86.4,0,86.4,34,172.7,34c2,0,3.9,0,5.8-0.1V0H0z"/>
+    </svg>
+  {%- endif -%}
+
+  <div class="text-image__container {{class}}">
+    {%- if heading != blank -%}
+      <h3 class="text-image__heading">{{ heading[0] }} <span>{{ heading[1] }}</span></h3>
+    {%- endif -%}
+    {% if body.html != blank %}
+      <div class="text-image__body">{{ body.html }}</div>
+    {% endif %}
+    {% for image in images %}
+      <img src="{{ image.src }}" alt="{{ image.alt }}" class="text-image__image {{hide_on_mobile}}">
+    {% endfor %}
+    {% for image in mobile_image %}
+      <img src="{{ image.src }}" alt="{{ image.alt }}" class="text-image__image show-mobile">
+    {% endfor %}
+  </div>
+
+</div>
+

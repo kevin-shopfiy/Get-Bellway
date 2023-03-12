@@ -1,0 +1,110 @@
+<div class="blog-summary__wrapper">
+  <div class="blog-summary__container">
+    <div>
+      <header class="blog-summary__header">
+        <h1 class="blog-summary__heading">{{ section.settings.heading }}</h1>
+      </header>
+
+      <p class="blog-summary__body">{{ section.settings.body }}</p>
+
+      <ul class="blog-summary__list">
+        {%- assign blog = blogs[section.settings.blog] -%}
+        {%- assign counter = 1 -%}
+        {%- for article in blog.articles -%}
+          {%- if article.tags contains section.settings.tag_filter -%}
+            {%- continue -%}
+          {%- endif -%}
+
+          {%- if counter <= section.settings.number_of_articles -%}
+            {% assign counter = counter | plus: 1 -%}
+            <li class="blog-summary__list-item">
+              <time datetime="{{ article.published_at | date: "%Y-%m-%d" }}" class="blog-summary__date">{{ article.published_at | date: "%m.%d.%y" }}</time>
+              <h2 class="blog-summary__title">{{ article.title }}</h2>
+              <a href="{{ article.url }}" class="blog-summary__link">{{ "blog.read_more" | t }}</a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- assign article = articles[block.settings.article] -%}
+      <article class="blog-summary__featured-article">
+        <img src="{{ article.image.src | img_url: "500x500" }}" class="blog-summary__image" />
+        <h2 class="blog-summary__title">{{ article.title }}</h2>
+        <div class="blog-summary__excerpt">{{ article.excerpt_or_content | truncatewords: 24 }}</div>
+        <a href="{{ article.url }}" class="blog-summary__link">{{ "blog.read_more" | t }}</a>
+      </article>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Summary",
+  "class": "blog-summary",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Blog"
+    },
+
+    {
+      "id": "tag_filter",
+      "type": "text",
+      "label": "Tag Filter"
+    },
+
+    {
+      "id": "number_of_articles",
+      "type": "range",
+      "label": "Number of Articles",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+
+    {
+      "id": "body",
+      "type": "text",
+      "label": "Body"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "featured_article",
+      "name": "Featured Article",
+      "limit": 2,
+      "settings": [
+        {
+          "id": "article",
+          "type": "article",
+          "label": "Featured Article"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Blog",
+      "settings": {
+        "heading": "",
+        "body": ""
+      }
+    }
+  ]
+}
+{% endschema %}

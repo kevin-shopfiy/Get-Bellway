@@ -1,0 +1,62 @@
+<script data-cfasync="false" type="text/javascript">if (typeof Shopify === "undefined") var Shopify = {}; Shopify.cart = {{ cart | json }};</script> 
+<div id="sca-fg-owl-carousel">
+  <div id="freegift_cart_container" class="sca-fg-cart-container" style="display: none;">
+    <div id="freegift_message" class="owl-carousel"></div>
+  </div> 
+  <div id="sca-fg-slider-cart" style="display: none;">
+    <div class="sca-fg-cart-title">
+      <strong>Select your free gift (s)</strong>
+    </div>
+    <div id="sca_freegift_list" class="owl-carousel"></div>
+  </div>
+</div>
+<div id="sca_fg_cart">
+<script type="text/javascript">
+  var cartData = {{ cart | json }};
+
+  var hasRechargeProduct = false
+
+  if ((cartData) && (cartData.items)) {
+    cartData.items.map(function(item) {
+      if ((item['properties']) && (item['properties']['subscription_id'])) {
+        hasRechargeProduct = true
+      }
+    })
+  }
+
+  function reChargeProcessCart() {
+    function get_cookie(name) {
+      return (document.cookie.match('(^|; )' + name + '=([^;]*)') || 0)[2]
+    }
+    do {
+      token = get_cookie('cart');
+    }
+    while (token == undefined);
+    var myshopify_domain = '{{ shop.permanent_domain }}'
+    try {
+      var ga_linker = ga.getAll()[0].get('linkerParam')
+    } catch (err) {
+      var ga_linker = ''
+    }
+
+    var checkout_url = "https://checkout.rechargeapps.com/r/checkout?myshopify_domain=" + myshopify_domain + "&cart_token=" + token + "&" + ga_linker;
+
+    var discountCode = {{ settings.rc_discount_code | json }}
+
+    if (discountCode) checkout_url += `&discount=${discountCode}`;
+
+    window.location.href=checkout_url
+  }
+  if (window.location.hash == '#redirecttocheckout') {
+    if (hasRechargeProduct) {
+      reChargeProcessCart()
+    } else {
+      window.location.href="/checkout"
+    }
+  }
+</script>
+{% section "cart_template" %}
+{% section "tubs" %}
+{% include "subscription-cart-footer" %}
+
+</div>

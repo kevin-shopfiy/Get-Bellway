@@ -1,0 +1,73 @@
+<footer class="site-footer">
+  <div class="site-footer__wrapper">
+    <div class="site-footer__container">
+      <div class="site-footer__social">
+        <div class="site-footer__social-heading">{{ "layout.newsletter.heading" | t }}</div>
+
+        {% form "customer" %}
+          {%- if form.posted_successfully? -%}
+            <p>{{ "layout.newsletter.success" | t }}</p>
+          {%- else -%}
+            {{ form.errors | default_errors }}
+
+            <input type="hidden" name="contact[tags]" value="prospect,newsletter" />
+
+            <div class="form__input-group">
+              <input class="form__input form__input--alt" name="contact[email]" type="email" placeholder="{{ "layout.newsletter.placeholder" | t }}" />
+              <button class="button" type="submit">{{ "layout.newsletter.button" | t }}</button>
+            </div>
+          {%- endif -%}
+        {% endform %}
+
+        <ul class="site-footer__social-list">
+          {%- for link in linklists.social.links -%}
+            <li>
+              <a href="{{ link.url }}" target="_blank">
+                <button class="site-footer__social-button-with-icon">
+                  {%- assign _link_title = link.title | handle -%}
+                  {%- include 'icons', icon: _link_title -%}
+                </button>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <nav class="site-footer__nav">
+        <div class="site-footer__nav-heading">{{ linklists.quick-links.title }}</div>
+
+        <ul class="site-footer__nav-list">
+          {%- for link in linklists.quick-links.links -%}
+            <li class="site-footer__nav-list-item">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      <nav class="site-footer__nav">
+        <div class="site-footer__nav-heading">{{ linklists.customer-care.title }}</div>
+
+        <ul class="site-footer__nav-list">
+          {%- for link in linklists.customer-care.links -%}
+            <li class="site-footer__nav-list-item">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      <a href="/">
+        <img src="{{ "bellway-light.png" | asset_url }}" class="site-footer__logo" />
+      </a>
+
+      <div class="site-footer__text">
+        <div class="site-footer__copyright">
+          &copy; {{ "now" | date: "%Y" }} {{ "layout.general.company_name" | t }}
+        </div>
+
+        <div class="site-footer__statement">{{ "layout.general.fda_statement" | t }}</div>
+      </div>
+    </div>
+  </div>
+</footer>

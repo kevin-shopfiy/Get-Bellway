@@ -1,0 +1,25 @@
+{%- assign _metavalue = _product.metafields.accordion_item -%}
+{%- assign _length = _metavalue.title.size -%}
+<ul class="accordion__list" data-accordion="{{ section.id }}">
+  <li class="accordion__item">
+    <div class="accordion__item-title">
+      DETAILS
+    </div>
+    <div class="accordion__item-content">
+      {{ _product.description }}
+    </div>
+  </li>
+  {%- for i in (1.._length) -%}
+    {%- assign _index = i | minus: 1 -%}
+    {%- assign _title = _metavalue.title[_index] -%}
+    {%- assign _content = _metavalue.content[_index] -%}
+    <li class="accordion__item">
+      <div class="accordion__item-title">
+        {{ _title }}
+      </div>
+      <div class="accordion__item-content">
+        {{ _content }}
+      </div>
+    </li>
+  {%- endfor -%}
+</ul>

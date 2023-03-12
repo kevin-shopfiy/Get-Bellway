@@ -1,0 +1,123 @@
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  /* AdjustmentTemplate */
+  function adjustmentTemplate() {
+    if (($('.js-to-order-summary').length > 0) && ($('#order-summary').length >0)) {
+      $('.js-to-order-summary').appendTo($('#order-summary'))
+    }
+  }
+  adjustmentTemplate()
+</script>
+
+<script type="text/javascript">
+  let offset = 50, bottomOffset=40, coverTop = 0, coverBottom = 0, scrollPos = 0, coverHeight=0, coverWidth=0, elementHeight=0;
+
+  function adjustSidebar() {
+    $element = $('.js-sidebar-inner');
+    $cover = $element.closest('.js-content-cover');
+
+    if ($(window).width() > 999) {
+      if (($element.length > 0) && ($cover.length > 0)) {
+        scrollPos = $(window).scrollTop() + offset;
+        coverWidth = $cover.width();
+        coverHeight = $cover.height();
+        elementHeight = $element.height();
+
+        if (elementHeight > coverHeight) {
+          coverHeight = elementHeight
+          $cover.css({
+            height: coverHeight
+          });
+          bottomOffset = 0
+        }
+
+        coverTop = $cover.offset().top;
+        coverBottom = coverTop + coverHeight - bottomOffset;
+
+        if ((scrollPos + elementHeight) >= coverBottom) {
+          $element.css({
+            position: 'absolute',
+            width: coverWidth,
+            top: 'auto',
+            bottom: bottomOffset
+          });
+        } else if (scrollPos >= coverTop) {
+          $element.css({
+            position: 'fixed',
+            width: coverWidth,
+            top: offset,
+            bottom: 'auto'
+          })
+        } else {
+          $element.css({
+            position: 'relative',
+            width: 'auto',
+            top: 'auto',
+            bottom: 'auto'
+          });
+        }
+      }
+    } else {
+      $element.css({
+        position: 'relative',
+        width: 'auto',
+        top: 'auto',
+        bottom: 'auto'
+      });
+    }
+  }
+
+  $(window).on('load resize scroll', function() {
+    adjustSidebar()
+  });
+</script>
+
+<script type="text/javascript">
+  var PS_INTERVAL = ''
+  function acceptSMSCheck() {
+    const checkbox = document.getElementById('ps_accepts_sms')
+
+    if ((checkbox) && (checkbox != null)) {
+      clearInterval(PS_INTERVAL)
+      checkbox.checked = true;
+    }
+  }
+  $(window).on('load', function() {
+    PS_INTERVAL = setInterval(function() {
+      acceptSMSCheck()
+    }, 1000);
+  });
+</script>
+
+<script type="text/javascript">
+  (function($) {
+    $(document).on("page:load page:change", function() {
+      const stateSelect = $('[name="checkout[shipping_address][province]"]')
+      const insertAfterElement = $('[data-address-field="phone"]')
+
+      const addProp65Warning = () => {
+        const element = $(document.createElement('div'))
+
+        element.addClass('field p65-warning')
+          .attr('id', 'js-p65-warning')
+          .html(
+            '<p><strong>WARNING: </strong>This product can expose you to chemicals including lead, which is known to the State of California to cause cancer. For more information, go to <a href="https://www.P65Warnings.ca.gov" target="_blank">www.P65Warnings.ca.gov</a></p>'
+          )
+          .insertAfter(insertAfterElement)
+      }
+
+      const removeProp65Warning = () => {
+        const p56Element = $('#js-p65-warning')
+
+        if (p56Element) p56Element.remove()
+      }
+
+      stateSelect.on('change', function () {
+        const state = $(this).val()
+        state === 'CA' ? addProp65Warning() : removeProp65Warning()
+      })
+    });
+  })(Checkout.$);
+</script>

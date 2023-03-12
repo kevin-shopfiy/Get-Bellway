@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ "checkout.scss.css" | asset_url | stylesheet_tag }}
+
+    {{ checkout_stylesheets }}
+
+    {{ checkout_scripts }}
+
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/hwRv7wjyT8uOlQ8f-lc0Wg" async></script>
+
+  {% render 'shogun-head' %}
+</head>
+  <body class="checkout-style">
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <header class="main__header" role="banner">
+        {{ content_for_logo }}
+        {{ breadcrumb }}
+      </header>
+      <div class="wrap">
+        <div class="main">
+          {{ alternative_payment_methods }}
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content_wrapper js-content-cover">
+            <div class="sidebar__content js-sidebar-inner">
+              {{ content_for_order_summary }}
+              {%- section 'checkout-sidebar-icons' -%}
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="secondary-wrap">
+        {%- section 'checkout-icons' -%}
+        <div class="main">
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    {%- include 'checkout-custom-scripts' -%}
+
+    {%- render 'amazon-pixel-checkout' -%}
+
+    {{ tracking_code }}
+    {%- render 'postscript-sms-checkout' -%}
+
+  <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/hwRv7wjyT8uOlQ8f-lc0Wg" async></script>
+  <div class="yotpo-widget-instance" data-yotpo-instance-id="68787"></div>
+
+  <!-- LOYALTY CODE START POST CHECKOUT -->
+ <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/hwRv7wjyT8uOlQ8f-lc0Wg" async></script>
+  <!-- Initial CSS to hide the module -->
+  <style type="text/css">
+      .yotpo-checkout-hide {
+          display: none;
+      }
+  </style>
+  <!-- module inside container -->
+  <div class="yotpo-refer-popup-container yotpo-checkout-hide">
+  	  <div class="yotpo-widget-instance" data-yotpo-instance-id="72740"></div>
+  </div>
+  <!-- JS to handle module initiation -->
+  <script type="text/javascript">
+      window.location.href.indexOf("thank_you") !== -1
+          ? document
+                .querySelector(".yotpo-checkout-hide")
+                .classList.remove("yotpo-checkout-hide")
+          : "";
+  </script>
+  <!-- LOYALTY CODE END -->
+  </body>
+</html>
+

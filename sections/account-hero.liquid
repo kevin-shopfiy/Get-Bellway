@@ -1,0 +1,89 @@
+{%- assign _section = section.settings -%}
+
+<div class="account-hero"
+  style="
+    {% if _section.background_color != blank %}
+      background-color: {{ _section.background_color }};
+    {% endif %}
+    {% if _section.color != blank %}
+      color: {{ _section.color }};
+    {% endif %}
+  "
+>
+  <div class="customer__wrapper">
+    <div class="customer__container">
+      <div class="account-hero--inner">
+        <div class="ah--title visible-xs-block">
+          congratulations, {{ customer.first_name }}!
+        </div>
+
+        {%- if _section.image != blank -%}
+          <div class="ah--image hidden-xs">
+            <img src="{{ _section.image | img_url: '500x' }}">
+          </div>
+        {%- endif -%}
+
+        {%- if _section.image_mobile != blank -%}
+          <div class="ah--image visible-xs-block">
+            <img src="{{ _section.image_mobile | img_url: 'master' }}">
+          </div>
+        {%- endif -%}
+
+        <div class="ah--content">
+          <div class="ah--title hidden-xs">
+            congratulations, {{ customer.first_name }}!
+          </div>
+
+          {%- if _section.section_title != blank -%}
+            <div class="ah--detail">
+              {{ _section.section_title }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Account Hero",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#016A48"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "section_title",
+      "label": "Title"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,126 @@
+{%- assign _section = section.settings -%}
+{%- assign addition_classes = '' -%}
+{%- if request.path == '/' -%}
+  {%- assign addition_classes = addition_classes | append: 'header--index' -%}
+{%- endif -%}
+
+{%- assign _menu = 'main-menu' -%}
+{%- assign subscription_only_mod = false -%}
+
+{%- if template == 'product.subscription-only' or template == 'collection.subscription-only' or template == 'page.homepage-template' -%}
+  {%- assign _menu = 'main-menu-subscription-only' -%}
+  {%- assign subscription_only_mod = true -%}
+{%- endif -%}
+
+<header
+  class="site-header__wrapper js-site-header {{ addition_classes }}"
+  data-animation-on-scroll
+>
+  <div class="site-header__container">
+    <button class="site-header__menu-button" data-menu-target="main"></button>
+    {%- if subscription_only_mod -%}
+      {%- if _section.subscription_logo_url -%}
+        <a href="{{ _section.subscription_logo_url }}" class="site-header__logo"></a>
+      {%- else -%}
+        <div class="site-header__logo"></div>
+      {%- endif -%}
+    {%- else -%}
+      <a href="/" class="site-header__logo"></a>
+    {%- endif -%}
+
+    <nav class="site-header__nav site-header__nav--main" data-menu="main">
+      <ul class="site-header__nav-list">
+        {%- for link in linklists[_menu].links -%}
+          <li class="site-header__nav-list-item {% if link.active %}site-header__nav-list-item--active{% endif %}">
+            <a href="{{ link.url }}" class="site-header__nav-list-link">{{ link.title }}</a>
+          </li>
+        {%- endfor -%}
+
+        <li class="site-header__nav-list-item site-header__nav-list-item--mobile-only">
+          {% if template == "cart" and cart.item_count > 0 %}
+            <form action="/cart" method="post">
+              <button type="submit" name="checkout" class="button">{{ "layout.header.checkout_text" | t }}</button>
+            </form>
+          {% else %}
+            {%- if subscription_only_mod and _section.subscription_button_url != blank -%}
+              <a href="{{ _section.subscription_button_url | default: '/collections/subscribe-to-the-best-tasting-natural-fiber-powder' }}" class="button">{{ "layout.header.button_text" | t }}</a>
+            {%- else -%}
+              <a href="{{ _section.button_url }}" class="button">{{ "layout.header.button_text" | t }}</a>
+            {%- endif -%}
+          {% endif %}
+
+          {%- if shop.customer_accounts_enabled -%}
+            <a href="/account" class="site-header__account visible-xs-block">Account</a>
+          {%- endif -%}
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="site-header__nav">
+      <ul class="site-header__nav-list">
+        <li class="site-header__nav-list-item site-header__nav-list-item--hide-mobile">
+          {% if template == "cart" and cart.item_count > 0 %}
+            <form action="/cart" method="post">
+              <button type="submit" name="checkout" class="button">{{ "layout.header.checkout_text" | t }}</button>
+            </form>
+          {% else %}
+            {%- if subscription_only_mod and _section.subscription_button_url != blank -%}
+              <a href="{{ _section.subscription_button_url }}" class="button">{{ "layout.header.button_text" | t }}</a>
+            {%- else -%}
+              <a href="{{ _section.button_url }}" class="button">{{ "layout.header.button_text" | t }}</a>
+            {%- endif -%}
+          {% endif %}
+        </li>
+
+        {%- if shop.customer_accounts_enabled -%}
+          <li class="site-header__nav-list-item hidden-xs">
+            <a href="/account" class="site-header__account"></a>
+          </li>
+        {%- endif -%}
+
+        <li class="site-header__nav-list-item">
+          {%- if cart.item_count > 0 -%}
+            <a href="/cart" class="site-header__cart site-header__cart--with-items" data-cart-show="cart">{{ cart.item_count }}</a>
+          {%- else -%}
+            <a href="/cart" class="site-header__cart" data-cart-show="cart"></a>
+          {%- endif -%}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="site-header__menu-overlay" data-menu-overlay></div>
+
+{% schema %}
+{
+  "name": "Site Header",
+  "settings": [
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Subscription Header"
+    },
+    {
+      "type": "url",
+      "id": "subscription_logo_url",
+      "label": "Subscription Logo Url"
+    },
+    {
+      "type": "url",
+      "id": "subscription_button_url",
+      "label": "Subscription Button Url"
+    }
+  ],
+  "default": {
+    "settings": {
+      "button_url": "shopify:\/\/collections\/fiber",
+      "subscription_logo_url": "shopify:\/\/pages\/home-template",
+      "subscription_button_url": "shopify:\/\/collections\/subscribe-to-the-best-tasting-natural-fiber-powder"
+    }
+  }
+}
+{% endschema %}

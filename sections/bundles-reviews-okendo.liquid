@@ -1,0 +1,23 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Bundles Reviews Yotpo",
+    "settings": [],
+    "blocks": [],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Bundles Reviews Yotpo",
+        "category": "Modules",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

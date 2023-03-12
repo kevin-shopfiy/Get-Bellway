@@ -1,0 +1,33 @@
+{% for block in section.blocks %}
+  {%- assign product = block.settings.product -%}
+  {% include "product_hero" %}
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Product Hero List",
+  "class": "product-hero-list",
+  "tag": "div",
+
+  "blocks": [
+    {
+      "type": "product-hero",
+      "name": "Product Hero",
+      "settings": [
+        {
+          "id": "product",
+          "type": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Product Hero List"
+    }
+  ]
+}
+{% endschema %}

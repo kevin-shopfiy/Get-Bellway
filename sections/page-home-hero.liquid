@@ -1,0 +1,131 @@
+{%- assign _section = section.settings -%}
+
+{%- if _section.mobile_background_image -%}
+<style type="text/css">
+  @media (max-width: 739px) {
+    .section-{{ section.id }} {
+      background-image: url('{{ _section.mobile_background_image | img_url: "768x" }}') !important;
+      background-size: cover;
+      height: auto;
+      background-position: bottom center;
+    }
+  }
+</style>
+{%- endif -%}
+
+<div class="symptoms__wrapper section-{{ section.id }} {% if _section.is_top_hero %}symptoms__wrapper_top{% endif %}"
+  style="
+    {%- if _section.background_image != blank -%}
+      background-image: url('{{ _section.background_image | img_url: "master" }}');
+    {%- endif -%}
+    {%- if _section.background_color != blank -%}
+      background-color: {{ _section.background_color }};
+    {%- endif -%}
+  "
+>
+  <div
+    class="symptoms__container{% if _section.is_top_hero %} top-hero js-fit-windows-height{% endif %}"
+    {% if _section.is_top_hero %}
+      data-adjust-height="85vh"
+    {% endif %}
+  >
+    <div class="visible-sm-block hidden-xs outer-wrapper">
+      <header class="symptoms__header">
+        <h1 class="symptoms__heading">{{ _section.heading }}</h1>
+        <h2 class="symptoms__subheading">{{ _section.subheading}}</h2>
+      </header>
+
+      <p class="symptoms__description">{{ _section.description }}</p>
+    </div>
+    <div class="hidden-sm">
+      <header class="symptoms__header">
+        <h1 class="symptoms__heading">{{ _section.heading }}</h1>
+        <h2 class="symptoms__subheading">{{ _section.subheading}}</h2>
+      </header>
+
+      <p class="symptoms__description">{{ _section.description }}</p>
+      <a href="{{ _section.button_url }}" class="button">{{ _section.button_text }}</a>
+    </div>
+
+    <a href="{{ _section.button_url }}" class="button visible-sm-block">{{ _section.button_text }}</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Symptoms",
+  "class": "symptoms",
+  "tag": "section",
+
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_top_hero",
+      "label": "Top Hero",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "id": "background_image",
+      "type": "image_picker",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile Background Image"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background Color"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "symptoms,"
+    },
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading",
+      "default": "we've got you covered."
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description",
+      "default": "Did you know that 95% of Americans don’t get enough fiber? A lack of fiber can cause or exacerbate all kinds of uncomfortable symptoms. Our supplement is a natural way to increase your fiber intake and start feeling better."
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button URL",
+      "default": "/"
+    }
+  ],
+  "default": {
+    "settings": {
+      "is_top_hero": true,
+      "background_image": "shopify:\/\/shop_images\/Bellway_HERO_TUBS_wide.png",
+      "mobile_background_image": "shopify:\/\/shop_images\/Mobile_Homepage_Hero_768x1618_V8.png",
+      "background_color": "",
+      "heading": "great tasting natural fiber.",
+      "subheading": "made with real fruit.",
+      "description": "Bellway is a natural fiber supplement powder that promotes healthy digestion. <br><br> Made with only 100% organic psyllium husk and real fruit, it goes down easy and comes out reeeal smooth.",
+      "button_text": "SHOP FIBER",
+      "button_url": "shopify:\/\/collections\/fiber"
+    }
+  }
+}
+{% endschema %}

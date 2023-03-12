@@ -1,0 +1,123 @@
+<div class="comparison__wrapper comparison__wrapper_secondary comparison__wrapper--{{ section.settings.background_colour }}">
+  <div class="comparison__container">
+    <h1 class="comparison__heading comparison__heading--{{ section.settings.heading_colour }}">
+      {{ section.settings.heading | replace_first: "*", "<span>" | replace: "*", "</span>" }}
+    </h1>
+
+    <div class="comparison__comparisons comparison__comparisons--{{ section.settings.text_colour }}">
+      <div class="comparison__other">
+        <img src="{{ section.settings.left_image | img_url: "master" }}" />
+
+        <ul class="comparison__list">
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.husk" | t }}</span>
+          </li>
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.fruit" | t }}</span>
+          </li>
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.aspartame" | t }}</span>
+          </li>
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.no_sugar" | t }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="comparison__bellway">
+        <img src="{{ section.settings.right_image | img_url: "master" }}" />
+
+        <ul class="comparison__list">
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.husk" | t }}</span>
+          </li>
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.fruit" | t }}</span>
+          </li>
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.aspartame" | t }}</span>
+          </li>
+          <li class="comparison__list-item">
+            <span>{{ "comparison.about_us.no_sugar" | t }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "comparison",
+  "tag": "section",
+  "name": "Comparison",
+
+  "settings": [
+    {
+      "id": "background_colour",
+      "type": "select",
+      "label": "Background Colour",
+      "options": [
+        { "label": "None", "value": "none" },
+        { "label": "Creme", "value": "creme" },
+        { "label": "Green", "value": "green" }
+      ]
+    },
+
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "info": "Surround a word in * to highlight it orange"
+    },
+
+    {
+      "id": "heading_colour",
+      "type": "select",
+      "label": "Heading Colour",
+      "options": [
+        { "label": "Black", "value": "black" },
+        { "label": "Creme", "value": "creme" },
+        { "label": "Green", "value": "green" },
+        { "label": "Teal", "value": "teal" }
+      ]
+    },
+
+    {
+      "id": "text_colour",
+      "type": "select",
+      "label": "Text Colour",
+      "options": [
+        { "label": "Creme", "value": "creme" },
+        { "label": "Green", "value": "green" },
+        { "label": "Teal", "value": "teal" }
+      ]
+    },
+
+    {
+      "id": "left_image",
+      "type": "image_picker",
+      "label": "Left Image"
+    },
+
+    {
+      "id": "right_image",
+      "type": "image_picker",
+      "label": "Right Image"
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Comparison",
+      "settings": {
+        "background_colour": "none",
+        "heading": "No orange mystery powder here.",
+        "heading_colour": "teal",
+        "text_colour": "teal"
+      }
+    }
+  ]
+}
+{% endschema %}

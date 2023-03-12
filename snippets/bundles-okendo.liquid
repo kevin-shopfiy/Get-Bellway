@@ -1,0 +1,7 @@
+{%- assign mod_product = mod_product | default: false -%}
+
+{%- if mod_product -%}
+  <div class="product-reviews-wrapper">
+    {% render 'okendo-reviews-widget', product: mod_product %}
+  </div>
+{%- endif -%}

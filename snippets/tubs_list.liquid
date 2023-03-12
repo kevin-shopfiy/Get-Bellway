@@ -1,0 +1,71 @@
+<ul class="tubs__list">
+  {%- for product in collection.products -%}
+    {%- assign title = product.title | split: " " -%}
+    {%- assign variant = product.variants | first -%}
+    {%- assign variant_image_src = variant.featured_image.src | default: false -%}
+    {%- assign product_image_src = product.featured_media | default: false -%}
+
+    {%- assign bundle_link = product.metafields.bundle.bundle_link | default: false -%}
+
+    {%- if variant_image_src -%}
+      {%- assign tub_image = variant_image_src | img_url: "master" -%}
+    {%- else -%}
+      {%- assign tub_image = product_image_src | img_url: "master" -%}
+    {%- endif -%}
+
+    <li class="tubs__list-item tubs__list-item--{{ product.handle }}">
+      <a href="
+        {%- if bundle_link -%}
+          {{bundle_link}}
+        {%- else -%}
+          {{ product.url }}
+        {%- endif -%}"
+      >
+        <img src="{{ tub_image }}" class="tubs__image" />
+      </a>
+
+      <a href="
+        {%- if bundle_link -%}
+          {{bundle_link}}
+        {%- else -%}
+          {{ product.url }}
+        {%- endif -%}"
+      >
+        <h1 class="tubs__product">
+          <span class="tubs__product--first">{{ title | first }}</span>
+          <span class="tubs__product--last">{{ title | last }}</span>
+        </h1>
+      </a>
+
+      {% if show_subheading %}
+        <div class="tubs__subheading">{{ subheading }}</div>
+      {% endif %}
+
+      {% if show_variant %}
+        <div class="tubs__variant">{{ variant.title }}</div>
+      {% endif %}
+
+      <form action="/cart/add" data-productid="{{ product.id }}" method="post" data-cart-submit>
+        {% include "subscription-product" %}
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" data-productid="{{ product.id }}" />
+        <input type="hidden" name="quantity" value="1" />
+
+        {% if show_text_below_button %}
+          <div class="button__wrapper">
+            {%- if bundle_link -%}
+              <a class="button" href="{{ bundle_link }}">{{ "layout.product.link_text" | t }}</a>
+            {%- else -%}
+              <button class="button" name="add" type="submit" onclick="pintrk('track', 'addtocart');">{{ "layout.product.link_text" | t }}</button>
+            {% endif %}
+          </div>
+        {% else %}
+          {%- if bundle_link -%}
+            <a class="button" href="{{ bundle_link }}">{{ "layout.product.link_text" | t }}</a>
+          {%- else -%}
+            <button class="button" name="add" type="submit" onclick="pintrk('track', 'addtocart');">{{ "layout.product.link_text" | t }}</button>
+          {% endif %}
+        {% endif %}
+      </form>
+    </li>
+  {%- endfor -%}
+</ul>

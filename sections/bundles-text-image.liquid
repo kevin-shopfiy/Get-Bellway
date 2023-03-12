@@ -1,0 +1,55 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Bundles Text Image",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Body"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "wavy_bottom",
+        "label": "Wavy bottom"
+      },
+      {
+        "type": "checkbox",
+        "id": "alt_layout",
+        "label": "Alt Layout"
+      },
+      {
+        "type": "page",
+        "id": "page",
+        "label": "Page to show"
+      }
+    ],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Bundles Text Image",
+        "category": "Modules",
+        "settings": {
+          "heading": ""
+        },
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,39 @@
+<div class="auth__wrapper">
+  <div class="auth__container">
+    <h1 class="auth__heading">{{ "auth.register.heading" | t }}</h1>
+    <p class="auth__text">{{ "auth.register.subheading" | t }}</p>
+
+    {% form "create_customer" %}
+      {%- unless form.posted_successfully? -%}
+        <div class="auth__errors">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endunless -%}
+
+      <div class="form__control form__control--hidden-label">
+        <label for="first_name">{{ "auth.fields.first_name" | t }}</label>
+        <input id="first_name" type="text" name="customer[first_name]" placeholder="{{ "auth.fields.first_name" | t }}" class="form__input" />
+      </div>
+
+      <div class="form__control form__control--hidden-label">
+        <label for="last_name">{{ "auth.fields.last_name" | t }}</label>
+        <input id="last_name" type="text" name="customer[last_name]" placeholder="{{ "auth.fields.last_name" | t }}" class="form__input" />
+      </div>
+
+      <div class="form__control form__control--hidden-label">
+        <label for="email">{{ "auth.fields.email" | t }}</label>
+        <input id="email" type="email" name="customer[email]" placeholder="{{ "auth.fields.email" | t }}" class="form__input" />
+      </div>
+
+      <div class="form__control form__control--hidden-label">
+        <label for="password">{{ "auth.fields.password" | t }}</label>
+        <input id="password" type="password" name="customer[password]" placeholder="{{ "auth.fields.password" | t }}" class="form__input" />
+      </div>
+
+      <div class="form__actions">
+        <input type="submit" class="button" value="{{ "auth.register.button" | t }}" />
+        <p>{{ "auth.register.sign_in" | t | customer_login_link }}</p>
+      </div>
+    {% endform %}
+  </div>
+</div>

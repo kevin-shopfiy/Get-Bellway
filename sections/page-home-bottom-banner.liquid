@@ -1,0 +1,80 @@
+<div class="hero__wrapper" style="background-image: url('{{ section.settings.background_image | img_url: "master" }}');">
+  <div class="hero__container">
+    <h1 class="hero__heading hero__heading--{{ section.settings.heading_colour }}">{{ section.settings.heading }}</h1>
+
+    <a href="{{ section.settings.button_url }}" class="button button--{{ section.settings.button_colour }}">{{ section.settings.button_text }}</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "class": "hero",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "background_image",
+      "type": "image_picker",
+      "label": "Background Image"
+    },
+
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "Real fiber. No B.S."
+    },
+
+    {
+      "id": "heading_colour",
+      "type": "select",
+      "label": "Heading Color",
+      "options": [
+        {"value": "blue", "label": "Blue"},
+        {"value": "green", "label": "Green"},
+        {"value": "orange", "label": "Orange"},
+        {"value": "purple", "label": "Purple"},
+        {"value": "red", "label": "Red"}
+      ]
+    },
+
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Shop Flavors"
+    },
+
+    {
+      "id": "button_colour",
+      "type": "select",
+      "label": "Button Color",
+      "options": [
+        {"value": "blue", "label": "Blue"},
+        {"value": "green", "label": "Green"},
+        {"value": "orange", "label": "Orange"},
+        {"value": "purple", "label": "Purple"},
+        {"value": "red", "label": "Red"}
+      ]
+    },
+
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button URL",
+      "default": "/"
+    }
+  ],
+  "default": {
+    "settings": {
+      "background_image": "shopify:\/\/shop_images\/11_Lifestyle_Fruit_2x_3e920591-1076-4cc8-aa70-cdbe14965bd4.jpg",
+      "heading": "made with Real fruit.",
+      "heading_colour": "green",
+      "button_text": "SHOP FLAVORS",
+      "button_colour": "green",
+      "button_url": "shopify:\/\/collections\/fiber"
+    }
+  }
+}
+{% endschema %}

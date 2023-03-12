@@ -1,0 +1,59 @@
+<div class="trial-hero__wrapper layout__wrapper" style="background-image: url({{ section.settings.background_image | img_url: "master" }});">
+  <div class="trial-hero__container layout__container">
+    <h1 class="trial-hero__heading">{{ section.settings.heading }}</h1>
+    <div class="trial-hero__subheading">{{ section.settings.subheading }}</div>
+
+    <p class="trial-hero__text">{{ section.settings.text | newline_to_br }}</p>
+
+    <a class="button button--sm-block button--teal" data-cart-show="trial">
+      {{ section.settings.button_text }}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "trial-hero",
+  "name": "Trial: Hero",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "background_image",
+      "type": "image_picker",
+      "label": "Background Image"
+    },
+
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading"
+    },
+
+    {
+      "id": "text",
+      "type": "textarea",
+      "label": "Text"
+    },
+
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Trial: Hero"
+    }
+  ]
+}
+{% endschema %}

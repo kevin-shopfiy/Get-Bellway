@@ -1,0 +1,77 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+
+{%- assign title_words = mod_settings.title | split: '|'  -%}
+{%- assign word_count = title_words | size | strip -%}
+
+{%- assign mod_block = settings.block -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+  <div class="bundle__hero">
+    <header class="bundle__header">
+      <h1 class="bundle__heading">
+        {%- for word in title_words -%}
+          {% capture current_cycle %}
+            {% cycle 'odd', 'even' %}
+          {% endcapture %}
+
+          {%- assign current_cycle = current_cycle | strip -%}
+          {%- if word_count > '2' -%}
+            {%- assign colored_cycle = 'odd' -%}
+          {%- else -%}
+            {%- assign colored_cycle = 'even' -%}
+          {%- endif -%}
+
+          {%- if current_cycle != colored_cycle -%}
+            {%- assign class_list = 'bundle__heading--normal' -%}
+          {%- else -%}
+            {%- assign class_list = 'bundle__heading--colored' -%}
+          {%- endif -%}
+
+          <span class="{{ class_list }}"
+            {% if current_cycle == colored_cycle %}
+              style="color: var(--bundle-primary-color)"
+            {% endif %}
+          >
+            {{ word }}
+          </span>
+        {%- endfor -%}
+      </h1>
+    </header>
+  </div>
+{%- endif -%}
+
+<section class="flavour-selector">
+  <h1 class="flavour-selector__title">SUPER FIBER <span class="flavour-selector__title--green flavour-selector__title--strong">+ FRUIT</span></h1>
+  <div class="flavour-selector__tabs">
+    <a href="#" class="flavour-selector__tab active" style="color:#016A48; border-color:#016A48; background-color: #016A48;"><p>Lemon Lime</p></a>
+    <a href="#" class="flavour-selector__tab" style="color:#DD2540; border-color:#DD2540;"><p>Raspberry Lemon</p></a>
+    <a href="#" class="flavour-selector__tab" style="color:#583F00; border-color:#583F00;"><p>Mixed Berry</p></a>
+    <a href="#" class="flavour-selector__tab" style="color:#3F74BD; border-color:#3F74BD;"><p>Variety</p></a>
+  </div>
+  <div class="flavour-selector__product-cards">
+    <div class="flavour-selector__product-card">
+      <p class="flavour-selector__utility">Most Popular</p>
+      <div class="flavour-selector__product">
+        <p class="flavour-selector__variant">6 Tubs</p>
+        <img src="{{ 'Screen Shot 2021-08-23 at 11.16 1.png' | asset_url }}" alt="" class="flavour-selector__image">
+        <p class="flavour-selector__price">$24.99 per tub</p>
+        <div class="flavour-selector__subscription">
+          <span>One-time</span>
+          <label class="flavour-selector__switch">
+            <input type="flavour-selector__checkbox">
+            <span class="flavour-selector__slider"></span>
+          </label>
+          <span>Subscribe</span>
+        </div>
+        <div class="flavour-selector__discount"><span>Total Save 20%</span></div>
+        <ul class="flavour-selector__checkmarks">
+          <li class="flavour-selector__checkmark">$0.49 per serving</li>
+          <li class="flavour-selector__checkmark">FREE SHIPPING</li>
+          <li class="flavour-selector__checkmark">$0.49 per serving</li>
+        </ul>
+        <button class="flavour-selector__button">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</section>

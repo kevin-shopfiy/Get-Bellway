@@ -1,0 +1,160 @@
+{%- assign _section = section.settings -%}
+
+{%- if _section.mobile_background_image -%}
+<style type="text/css">
+  @media (max-width: 739px) {
+    .section-{{ section.id }} {
+      background-image: url('{{ _section.mobile_background_image | img_url: "768x" }}') !important;
+      background-size: cover;
+      height: 100vh;
+      background-position: center center;
+    }
+  }
+</style>
+{%- endif -%}
+
+<div class="symptoms__wrapper section-{{ section.id }}"
+  style="
+    {%- if _section.background_image != blank -%}
+      background-image: url('{{ _section.background_image | img_url: "master" }}');
+    {%- endif -%}
+    {%- if _section.background_color != blank -%}
+      background-color: {{ _section.background_color }};
+    {%- endif -%}
+  "
+>
+  <div class="symptoms__container{% if _section.container_width == "wide" %} symptoms__container_full{% endif %}">
+    <div class="visible-sm-block symptoms__container outer-wrapper symptoms__sm_container">
+      <header class="symptoms__header">
+        <h1 class="symptoms__heading">{{ _section.heading }}</h1>
+        <h2 class="symptoms__subheading">{{ _section.subheading}}</h2>
+      </header>
+
+      <p class="symptoms__description">{{ _section.description }}</p>
+    </div>
+    <div class="symptoms__inner">
+      <div class="symptoms__content">
+        <div class="hidden-sm">
+          <header class="symptoms__header">
+            <h1 class="symptoms__heading">{{ _section.heading }}</h1>
+            <h2 class="symptoms__subheading">{{ _section.subheading}}</h2>
+          </header>
+
+          <p class="symptoms__description">{{ _section.description }}</p>
+        </div>
+
+        <a href="{{ _section.button_url }}" class="button">{{ _section.button_text }}</a>
+      </div>
+      <div class="symptoms__image{% if _section.image_hide_on_mobile %} hidden-xs{% endif %}">
+        <img src="{{ _section.right_image | img_url: 'master' }}">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Global Hero",
+  "class": "symptoms symptoms__global_hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container Width",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        }, {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_hide_on_mobile",
+      "label": "Hide Image on Mobile",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Fiber"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "/"
+    }
+  ],
+  "default": {
+    "settings": {
+      "container_width": "wide",
+      "background_color": "",
+      "image_hide_on_mobile": false,
+      "right_image": "shopify:\/\/shop_images\/hand.png",
+      "heading": "95% of people",
+      "subheading": "don't get enough fiber.",
+      "description": "Lack of fiber causes all kinds of uncomfortable digestive issues, like bloating and constipation. Taking Bellway Super Fiber puts you on track to get your gut feeling good.",
+      "button_text": "Shop Fiber",
+      "button_url": "shopify:\/\/pages\/about"
+    }
+  }
+}
+{% endschema %}

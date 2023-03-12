@@ -1,0 +1,180 @@
+{
+  "article": {
+    "author": "Written by:",
+    "back": "Back to All Blog Posts",
+    "verified": "Verified By A Medical Expert"
+  },
+  "auth": {
+    "fields": {
+      "confirm_password": "Confirm password",
+      "email": "Email address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "password": "Password"
+    },
+    "forgot_password": {
+      "heading": "Forgot Password",
+      "subheading": "Forgot your password? No worries, enter your email address and we'll send you a reset link.",
+      "button": "Send Reset Link",
+      "success": "Password link sent.",
+      "sign_in": "Just kidding, I remember my password!"
+    },
+    "register": {
+      "heading": "Create account",
+      "subheading": "Create an account to expedite future checkouts, track order history, receive emails, discounts, and special offers!",
+      "button": "Create Account",
+      "sign_in": "Already have an account?"
+    },
+    "reset_password": {
+      "heading": "Reset your password",
+      "subheading": "Choose a new password for {{ email }}.",
+      "button": "Reset Password"
+    },
+    "sign_in": {
+      "heading": "Sign in",
+      "subheading": "Already have an account? Great! Welcome back.",
+      "button": "Sign In",
+      "forgot_password": "Forgot password?",
+      "register": "First time logging in as a subscriber? Click here to create your account."
+    }
+  },
+  "blog": {
+    "read_more": "Read More",
+    "previous_page": "Previous Page",
+    "next_page": "Next Page"
+  },
+  "cart": {
+    "checkout": "Checkout",
+    "empty": "Your cart is empty and sad.",
+    "heading": "Your Cart",
+    "note": "Shipping, taxes, and discount codes calculated at checkout.",
+    "subscription_discount": "",
+    "subscription_note": "After 1 week your trial becomes a monthly subscription for just $29.99. This gets you a new jar every 30 days for just $0.53 a serving, saving you money and time. Cancel anytime. ",
+    "subscription_recurring": "",
+    "subtotal": "Subtotal",
+    "table_headings": {
+      "product": "Product",
+      "quantity": "Qty",
+      "price": "Price"
+    },
+    "update": "Update Cart"
+  },
+  "customer": {
+    "addresses": {
+      "title": "Your Addresses",
+      "default": "Default",
+      "add_new": "Add a New Address",
+      "edit_address": "Edit address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address1",
+      "address2": "Address2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal\/Zip Code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you wish to delete this address?"
+    },
+    "navigation": {
+      "purchase_history": "Purchase History",
+      "subscriptions": "Manage Subscriptions",
+      "log_out": "Log Out"
+    },
+    "order": {
+      "title": "Order No. {{ number }}",
+      "cancelled": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "fulfilled_at": "Fulfilled {{ date }}",
+      "subtotal": "Subtotal"
+    },
+    "orders": {
+      "title": "Your Orders",
+      "none": "You haven't placed any orders yet.",
+      "order_number": "order no. {{ number }}"
+    }
+  },
+  "general": {
+    "404": {
+      "title": "Not found",
+      "subtext_html": "The page you were looking for does not exist"
+    }
+  },
+  "layout": {
+    "general": {
+      "company_name": "Bellway, Inc.",
+      "fda_statement": "* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease."
+    },
+    "header": {
+      "button_text": "SHOP FIBER",
+      "checkout_text": "Checkout"
+    },
+    "newsletter": {
+      "heading": "Newsletter",
+      "button": "Sign Up",
+      "placeholder": "Email address",
+      "success": "Success!"
+    },
+    "product": {
+      "link_text": "Starting at $24.99"
+    }
+  },
+  "product": {
+    "subheading": "Natural Fiber Blend",
+    "add_to_cart": "ADD TO CART",
+    "starting_at": "Starting at",
+    "subscribe": "Subscribe",
+    "trials": "Get Trial for",
+    "cancel": "(All Natural Fiber)",
+    "discount": "Free Shipping, Cancel anytime",
+    "tabs": {
+      "details": "Details",
+      "how_to_take": "How to take",
+      "ingredients": "Ingredients"
+    }
+  },
+  "comparison": {
+    "row1": "Organic Psyllium husk",
+    "row2": "All Natural",
+    "row3": "Aspartame Free",
+    "row4": "Phenylalanine Free",
+    "row5": "0g of Sugar",
+    "row6": "Made with Real Fruit",
+    "about_us": {
+      "husk": "Organic Psyllium husk",
+      "fruit": "Made with Real Fruit",
+      "aspartame": "Aspartame Free",
+      "no_sugar": "No Sugar"
+    }
+  },
+  "sidecart": {
+    "price": "Price",
+    "shipping": "Shipping &amp; Handling",
+    "total": "Total"
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "expand_order_summary": "Enter A Discount Code"
+      }
+    }
+  }
+}

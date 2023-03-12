@@ -1,0 +1,55 @@
+<div class="auth__wrapper">
+  <div class="auth__container" id="recover">
+    <h1 class="auth__heading">{{ "auth.forgot_password.heading" | t }}</h1>
+    <p class="auth__text">{{ "auth.forgot_password.subheading" | t }}</p>
+
+    {% form "recover_customer_password" %}
+      {%- if form.posted_successfully? -%}
+        {{ "auth.forgot_password.success" | t }}
+      {%- else -%}
+        <div class="auth__errors">
+          {{ form.errors | default_errors}}
+        </div>
+      {%- endif -%}
+
+      <div class="form__control form__control--hidden-label">
+        <label for="email">{{ "auth.fields.email" | t }}</label>
+        <input id="email" type="email" name="email" placeholder="{{ "auth.fields.email" | t }}" class="form__input" />
+      </div>
+
+      <div class="form__actions">
+        <input type="submit" class="button" value="{{ "auth.forgot_password.button" | t }}" />
+        <p><a href="#signin">{{ "auth.forgot_password.sign_in" | t }}</a></p>
+      </div>
+    {% endform %}
+  </div>
+
+  <div class="auth__container" id="signin">
+    <h1 class="auth__heading">{{ "auth.sign_in.heading" | t }}</h2>
+    <p class="auth__text">{{ "auth.sign_in.subheading" | t }}</p>
+
+    {% form "customer_login" %}
+      {%- unless form.posted_successfully? -%}
+        <div class="auth__errors">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endunless -%}
+
+      <div class="form__control form__control--hidden-label">
+        <label for="email">{{ "auth.fields.email" | t }}</label>
+        <input id="email" type="email" name="customer[email]" placeholder="{{ "auth.fields.email" | t }}" class="form__input" />
+      </div>
+
+      <div class="form__control form__control--hidden-label">
+        <label for="password">{{ "auth.fields.password" | t }}</label>
+        <input id="password" type="password" name="customer[password]" placeholder="{{ "auth.fields.password" | t }}" class="form__input" />
+      </div>
+
+      <div class="form__actions">
+        <input type="submit" class="button" value="{{ "auth.sign_in.button" | t }}" />
+        <p><a href="#recover">{{ "auth.sign_in.forgot_password" | t }}</a></p>
+        <p>{{ "auth.sign_in.register" | t | customer_register_link }}</p>
+      </div>
+    {% endform %}
+  </div>
+</div>

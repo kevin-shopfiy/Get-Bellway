@@ -1,0 +1,75 @@
+{%- include 'get-parameter', param: 'tag' -%}
+{%- assign current_tag = param_value -%}
+
+<div class="page-header__wrapper">
+  <div class="page-header__container">
+    <h1 class="page-header__heading">{{ collection.title }}</h1>
+    <div class="page-header__content">{{ collection.description }}</div>
+  </div>
+</div>
+
+{%- assign filter_tags = '' -%}
+
+<div class="collection__wrapper_cover">
+  <section class="collection__wrapper layout__wrapper">
+    <div class="layout__container">
+      <ul class="collection__list">
+        {% for product in collection.products %}
+
+          {%- comment -%} Precheck by filtering tag {%- endcomment -%}
+          {% if current_tag != blank %}
+            {%- assign _show_product = false -%}
+          {%- else -%}
+            {%- assign _show_product = true -%}
+          {%- endif -%}
+
+          {%- for tag in product.tags -%}
+            {%- assign _tag_handle = tag | handle -%}
+            {%- if current_tag != blank and _tag_handle == current_tag -%}
+              {%- assign _show_product = true -%}
+            {%- endif -%}
+
+            {%- comment -%} Getting Product tags which has prefix 'cateogry:' {%- endcomment -%}
+            {%- if _tag_handle contains 'category-' -%}
+              {%- if filter_tags != blank -%}
+                {%- assign filter_tags = filter_tags | append: '|' -%}
+              {%- endif -%}
+              {%- assign filter_tags = filter_tags | append: tag -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- if _show_product -%}
+            <li class="collection__list-item">
+              {% include "product_unit", product: product %}
+            </li>
+          {%- endif -%}
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {%- if filter_tags != blank -%}
+    {%- assign _filter_tags = filter_tags | split: '|' | uniq -%}
+    {%- assign _filter_prefixs = "category:|Category:" | split: '|' -%}
+    <div class="collection-nav">
+      <div class="collection-nav--inner">
+        <div class="collection-nav--items">
+          <a class="collection-nav--item{% if current_tag == blank %} active{% endif %}"
+            href="{{ collection.url }}"
+          >All Products</a>
+          {%- for tag in _filter_tags -%}
+            {%- for _prefix in _filter_prefixs -%}
+              {%- assign _tag = tag | remove: _prefix | strip -%}
+            {%- endfor -%}
+
+            {%- assign _tag_handle = tag | handle -%}
+            <a class="collection-nav--item{% if _tag_handle == current_tag %} active{% endif %}"
+              href="?tag={{ _tag_handle }}"
+            >{{ _tag }}</a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+{% section "comparison" %}
+{% section "faqs" %}

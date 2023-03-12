@@ -1,0 +1,116 @@
+<div class="sparkle-header__wrapper">
+  <div class="sparkle-header__container">
+    <img src="{{ section.settings.image | img_url: "master" }}" class="sparkle-header__image" />
+
+    <div class="sparkle-header__content">
+      <header class="sparkle-header__header">
+        <h1 class="sparkle-header__heading">{{ section.settings.title }}</h1>
+
+        {% unless section.settings.stars == 0 %}
+          <div class="sparkle-header__stars">
+            {%- for i in (1..section.settings.stars) -%}
+              <div class="sparkle-header__star"></div>
+            {%- endfor -%}
+
+            <a href="#reviews-widget" class="sparkle-header__read-reviews js-animation-scroll-link">(read reviews)</a>
+          </div>
+        {% endunless %}
+      </header>
+
+      {% assign benefits = section.blocks | where: "type", "benefit" %}
+      {% render "benefits", benefits: benefits %}
+
+      <ul class="sparkle-header__list">
+        {% assign bullets = section.blocks | where: "type", "bullet" %}
+        {% for bullet in bullets %}
+          <li class="sparkle-header__list-item">
+            <span class="sparkle-header__list-item-icon"></span>
+            <span>{{ bullet.settings.text }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="button__wrapper">
+        <a href="{{ section.settings.button_url }}" class="sparkle-header__button button">{{ section.settings.button_text }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sparkle: Header",
+  "class": "sparkle-header",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    },
+
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+
+    {
+      "id": "stars",
+      "type": "range",
+      "label": "Stars",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    },
+
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button URL"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Bullet Point",
+
+      "settings": [
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Text"
+        }
+      ]
+    },
+
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Sparkle: Header"
+    }
+  ]
+}
+{% endschema %}

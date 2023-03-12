@@ -1,0 +1,115 @@
+<div class="layout__wrapper">
+  <div class="trial-header__container layout__container">
+    <img src="{{ section.settings.image | img_url: "master" }}" class="trial-header__image" />
+
+    <div>
+      <header class="trial-header__header trial-header__header--{{ section.settings.theme }}">
+        <h1 class="trial-header__heading">
+          {%- assign words = section.settings.title | split: " " -%}
+          {% for word in words %}
+            {% if forloop.index == 2 %}
+              <span class="trial-header__heading--highlight">{{ word }}</span>
+            {% else %}
+              {{ word }}
+            {% endif %}
+          {% endfor %}
+        </h1>
+
+        {% unless section.settings.stars == 0 %}
+          <div class="trial-header__stars stars__list">
+            {%- for i in (1..section.settings.stars) -%}
+              <div class="stars__star"></div>
+            {%- endfor -%}
+
+            <a href="#shopify-section-reviews" class="trial-header__read-reviews">(read reviews)</a>
+          </div>
+        {% endunless %}
+      </header>
+
+      <ul class="trial-header__list">
+        {% for block in section.blocks %}
+          <li class="trial-header__list-item">
+            <span class="trial-header__list-item-icon"></span>
+            <span>{{ block.settings.text }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <a class="button button--sm-block button--teal" data-cart-show="trial">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trial: Header",
+  "class": "trial-header",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "theme",
+      "type": "radio",
+      "label": "Theme",
+      "options": [
+        { "value": "lemon-lime", "label": "Lemon Lime" },
+        { "value": "mixed-berry", "label": "Mixed Berry" },
+        { "value": "raspberry-lemon", "label": "Raspberry Lemon" }
+      ],
+      "default": "lemon-lime"
+    },
+
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    },
+
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+
+    {
+      "id": "stars",
+      "type": "range",
+      "label": "Stars",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Bullet Point",
+
+      "settings": [
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Trial: Header"
+    }
+  ]
+}
+{% endschema %}

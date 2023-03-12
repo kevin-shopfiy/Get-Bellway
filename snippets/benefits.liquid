@@ -1,0 +1,13 @@
+{%- assign _product_benefits = _product.metafields.benefit_icons.benefit_icons -%}
+
+<ul class="product__benefits">
+  {%- if _product_benefits != blank -%}
+    {% for benefit in _product_benefits %}
+      <li style="--image: url({{ benefit }})"></li>
+    {%- endfor -%}
+  {%- else -%}
+    {% for benefit in default_benefits %}
+      <li style="--image: url({{ benefit.settings.image | img_url: "master" }})"></li>
+    {% endfor %}
+  {%- endif -%}
+</ul>

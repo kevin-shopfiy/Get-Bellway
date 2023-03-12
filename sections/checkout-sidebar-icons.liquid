@@ -1,0 +1,35 @@
+<div class="checkout-icons-wrapper checkout-sidebar-icons-wrapper js-to-order-summary">
+  <div class="checkout-icons--inner">
+    {%- for block in section.blocks -%}
+      {%- assign _block = block.settings -%}
+      {%- if _block.image != blank -%}
+        <div class="checkout-icons--item">
+          <div class="checkout-icons--item-image">
+            <img src="{{ _block.image | img_url: 'master' }}" />
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sidebar - Icons",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Icon Item",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

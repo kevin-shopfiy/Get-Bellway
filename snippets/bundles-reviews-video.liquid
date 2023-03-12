@@ -1,0 +1,39 @@
+{%- assign text = mod_rev_vid_text -%}
+{%- assign number_of_stars = mod_rev_vid_number_of_stars -%}
+{%- assign reviewer_name = mod_rev_vid_reviewer_name -%}
+{%- assign video = mod_rev_vid_video -%}
+
+<div class="reviews">
+  <div class="reviews__container">
+
+    {%- for review in text -%}
+    <div class="reviews__block">
+      <p class="reviews__text">{{ review }}</p>
+
+      <div class="reviews__stars">
+        {%- for num in (1..number_of_stars[forloop.index0]) -%}
+          {% if num == number_of_stars[forloop.index0] %}{% break %}{% endif %}
+          <img src="{{ "star.png" | asset_url }}" alt="star" class="reviews__star">
+        {%- endfor -%}
+      </div>
+
+      <p class="reviews__name">{{ reviewer_name[forloop.index0] }}</p>
+    </div>
+    {%- endfor -%}
+
+  </div>
+  <div class="reviews__video">
+    <img src="{{ 'twinkle-double.png' | file_url }}" class="reviews__twinkle-double" alt="">
+    <img src="{{ 'twinkle-large.png' | file_url }}" class="reviews__twinkle-large" alt="">
+    <iframe
+    width="466"
+      height="265"
+      src="{{video}}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+      <img src="{{ 'twinkle-small.png' | file_url }}" class="reviews__twinkle-small--top" alt="">
+      <img src="{{ 'twinkle-small.png' | file_url }}" class="reviews__twinkle-small--bottom" alt="">
+    </div>
+  </div>

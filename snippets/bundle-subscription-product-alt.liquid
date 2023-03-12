@@ -1,0 +1,57 @@
+{%- assign mod_product = mod_product | default: false -%}
+
+{%- if mod_product -%}
+  {%- assign mod_variant_id = mod_product.variants.first.id -%}
+  {%- assign mod_product_id = mod_product.id -%}
+  {%- assign mod_product_title = mod_product.title -%}
+
+  {%- for mod_tag in mod_product.tags -%}
+    {%- if mod_tag contains 'Bundle-Flavour' -%}
+      {%- assign mod_flavour = mod_tag | split: ':' | last -%}
+    {%- endif -%}
+
+    {% if mod_tag contains 'Bundle-Tub' %}
+      {%- assign mod_tub_number = mod_tag | split: ':' | last -%}
+    {% endif %}
+  {%- endfor -%}
+
+  {%- assign mod_subscription_product = mod_product.metafields.subscriptions -%}
+  {%- assign mod_subscription_id = mod_subscription_product.subscription_id -%}
+  {%- assign mod_shipping_interval_unit_type = mod_subscription_product.shipping_interval_unit_type | default: 'Days' -%}
+  {%- assign mod_shipping_interval_frequency = mod_subscription_product.shipping_interval_frequency | split: ',' | default: 30 -%}
+
+  {%- assign mod_discount_product_id = mod_subscription_product.discount_product_id -%}
+
+  {%- for mod_variant in mod_product.variants -%}
+    {%- assign discount_variant_id = mod_variant.metafields.subscriptions.discount_variant_id-%}
+    {%- assign discount_variant_price = mod_variant.metafields.subscriptions.discount_variant_price -%}
+
+    {%- if discount_variant_id and  discount_variant_price -%}
+      {%- assign mod_discount_variant_id = discount_variant_id -%}
+      {%- assign mod_discount_variant_price = discount_variant_price -%}
+      {% break %}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- assign mod_discount_percentage = mod_subscription_product.discount_percentage | round: 2 -%}
+  {%- assign mod_discount_floor = mod_subscription_product.discount_percentage | floor -%}
+  {%- if mod_discount_percentage == mod_discount_floor -%}
+    {%- assign mod_discount_percentage = mod_discount_floor -%}
+  {%- endif -%}
+
+  <input
+    type="hidden"
+    name=""
+    value="{{- mod_variant_id -}}"
+    data-productid="{{- mod_product.id -}}"
+    data-product-title="{{- mod_product_title -}}"
+    data-flavour="{{- mod_flavour -}}"
+    data-tub-number="{{- mod_tub_number | times: 1 -}}"
+    data-subscription-id="{{- mod_subscription_id -}}"
+    data-interval-type="{{- mod_shipping_interval_unit_type -}}"
+    data-interval-frequency="{{- mod_shipping_interval_frequency -}}"
+    data-discount-product-id="{{- mod_discount_product_id -}}"
+    data-discount-variant-id="{{- mod_discount_variant_id -}}"
+    data-discount-variant-price="{{- mod_discount_variant_price -}}"
+    data-discount-percentage="{{- mod_discount_percentage -}}" />
+{%- endif -%}

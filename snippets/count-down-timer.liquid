@@ -1,0 +1,10 @@
+{% if mod_object.metafields.count_down_timer.hide != 'true' %}
+  <div id="countdownTimer" class="countdown-timer"
+    {% if mod_object.metafields.count_down_timer.text != blank %}
+      data-text="{{ mod_object.metafields.count_down_timer.text }}"
+    {% endif %}
+    {% if mod_object.metafields.count_down_timer.time_amount != blank %}
+      data-amount="{{ mod_object.metafields.count_down_timer.time_amount }}"
+    {% endif %}
+  ></div>
+{% endif %}

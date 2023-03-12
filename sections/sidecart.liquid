@@ -1,0 +1,179 @@
+{%- assign _section = section.settings -%}
+<aside class="sidecart__wrapper" data-cart="cart">
+  <header class="sidecart__header">
+    <h1 class="sidecart__heading">{{ "cart.heading" | t }}</h1>
+    <button class="sidecart__close" data-cart-close="cart">{%- include 'icons', icon: 'cart-close' -%}</button>
+  </header>
+
+  <form action="/checkout" method="post" novalidate class="sidecart__form">
+    <div  class="sidecart__form_view" data-cart-view></div>
+  </form>
+</aside>
+<div class="sidecart__overlay" data-cart-close="cart"></div>
+
+{% raw %}
+<script id="cart-template" type="text/x-handlebars-template">
+  <div class="sidecart__body">
+    {{#checklength items 0}}
+      <ul class="sidecart__list">
+      {{#each items}}
+        <li class="sidecart__list-item">
+          <div class="sidecart__product-image">
+            <img src="{{this.featured_image.url}}" />
+          </div>
+
+          <div class="sidecart__product">
+            <div class="sidecart__product-title">{{this.product_title}}</div>
+            <div class="sidecart__product-price">{{formatMoney this.line_price}}</div>
+            <div class="sidecart__product-variant">{{this.variant_title}}</div>
+
+            <div class="sidecart__stepper">
+              <a onclick="CartJS.updateItemById({{this.id}}, {{dec this.quantity}})">
+                <div class="sidecart__stepper-icon sidecart__stepper-icon--minus"></div>
+              </a>
+              <span>{{this.quantity}}</span>
+              <a onclick="CartJS.updateItemById({{this.id}}, {{inc this.quantity}})">
+                <div class="sidecart__stepper-icon sidecart__stepper-icon--plus"></div>
+              </a>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+      </ul>
+      <div class="sidecart__recommended">{% endraw %}
+        <div class="sidecart__recommended-title">
+          {{ _section.title }}
+        </div>
+        <div class="sidecart__recommended-items js-recommended-items-scroll" id="js-recommended-items-scroll">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.product != blank -%}
+              {%- assign _product = all_products[block.settings.product] -%}
+              {%- assign _variant = _product.selected_or_first_available_variant -%}
+
+              {%- assign _is_added = false -%}
+              {%- for item in cart.items -%}
+                {%- if item.variant.id == _variant.id -%}
+                  {%- assign _is_added = true -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              <div class="sidecart__recommended-item">
+                <div class="recommended-item--image">
+                  <img src="{{ _product.featured_image.src | img_url: 'master' }}" />
+                </div>
+                <div class="recommended-item--content">
+                  <div class="recommended-item--title">
+                    {{ _product.title }}
+                  </div>
+                  {%- unless product.has_only_default_variant -%}
+                    <div class="recommended-item--variant">
+                      {{ _variant.title }}
+                    </div>
+                  {%- endunless -%}
+                </div>
+                <div class="recommended-item--button button button--block {% unless _is_added %}not-added{% endunless %}"
+                  data-cart-add="{{ _variant.id }}"
+                  data-recommend-price="{{ _variant.price | money }}"
+                >
+                  {{ _variant.price | money }} - <span>{% if _is_added %}Added{% else %}Add{% endif %}</span>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {% raw %}</div>
+    {{else}}
+      <div class="sidecart__empty">
+        {% endraw %}{%- if _section.empty_text != blank -%}
+          <div class="sidecart__empty_text">
+            {{ _section.empty_text }}
+          </div>
+          {%- endif -%}
+          {%- if _section.empty_button_link != blank and _section.empty_button_text != blank -%}
+            <a href="{{ _section.empty_button_link }}" class="sidecart__empty_btn button">{{ _section.empty_button_text }}</a>
+          {%- endif -%}
+        {% raw %}
+      </div>
+    {{/checklength}}
+  </div>
+
+  <div class="sidecart__footer">
+    <div class="sidecart__subtotal">
+      <div>{% endraw %}{{ "cart.subtotal" | t }}{% raw %}</div>
+      <div>
+        {{formatMoney this.total_price}}
+      </div>
+    </div>
+
+    <p class="sidecart__note">{% endraw %}{{ "cart.note" | t }}{% raw %}</p>
+
+    <div class="sidecart__buttons">
+      <button type="submit" name="checkout" class="sidecart__checkout-button button button--block">
+        {% endraw %}{{ "cart.checkout" | t }}{% raw %}
+      </button>
+    </div>
+
+    {% endraw %}
+      {% if additional_checkout_buttons %}
+        <div class="additional-checkout-buttons additional-checkout-buttons--vertical">
+          {{ content_for_additional_checkout_buttons }}
+        </div>
+      {% endif %}
+    {% raw %}
+  </div>
+</script>
+{% endraw %}
+
+<script type="text/javascript">
+  $(function () {
+    CartJS.init({{ cart | json }});
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Sidecart",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Empty Cart"
+    },
+    {
+      "type": "richtext",
+      "id": "empty_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "empty_button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "empty_button_link",
+      "label": "Button Url"
+    },
+    {
+      "type": "header",
+      "content": "Recommended Products"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Add-Ons"
+    }
+  ],
+  "blocks": [{
+    "type": "product",
+    "name": "Recommended Product",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Product"
+      }
+    ]
+  }]
+}
+{% endschema %}

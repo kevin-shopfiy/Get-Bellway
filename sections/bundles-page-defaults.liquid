@@ -1,0 +1,48 @@
+{%- assign mod_settings = section.settings -%}
+{%- assign mod_page = mod_settings.page -%}
+{%- assign primary_color = mod_settings.primary -%}
+{%- assign secondary_color = mod_settings.secondary -%}
+
+{%- if mod_page != blank and mod_page.handle == page.handle  -%}
+  <style>
+    :root {
+      --bundle-primary-color: {{ primary_color }};
+      --bundle-secondary-color: {{ secondary_color }};
+    }
+  </style>
+{%- endif -%}
+
+
+{% schema %}
+  {
+    "name": "Bundles Page Defaults",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary",
+        "label": "Primary color (Darker)",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "secondary",
+        "label": "Secondary color (Lighter)",
+        "default": "#ffffff"
+      },
+      {
+        "type": "page",
+        "id": "page",
+        "label": "Page to show"
+      }
+    ],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Bundles Page Defaults",
+        "category": "Modules",
+        "settings": {},
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

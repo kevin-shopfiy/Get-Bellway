@@ -1,0 +1,359 @@
+/*======================= Fonts =======================*/
+
+@font-face {
+  font-display: swap;
+  font-family: "Basetica";
+  font-style: normal;
+  font-weight: bold;
+  src: url(#{'{{ "Basetica-Bold.eot" | asset_url }}'});
+  src: url(#{'{{ "Basetica-Bold.eot" | asset_url }}'}?#iefix) format("embedded-opentype"),
+       url(#{'{{ "Basetica-Bold.woff2" | asset_url }}'}) format("woff2"),
+       url(#{'{{ "Basetica-Bold.woff" | asset_url }}'}) format("woff"),
+       url(#{'{{ "Basetica-Bold.ttf" | asset_url }}'})  format("truetype"),
+       url(#{'{{ "Basetica-Bold.svg" | asset_url }}'}#baseticabold) format("svg");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Basetica";
+  font-style: normal;
+  font-weight: 500;
+  src: url(#{'{{ "Basetica-Medium.eot" | asset_url }}'});
+  src: url(#{'{{ "Basetica-Medium.eot" | asset_url }}'}?#iefix) format("embedded-opentype"),
+       url(#{'{{ "Basetica-Medium.woff2" | asset_url }}'}) format("woff2"),
+       url(#{'{{ "Basetica-Medium.woff" | asset_url }}'}) format("woff"),
+       url(#{'{{ "Basetica-Medium.ttf" | asset_url }}'})  format("truetype"),
+       url(#{'{{ "Basetica-Medium.svg" | asset_url }}'}#baseticamedium) format("svg");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Basetica";
+  font-style: normal;
+  font-weight: normal;
+  src: url(#{'{{ "Basetica-Regular.eot" | asset_url }}'});
+  src: url(#{'{{ "Basetica-Regular.eot" | asset_url }}'}?#iefix) format("embedded-opentype"),
+       url(#{'{{ "Basetica-Regular.woff2" | asset_url }}'}) format("woff2"),
+       url(#{'{{ "Basetica-Regular.woff" | asset_url }}'}) format("woff"),
+       url(#{'{{ "Basetica-Regular.ttf" | asset_url }}'})  format("truetype"),
+       url(#{'{{ "Basetica-Regular.svg" | asset_url }}'}#baseticaregular) format("svg");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Basetica";
+  font-style: italic;
+  font-weight: normal;
+  src: url(#{'{{ "Basetica-Italic.eot" | asset_url }}'});
+  src: url(#{'{{ "Basetica-Italic.eot" | asset_url }}'}?#iefix) format("embedded-opentype"),
+       url(#{'{{ "Basetica-Italic.woff2" | asset_url }}'}) format("woff2"),
+       url(#{'{{ "Basetica-Italic.woff" | asset_url }}'}) format("woff"),
+       url(#{'{{ "Basetica-Italic.ttf" | asset_url }}'})  format("truetype"),
+       url(#{'{{ "Basetica-Italic.svg" | asset_url }}'}#baseticaitalic) format("svg");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Integral CF";
+  src: url(#{'{{ "Integral-CF-Regular.eot" | asset_url }}'});
+  src: url(#{'{{ "Integral-CF-Regular.eot" | asset_url }}'}?#iefix) format("embedded-opentype"),
+       url(#{'{{ "Integral-CF-Regular.woff2" | asset_url }}'}) format("woff2"),
+       url(#{'{{ "Integral-CF-Regular.woff" | asset_url }}'}) format("woff"),
+       url(#{'{{ "Integral-CF-Regular.ttf" | asset_url }}'})  format("truetype"),
+       url(#{'{{ "Integral-CF-Regular.svg" | asset_url }}'}#baseticaregular) format("svg");
+}
+
+/*======================= Variables =======================*/
+  
+$font-besetica: "Basetica";
+$font-integral: "Integral CF";
+
+$white: #fff;
+
+/*======================= General =======================*/
+
+.checkout-style {
+  font-family: $font-besetica;
+  .content {
+    background: $white;
+  }
+
+  .page--no-banner .main, .page--no-banner .sidebar {
+    padding-top: 100px;
+  }
+
+  .main__header {
+    color: $white;
+    text-align: center;
+    background: #016A48;
+  }
+
+  .logo {
+    margin-top: 2em;
+  }
+
+  .btn {
+    padding: 18px 24px 14px;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: normal;
+    color: $white;
+  }
+
+  .breadcrumb {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .breadcrumb__item {
+    font-size: 14px;
+    font-weight: normal;
+    color: #D2D2D2;
+
+    .breadcrumb__link {
+      color: #D2D2D2;
+    }
+
+    &.breadcrumb__item--current {
+      color: $white;
+    }
+  }
+
+  .breadcrumb__chevron-icon {
+    margin: 0 20px;
+  }
+
+  .secondary-wrap {
+    display: block;
+    margin: 0 auto;
+    max-width: 40em;
+    zoom: 1;
+
+    @media (max-width: 999px) {
+      width: 100%;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 0 1em;
+    }
+
+    @media (min-width: 1000px) {
+      padding: 0 5%;
+      width: 90%;
+      max-width: 78.57143em;
+    }
+  }
+
+  /* Checkout Icons */
+
+    .checkout-icons--inner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .checkout-icons--item {
+      max-width: 100px;
+      text-align: center;
+    }
+
+    .checkout-icons--item-image {
+      max-width: 75px;
+      margin: 0 auto 12px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .checkout-icons--item-title {
+      font-size: 18px;
+      line-height: 25px;
+      color: #016A48;
+    }
+
+  /* Checkout Sidebar Icons */
+
+    .checkout-sidebar-icons-wrapper {
+      .checkout-icons--item,
+      .checkout-icons--item-image {
+        max-width: 62px;
+        margin-bottom: 0;
+      }
+    }
+
+
+  .main__footer {
+    border-top: 1px solid #d1d1d180;
+  }
+
+  /*===== Content =====*/
+    .section__title {
+      font-size: 18px;
+      line-height: 1.1;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: $font-integral;
+      color: #016A48;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .checkbox__label,
+    .step__footer__previous-link-content {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .main {
+      .field__input {
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 15px 20px 9px 14px;
+
+        &::placeholder {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+    }
+
+  .p65-warning p {
+    font-size: 10px;
+  }
+
+  /*===== Order Summary =====*/
+
+    .product {
+      .product-thumbnail__quantity {
+        background-color: #016A48;
+        font-size: 12px;
+        padding-top: 2px;
+      }
+
+      .product__description__name {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .product__description__variant {
+        line-height: 1.5;
+        font-size: 1em;
+        font-weight: 300;
+        color: #000;
+      }
+
+      .product__price {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+
+    .product-table {
+      .product__description {
+        padding-top: 1em;
+      }
+
+      .product {
+        &:first-child {
+          .product__description {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+
+    .sidebar__content_wrapper {
+      height: 100%;
+    }
+
+    .sidebar {
+      .payment-due-label__total,
+      .payment-due__price {
+        color: #333333;
+        font-size: 18px;
+        line-height: 1.1;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-family: $font-integral;
+      }
+
+      .btn.btn--disabled {
+        background: #016A48;
+        opacity: 0.3;
+        border-radius: 4px;
+      }
+    }
+
+    .order-summary__sections {
+      @media (min-width: 1000px) {
+        height: auto;
+      }
+    }
+
+  @media (max-width: 999px) {
+    header.banner {
+      display: none;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .breadcrumb {
+      padding: 17px 0 14px;
+    }
+
+    .checkout-icons--inner {
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      padding: 30px 0 0;
+    }
+
+    .checkout-icons--item {
+      margin-bottom: 25px;
+    }
+
+    .checkout-icons--item-image {
+      max-width: 60px;
+    }
+
+    .checkout-icons--item-title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .breadcrumb__chevron-icon {
+      margin: 0 10px;
+    }
+
+    .checkout-sidebar-icons-wrapper {
+      .checkout-icons--item,
+      .checkout-icons--item-image {
+        max-width: 45px;
+      }
+    }
+
+    .section__title, .section__text {
+      text-align: center;
+    }
+
+    p {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .wrap, .secondary-wrap {
+      padding: 0 30px;
+    }
+  }
+} 

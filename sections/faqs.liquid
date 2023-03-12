@@ -1,0 +1,66 @@
+<div class="faqs__wrapper">
+  <div class="faqs__container" data-tabs data-tabs-link-active-class="faqs__nav-list-item--active" data-tabs-tab-active-class="faqs__tab--active">
+    <div class="faqs__content">
+      <header class="faqs__header">
+        <h1 class="faqs__heading">{{ section.settings.title }}</h1>
+      </header>
+
+      <nav class="faqs__nav">
+        <ul class="faqs__nav-list">
+          {%- assign count = 0 -%}
+          {%- for block in section.blocks -%}
+            <li class="faqs__nav-list-item" data-tabs-target="{{ count }}" {{ block.shopify_attributes}}>{{ block.settings.title }}</li>
+            {%- assign count = count | plus: 1 -%}
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="faqs__tabs">
+      {%- assign count = 0 -%}
+      {%- for block in section.blocks -%}
+        <section class="faqs__tab" data-tabs-id="{{ count }}" {{ block.shopify_attributes }}>
+          {{ block.settings.content }}
+        </section>
+        {%- assign count = count | plus: 1 -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "faqs",
+  "tag": "article",
+  "name": "FAQ",
+
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "FAQ"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Section",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+
+        {
+          "id": "content",
+          "type": "html",
+          "label": "Content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

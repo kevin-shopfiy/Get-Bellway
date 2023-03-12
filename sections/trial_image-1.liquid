@@ -1,0 +1,21 @@
+<div class="trial-image__wrapper">
+  <div class="trial-image__container">
+    <img class="trial-image__image" src="{{ section.settings.image | img_url: "master" }}" />
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "trial-image",
+  "tag": "section",
+  "name": "Trial Image",
+
+  "settings": [
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

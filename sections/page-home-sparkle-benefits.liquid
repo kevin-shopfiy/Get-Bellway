@@ -1,0 +1,127 @@
+<div class="sparkle-benefits__wrapper">
+  <div class="sparkle-benefits__container">
+    <h1 class="sparkle-benefits__heading">{{ section.settings.heading }}</h1>
+    <div class="sparkle-benefits__subheading">{{ section.settings.subheading }}</div>
+    <div class="sparkle-benefits__spelling">{{ section.settings.spelling }}</div>
+    <p class="sparkle-benefits__text">{{ section.settings.text }}</p>
+
+    <ul class="sparkle-benefits__list">
+      {% for block in section.blocks %}
+        <li class="sparkle-benefits__list-item">
+          <div class="sparkle-benefits__list-item-icon-container">
+            <img src="{{ block.settings.icon | img_url: "master" }}" />
+          </div>
+
+          {{ block.settings.text }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sparkle: Benefits",
+  "class": "sparkle-benefits",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading"
+    },
+
+    {
+      "id": "spelling",
+      "type": "text",
+      "label": "Spelling"
+    },
+
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Text"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+
+      "settings": [
+        {
+          "id": "icon",
+          "type": "image_picker",
+          "label": "Icon"
+        },
+
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+      "heading": "how does it work?",
+      "subheading": "a super fiber called psyllium",
+      "spelling": "[SI·LEE·UHM]",
+      "text": "Psyllium is a natural fiber powder that gently travels through your system, picking up toxins and loose materials along the way. At the end of its journey, it exits smooth and easy, leaving you with*:"
+    },
+    "blocks": [
+      {
+        "type": "benefit",
+        "settings": {
+          "icon": "shopify:\/\/shop_images\/image_11_e55fe4f2-fa90-4120-869e-a6f808b6497c.png",
+          "text": "A happy gut"
+        }
+      },
+      {
+        "type": "benefit",
+        "settings": {
+          "icon": "shopify:\/\/shop_images\/image_12_c214bf8e-0884-4335-80ed-b1b4b94da483.png",
+          "text": "Smooth moves ;-)"
+        }
+      },
+      {
+        "type": "benefit",
+        "settings": {
+          "icon": "shopify:\/\/shop_images\/image_16_4b777903-f0f9-4750-a989-d8f2fccfcf22.png",
+          "text": "Less bloating"
+        }
+      },
+      {
+        "type": "benefit",
+        "settings": {
+          "icon": "shopify:\/\/shop_images\/image_13_34806bc9-2e46-44a1-8417-2f6ce3564577.png",
+          "text": "Clear skin & healthy hair"
+        }
+      },
+      {
+        "type": "benefit",
+        "settings": {
+          "icon": "shopify:\/\/shop_images\/image_14_c5e99b51-c43b-4bc5-a29f-281b37013547.png",
+          "text": "Improved heart health"
+        }
+      },
+      {
+        "type": "benefit",
+        "settings": {
+          "icon": "shopify:\/\/shop_images\/image_15_26e2d9e8-c3ea-4334-a674-4b76fba0de62.png",
+          "text": "Balanced weight"
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

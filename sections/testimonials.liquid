@@ -1,0 +1,77 @@
+<div class="testimonials__list" data-slider>
+  {% for block in section.blocks %}
+    {%- assign product = all_products[block.settings.product] -%}
+    {%- assign current_variant = product.variants | first -%}
+
+    <a href="{{ product.url }}">
+      <div class="testimonials__list-item" {{ block.shopify_attributes }}>
+        <div class="testimonials__list-item__inner">
+          <div class="testimonials__stars">
+            {%- for i in (1..block.settings.stars) -%}
+              <div class="testimonials__star"></div>
+            {%- endfor -%}
+          </div>
+
+          <div class="testimonials__quote">&ldquo;{{ block.settings.quote }}&rdquo;</div>
+          <div class="testimonials__attribution">
+            {{ product.title }} &ndash; {{ current_variant.title }}<br />
+            &ndash; {{ block.settings.author }}
+          </div>
+        </div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "testimonials",
+  "tag": "section",
+
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "id": "product",
+          "type": "product",
+          "label": "Product"
+        },
+
+        {
+          "id": "stars",
+          "type": "range",
+          "label": "Stars",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 3
+        },
+
+        {
+          "id": "quote",
+          "type": "text",
+          "label": "Quote",
+          "default": "My favorite flavor."
+        },
+
+        {
+          "id": "author",
+          "type": "text",
+          "label": "Author",
+          "default": "John S."
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %}

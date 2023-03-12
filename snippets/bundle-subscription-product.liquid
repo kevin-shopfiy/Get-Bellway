@@ -1,0 +1,10 @@
+{%- assign mod_product = mod_product | default: false -%}
+{%- assign mod_variant = mod_product.variants.first -%}
+
+{%- if mod_product -%}  
+  <form action="/cart/add" data-productid="{{ mod_product.id }}" method="post" data-cart-submit>
+    <div class="hidden">{% render "subscription-product", product: mod_product %}</div>
+    <input type="hidden" name="id" value="{{ mod_variant.id }}" data-productid="{{ mod_product.id }}" />
+    <input type="hidden" name="quantity" value="1" />
+  </form>
+{%- endif -%}

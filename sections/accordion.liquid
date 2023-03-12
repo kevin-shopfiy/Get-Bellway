@@ -1,0 +1,83 @@
+{%- if product == blank -%}
+  {%- assign object = store -%}
+{%- else -%}
+  {% assign object = product -%}
+{%- endif -%}
+<ul class="accordion__list" data-accordion="{{ section.id }}">
+  {% for block in section.blocks %}
+    <li class="accordion__item">
+      <div class="accordion__item-title">{{ block.settings.title }}</div>
+
+      <div class="accordion__item-content">
+        {% if block.type == "metafield_item" %}
+          {{ object.metafields[block.settings.namespace][block.settings.key] }}
+        {% else %}
+          {{ block.settings.content }}
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+{% schema %}
+{
+  "name": "Accordion",
+  "tag": "section",
+  "class": "accordion__wrapper",
+
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+
+        {
+          "id": "content",
+          "type": "html",
+          "label": "Content"
+        }
+      ]
+    },
+
+    {
+      "type": "metafield_item",
+      "name": "Metafield Item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+
+        {
+          "id": "namespace",
+          "type": "text",
+          "label": "Namespace"
+        },
+
+        {
+          "id": "key",
+          "type": "text",
+          "label": "Key"
+        }
+      ]
+    }
+  ],
+
+  "settings": [
+  ],
+
+  "presets": [
+    {
+      "name": "Accordion",
+      "category": "Modules",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

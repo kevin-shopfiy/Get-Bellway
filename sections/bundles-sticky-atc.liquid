@@ -1,0 +1,112 @@
+
+{%- assign mod_blocks = section.blocks -%}
+{%- assign hide_atc = section.settings.hide_atc -%}
+
+{%- unless hide_atc == true -%}
+  <div class="js-bundle-products" data-bundle-products="[
+    {%- for block in mod_blocks -%}
+      {%- if block.settings.bundle_collection != blank -%}
+        {%- assign outer_last = forloop.last -%}
+        {%- for bundle_product in collections[block.settings.bundle_collection].products -%}
+          {%- include 'product-json', mod_item: bundle_product, mod_encode: true -%}
+          {%- unless forloop.last and outer_last  -%}{{- ',' | url_encode -}}{%- endunless -%}
+        {%- endfor -%}
+      {%- endif -%}
+      {%- assign outer_last = nil -%}
+    {%-  endfor -%}
+  ]"></div>
+
+  <div class="atc">
+    <div class="atc__form">
+      <div class="atc__field atc__flavor">
+        <span class="atc__title">Flavor:</span>
+        <div class="atc__dropdown__button js-dropdown-toggle">
+          <p class="atc__dropdown__button-text js-active-flavour"></p>
+          <svg class="caret" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7L7 1L13 7" stroke="#333333"/>
+          </svg>
+        </div>
+        <div class="atc__dropdown js-flavor-select"></div>
+      </div>
+      <div class="atc__field atc__pack--desktop">
+        <span class="atc__title">Pack Size:</span>
+        <div class="atc__dropdown__button js-dropdown-toggle">
+          <p class="atc__dropdown__button-text js-active-tub"></p>
+          <svg class="caret" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7L7 1L13 7" stroke="#333333"/>
+          </svg>
+        </div>
+        <div class="atc__dropdown js-pack-select"></div>
+      </div>
+      <div class="atc__field atc__subscribe js-subscription-sticky subscription">
+        <label class="subscription-picker__switch">
+          <input type="checkbox" class="subscription-picker__checkbox js-bundle-checkbox js-bundle-checkbox-sticky" checked>
+          <span class="subscription-picker__slider"></span>
+        </label>
+        <span class="subscription-picker__label js-subscribe active">Subscribe</span>
+      </div>
+      <div class="atc__field atc__frequency js-frequency">
+        <p class="atc__frequency__text js-active-frequency"></p>
+      </div>
+    </div>
+    <div class="atc__submit">
+      <div class="atc__price-holder">
+        <p class="atc__price-label">Total Price</p>
+        <p class="atc__price js-sticky-price"></p>
+      </div>
+
+      <div class="atc__field atc__pack--mobile">
+        <div class="atc__dropdown__button js-dropdown-toggle">
+          <p class="atc__dropdown__button-text js-active-tub"></p>
+          <svg class="caret" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7L7 1L13 7" stroke="#333333"/>
+          </svg>
+        </div>
+        <div class="atc__dropdown js-pack-select"></div>
+      </div>
+
+      <form action="/cart/add" class="hidden js-sticky-atc-form" data-productid="" method="post" data-cart-submit>
+        <!-- properties[subscription_id] -->
+        <input type="hidden" name="" value="" class="js-sticky-subscription-id" />
+        <!-- properties[shipping_interval_unit_type] -->
+        <input type="hidden" name="" value="" class="js-sticky-subscription-unit" />
+        <!-- properties[shipping_interval_frequency] -->
+        <input type="hidden" name="" value="" class="js-sticky-subscription-frequency" />
+
+        <input type="hidden" name="id" value="" data-productid="" class="js-sticky-variant" />
+        <input type="hidden" name="quantity" value="1" />
+      </form>
+
+      <button class="button atc__button js-sticky-submit">Add to Cart</button>
+      <a href="/" class="button atc__button js-sticky-link" style="display: none;">Add to Cart</a>
+    </div>
+  </div>
+{%- endunless -%}
+
+{% schema %}
+  {
+    "name": "Bundles Sticky ATC",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "hide_atc",
+        "label": "Disable Styick ATC",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Bundle Collection",
+        "type": "bundle_collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "bundle_collection",
+            "label": "Bundle Collection"
+          }
+        ]
+      }
+    ],
+    "templates": ["page"]
+  }
+{% endschema %}

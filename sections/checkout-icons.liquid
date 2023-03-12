@@ -1,0 +1,45 @@
+<div class="checkout-icons-wrapper">
+  <div class="checkout-icons--inner">
+    {%- for block in section.blocks -%}
+      {%- assign _block = block.settings -%}
+      <div class="checkout-icons--item">
+        {%- if _block.image != blank -%}
+          <div class="checkout-icons--item-image">
+            <img src="{{ _block.image | img_url: 'master' }}">
+          </div>
+        {%- endif -%}
+        {%- if _block.title != blank -%}
+          <div class="checkout-icons--item-title">
+            {{ _block.title }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Checkout - Icons",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Icon Item",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Bellway",
+    "theme_version": "1.0.0",
+    "theme_author": "Daniel Grieve",
+    "theme_documentation_url": "https:\/\/github.com\/fivefourventures\/bellway",
+    "theme_support_url": "https:\/\/github.com\/fivefourventures\/bellway\/issues"
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing image"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Image",
+        "info": "Shown when sharing a link on social media. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/) about image thumbnails."
+      }
+    ]
+  },
+  {
+    "name": "ReCharge Portal",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Discount code",
+        "id": "rc_discount_code"
+      }
+    ]
+  }
+]

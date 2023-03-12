@@ -1,0 +1,115 @@
+{%- assign _section = section.settings -%}
+<div class="tubs__wrapper">
+  <div class="tubs__container">
+    {% if section.settings.title.size > 0 %}
+      <div class="tubs__title">{{ section.settings.title }}</div>
+    {% endif %}
+    <ul class="tubs__list">
+      {%- for block in section.blocks -%}
+        {%- assign _block = block.settings -%}
+        {%- assign _product = all_products[_block.product] -%}
+
+        {%- if _product != blank -%}
+          {%- include "tubs_products_item",
+            _product:                  _product,
+            _background_color:         _block.background_color,
+            _background_image:         _block.background_image,
+            _title:                    _block.title,
+            _sub_title:                _block.sub_title,
+            _price:                    _block.price,
+            _btn_back_color:           _block.btn_back_color,
+            _btn_text:                 _block.btn_text,
+
+            _show_subheading:          _section.show_subheading,
+            _show_text_below_button:   _section.show_text_below_button,
+            _show_variant:             false,
+            _home_tub:                 true
+          -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "tubs",
+  "tag": "section",
+  "name": "Tubs with Options",
+
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "show_subheading",
+      "type": "checkbox",
+      "label": "Show Subheading?"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "color",
+          "id": "btn_back_color",
+          "label": "Button Background Color"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Add to cart"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Tubs with Options",
+
+      "settings": {
+        "title": "",
+        "show_subheading": false
+      }
+    }
+  ]
+}
+{% endschema %}

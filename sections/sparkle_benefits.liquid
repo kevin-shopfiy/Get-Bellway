@@ -1,0 +1,82 @@
+<div class="sparkle-benefits__wrapper">
+  <div class="sparkle-benefits__container">
+    <h1 class="sparkle-benefits__heading">{{ section.settings.heading }}</h1>
+    <div class="sparkle-benefits__subheading">{{ section.settings.subheading }}</div>
+    <div class="sparkle-benefits__spelling">{{ section.settings.spelling }}</div>
+    <p class="sparkle-benefits__text">{{ section.settings.text }}</p>
+
+    <ul class="sparkle-benefits__list">
+      {% for block in section.blocks %}
+        <li class="sparkle-benefits__list-item">
+          <div class="sparkle-benefits__list-item-icon-container">
+            <img src="{{ block.settings.icon | img_url: "master" }}" />
+          </div>
+
+          {{ block.settings.text }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sparkle: Benefits",
+  "class": "sparkle-benefits",
+  "tag": "section",
+
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading"
+    },
+
+    {
+      "id": "spelling",
+      "type": "text",
+      "label": "Spelling"
+    },
+
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Text"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+
+      "settings": [
+        {
+          "id": "icon",
+          "type": "image_picker",
+          "label": "Icon"
+        },
+
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "category": "Modules",
+      "name": "Sparkle: Benefits"
+    }
+  ]
+}
+{% endschema %}
